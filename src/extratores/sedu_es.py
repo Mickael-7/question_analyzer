@@ -164,7 +164,9 @@ def _imagens_do_item(item: ItemBruto, imagens: list[comum.Imagem]) -> list[comum
     return [img for img in imagens if item.inicio <= (img.pagina, img.y_centro) < item.fim]
 
 
-def extrair(caminho_pdf) -> dict:
+def extrair(caminho_pdf, fonte: str = FONTE, ano: int = ANO) -> dict:
+    if (fonte, ano) != (FONTE, ANO):
+        raise ValueError(f"adaptador sedu_es é específico de {FONTE} ({ANO}º ano)")
     doc = pymupdf.open(caminho_pdf)
     todas = comum.ler_linhas(doc, range(1, doc.page_count + 1), CABECALHO)
     paginas = _paginas_itens(todas)

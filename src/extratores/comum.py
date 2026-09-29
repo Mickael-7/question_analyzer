@@ -9,7 +9,9 @@ import pymupdf
 # Caracteres da área de uso privado: aparecem quando fórmulas do MathType
 # ou fontes de símbolos são extraídas como texto.
 USO_PRIVADO = re.compile(r"[-]")
-MARCADOR_ALTERNATIVA = r"(?:^|\s)\(?{letra}\)\s*"
+# Lookbehind em vez de consumir o espaço anterior: com alternativas vazias
+# ("A)\nB) 3"), o espaço antes de "B)" não pode ter sido consumido por "A)".
+MARCADOR_ALTERNATIVA = r"(?:^|(?<=\s))\(?{letra}\)"
 
 
 @dataclass
@@ -33,17 +35,44 @@ class Imagem:
 
 
 FLAG_SOBRESCRITO = 1
-SOBRESCRITOS = str.maketrans("0123456789+-–()n", "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁻⁽⁾ⁿ")
+CARACTERES_EXPOENTE = "0123456789+-–()"
+SOBRESCRITOS = str.maketrans(CARACTERES_EXPOENTE, "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁻⁽⁾")
 RE_DENOMINADOR = re.compile(r"^\d{1,3}$")
 TOLERANCIA_BASE = 3.0  # pontos; linhas com base mais próxima que isso estão na mesma altura
 
 
 def _texto_span(span: dict) -> str:
+    """Texto do span, com expoentes numéricos convertidos para sobrescrito.
+
+    Só converte spans formados inteiramente por dígitos e sinais: alguns PDFs
+    marcam trechos inteiros de texto comum como sobrescritos.
+    """
     texto = span["text"]
-    if span["flags"] & FLAG_SOBRESCRITO and texto.strip():
-        convertido = texto.translate(SOBRESCRITOS)
-        return convertido if convertido != texto or not texto.isalpha() else f"^{texto}"
+    alvo = texto.strip()
+    if span["flags"] & FLAG_SOBRESCRITO and alvo and all(c in CARACTERES_EXPOENTE for c in alvo):
+        return texto.translate(SOBRESCRITOS)
     return texto
+
+
+def _juntar_fracoes_na_linha(linhas: list[dict]) -> int:
+    """Funde numerador e denominador que vêm como spans consecutivos da mesma linha."""
+    fundidas = 0
+    for linha in linhas:
+        spans = linha["spans"]
+        i = 0
+        while i < len(spans) - 1:
+            num, den = spans[i], spans[i + 1]
+            if (
+                RE_DENOMINADOR.match(num["text"].strip())
+                and RE_DENOMINADOR.match(den["text"].strip())
+                and abs(_centro_x(num["bbox"]) - _centro_x(den["bbox"])) < 4
+                and 5 < den["bbox"][1] - num["bbox"][1] < 20
+            ):
+                num["text"] = f" {num['text'].strip()}/{den['text'].strip()} "
+                del spans[i + 1]
+                fundidas += 1
+            i += 1
+    return fundidas
 
 
 def _centro_x(bbox) -> float:
@@ -53,60 +82,164 @@ def _centro_x(bbox) -> float:
 def _juntar_fracoes(linhas: list[dict]) -> int:
     """Funde frações empilhadas em "numerador/denominador".
 
-    O denominador vem como uma linha isolada só com dígitos, logo abaixo do
-    numerador e centralizado com ele. Altera `linhas` e devolve quantas fundiu.
+    Um dos termos vem como linha isolada só com dígitos; o outro é um span de
+    dígitos de outra linha, centralizado com ele, logo acima (o isolado é o
+    denominador) ou logo abaixo (o isolado é o numerador). Altera `linhas`
+    e devolve quantas fundiu.
     """
     fundidas = 0
-    for den in [l for l in linhas if len(l["spans"]) == 1]:
-        texto_den = den["spans"][0]["text"].strip()
-        if not RE_DENOMINADOR.match(texto_den):
+    for isolada in [l for l in linhas if len(l["spans"]) == 1]:
+        texto_isolado = isolada["spans"][0]["text"].strip()
+        if isolada.get("removida") or not RE_DENOMINADOR.match(texto_isolado):
             continue
-        for num_linha in linhas:
-            if num_linha is den or num_linha.get("removida"):
+        y_isolado = isolada["spans"][0]["bbox"][1]
+        for outra in linhas:
+            if outra is isolada or outra.get("removida"):
                 continue
-            for span in num_linha["spans"]:
-                texto_num = span["text"].strip()
+            for span in outra["spans"]:
+                texto = span["text"].strip()
                 if (
-                    RE_DENOMINADOR.match(texto_num)
-                    and "/" not in span["text"]
-                    and abs(_centro_x(span["bbox"]) - _centro_x(den["bbox"])) < 4
-                    and 0 <= den["bbox"][1] - span["bbox"][1] < 20
-                    and den["bbox"][1] > span["bbox"][1] + 5
+                    not RE_DENOMINADOR.match(texto)
+                    or "/" in span["text"]
+                    or abs(_centro_x(span["bbox"]) - _centro_x(isolada["bbox"])) >= 4
                 ):
-                    span["text"] = span["text"].replace(texto_num, f"{texto_num}/{texto_den}", 1)
-                    den["removida"] = True
-                    fundidas += 1
-                    break
-            if den.get("removida"):
+                    continue
+                distancia = y_isolado - span["bbox"][1]
+                if 5 < distancia < 20:  # isolada abaixo: é o denominador
+                    fracao = f"{texto}/{texto_isolado}"
+                elif 5 < -distancia < 20:  # isolada acima: é o numerador
+                    fracao = f"{texto_isolado}/{texto}"
+                else:
+                    continue
+                span["text"] = span["text"].replace(texto, fracao, 1)
+                isolada["removida"] = True
+                fundidas += 1
+                break
+            if isolada.get("removida"):
                 break
     return fundidas
 
 
+SOBREPOSICAO_MAXIMA = 0.25
+
+
+def _spans_sobrepostos(pagina: pymupdf.Page, spans: list[dict]) -> set[int]:
+    """Índices de spans cobertos por outro texto desenhado depois deles.
+
+    Editores gráficos deixam camadas antigas de texto sob o texto atual
+    (ex.: um código de descritor de outro bloco sob o código correto). Na página
+    só aparece o que foi desenhado por último. A ordem de desenho e o retângulo
+    justo de cada trecho vêm de get_texttrace.
+    """
+    traco = [(t["seqno"], pymupdf.Rect(t["bbox"])) for t in pagina.get_texttrace()]
+    posicoes = []
+    for span in spans:
+        r = pymupdf.Rect(span["bbox"])
+        melhor = max(traco, key=lambda t: (t[1] & r).get_area(), default=None)
+        posicoes.append(melhor if melhor and (melhor[1] & r).get_area() > 0 else None)
+
+    cobertos = set()
+    for i, pi in enumerate(posicoes):
+        if pi is None:
+            continue
+        for j, pj in enumerate(posicoes):
+            if j == i or pj is None or pj[0] <= pi[0]:
+                continue
+            menor = min(pi[1].get_area(), pj[1].get_area())
+            if menor > 0 and (pi[1] & pj[1]).get_area() / menor > SOBREPOSICAO_MAXIMA:
+                cobertos.add(i)
+                break
+    return cobertos
+
+
+def _largura_zero(c: dict) -> bool:
+    return c["bbox"][2] - c["bbox"][0] < 0.1
+
+
+def _marcar_fantasmas(bloco: dict) -> None:
+    """Marca o início da linha seguinte repetido, invisível, no fim de cada linha.
+
+    Editores gráficos (ex.: Canva) terminam a linha com uma cauda de caracteres
+    de largura zero: o fim real da palavra, um espaço e uma cópia do começo da
+    linha seguinte ("dividiu" + " e" | "em 3 vezes"). Só a cópia é removida:
+    o trecho da cauda depois de um espaço que coincide com o início da próxima
+    linha do bloco.
+    """
+    linhas = [[c for s in l["spans"] for c in s["chars"]] for l in bloco.get("lines", [])]
+    inicios = ["".join(c["c"] for c in chars).lstrip() for chars in linhas]
+    for i, chars in enumerate(linhas[:-1]):
+        k = len(chars)
+        while k > 0 and _largura_zero(chars[k - 1]):
+            k -= 1
+        cauda = chars[k:]
+        texto_cauda = "".join(c["c"] for c in cauda)
+        for j, c in enumerate(cauda):
+            copia = texto_cauda[j + 1:]
+            if c["c"] == " " and copia and inicios[i + 1].startswith(copia):
+                for fantasma in cauda[j:]:
+                    fantasma["fantasma"] = True
+                break
+
+
+def _span_visivel(span_bruto: dict) -> dict:
+    """Converte um span de rawdict em span com texto, sem os caracteres fantasmas."""
+    span = {k: v for k, v in span_bruto.items() if k != "chars"}
+    span["text"] = "".join(c["c"] for c in span_bruto["chars"] if not c.get("fantasma"))
+    return span
+
+
+RE_NUMERO_PAGINA = re.compile(r"^\d{1,3}(\s*/\s*\d{1,3})?$")
+MARGEM_TOPO, MARGEM_BASE = 0.12, 0.92
+
+
 def ler_linhas(
-    doc: pymupdf.Document, paginas: range, ignorar: set[str], duas_colunas: bool = False
+    doc: pymupdf.Document,
+    paginas: range,
+    ignorar: set[str],
+    duas_colunas: bool = False,
+    numeros_na_margem: bool = False,
 ) -> list[Linha]:
     """Linhas de texto em ordem de leitura, sem as linhas vazias e sem as de `ignorar`.
 
     Expoentes marcados como sobrescritos viram caracteres sobrescritos (x²),
     frações empilhadas viram "a/b", e a ordem segue a base das linhas, para que
     o numerador de uma fração não passe à frente do texto da mesma linha.
+    Texto oculto sob outras camadas é descartado.
     Com `duas_colunas`, lê a coluna esquerda inteira antes da direita.
+    Com `numeros_na_margem`, descarta linhas só com números no topo e no rodapé
+    (numeração de página).
     """
     linhas = []
     for n in paginas:
         pagina = doc[n - 1]
         meio = pagina.rect.width / 2
-        brutas = [
-            {"bbox": linha["bbox"], "spans": [dict(s) for s in linha["spans"]]}
-            for bloco in pagina.get_text("dict")["blocks"]
+        altura = pagina.rect.height
+        blocos = pagina.get_text("rawdict")["blocks"]
+        for bloco in blocos:
+            _marcar_fantasmas(bloco)
+        estrutura = [
+            (linha["bbox"], [_span_visivel(s) for s in linha["spans"]])
+            for bloco in blocos
             for linha in bloco.get("lines", [])
         ]
+        todos = [s for _, spans in estrutura for s in spans if s["text"].strip()]
+        cobertos = {id(todos[i]) for i in _spans_sobrepostos(pagina, todos)}
+        brutas = []
+        for bbox, spans in estrutura:
+            visiveis = [s for s in spans if id(s) not in cobertos]
+            if visiveis:
+                brutas.append({"bbox": bbox, "spans": visiveis})
+        _juntar_fracoes_na_linha(brutas)
         _juntar_fracoes(brutas)
         da_pagina = []
         for linha in brutas:
             if linha.get("removida"):
                 continue
             texto = "".join(_texto_span(s) for s in linha["spans"]).strip()
+            if numeros_na_margem and RE_NUMERO_PAGINA.match(texto):
+                y0, y1 = linha["bbox"][1], linha["bbox"][3]
+                if y1 < MARGEM_TOPO * altura or y0 > MARGEM_BASE * altura:
+                    continue
             if texto and texto not in ignorar:
                 x0, y0, x1, y1 = linha["bbox"]
                 coluna = int((x0 + x1) / 2 >= meio) if duas_colunas else 0

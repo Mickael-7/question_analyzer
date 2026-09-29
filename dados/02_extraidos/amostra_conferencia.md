@@ -1,6 +1,136 @@
 # Amostra para conferência manual
 
-Sorteio com semente 2026. Compare cada item com o PDF e anote as divergências.
+Sorteio de 10 itens por ano com semente 2026. Compare cada item com o PDF e anote as divergências.
+
+## sedu_ama5_2023t1-D011_M-03 (p. 11-12)
+
+**Enunciado:** Observe a figura abaixo. A fração que corresponde à parte colorida na figura acima é
+
+- A) 1/4
+- B) 4/2
+- C) 6/2
+- D) 2/6
+
+Gabarito: D | imagens: 1 | dêiticos: abaixo|figura | fórmula corrompida: True | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2023t1-D014_M-02 (p. 4-4)
+
+**Enunciado:** Luísa está concorrendo a um sorteio com o número 5 798. O algarismo que ocupa a ordem das dezenas nesse número é
+
+- A) 9
+- B) 8
+- C) 7
+- D) 5
+
+Gabarito: A | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: True
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2023t1-D023_M-02 (p. 9-9)
+
+**Enunciado:** Marcelo foi a uma lanchonete em que o cliente monta seu próprio sanduíche. O cliente pode escolher entre 3 variedades de pães e 6 tipos de recheios. De quantas maneiras diferentes Marcelo pode montar um sanduíche escolhendo uma variedade de pão e um tipo de recheio?
+
+- A) 2
+- B) 3
+- C) 9
+- D) 18
+
+Gabarito: D | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: True
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2023t1-D060_M-01 (p. 13-13)
+
+**Enunciado:** Um quiosque de praia vendeu, em um dia, 72 copos de água mineral com 100 ml cada. Nesse dia, quantos litros de água mineral, no total, foram vendidos nesse quiosque?
+
+- A) 7,2 L
+- B) 72 L
+- C) 720 L
+- D) 7 200 L
+
+Gabarito: A | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: True
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2024t3-D022_M-01 (p. 5-5)
+
+**Enunciado:** Em 2022, o Censo do IBGE mostrou que, no Espírito Santo, o número de matrículas no ensino fundamental no estado foi de 501 919 estudantes. Se, em 2023, o número de matrículas caiu para 498 357, qual foi a redução total de matrículas no ensino fundamental de 2022 para 2023? Dados extraídos de: https://cidades.ibge.gov.br/brasil/es/panorama em 18/10/2024.
+
+- A) 3 562 matrículas.
+- B) 2 562 matrículas.
+- C) 5 562 matrículas.
+- D) 4 562 matrículas.
+
+Gabarito: A | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: True
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2024t3-D113_M-03 (p. 11-11)
+
+**Enunciado:** Na malha quadriculada abaixo, a área de cada quadradinho mede 1 cm². Paulo desenhou o retângulo que está sombreado nessa malha. Se Paulo desenhasse um retângulo cujos lados tivessem o dobro das medidas dos lados desse retângulo, qual seria a medida da área do novo retângulo?
+
+- A) 6 cm².
+- B) 12 cm².
+- C) 18 cm².
+- D) 24 cm².
+
+Gabarito: D | imagens: 1 | dêiticos: abaixo|malha | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2025t3-D111_M-05 (p. 12-12)
+
+**Enunciado:** Observe o bumbo que Beto gosta de tocar. Ele tem a forma de um cilindro. Qual é o molde do cilindro?
+
+- A) 
+- B) 
+- C) 
+- D) 
+
+Gabarito: D | imagens: 2 | dêiticos: - | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2025t3-D112_M-04 (p. 14-14)
+
+**Enunciado:** Assinale a alternativa que mostra o número do quadrilátero que tem seus quatro ângulos retos.
+
+- A) I.
+- B) II.
+- C) III.
+- D) IV.
+
+Gabarito: A | imagens: 1 | dêiticos: - | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2025t3-D113_M-03 (p. 16-16)
+
+**Enunciado:** Na malha quadriculada abaixo, o polígono II é uma ampliação do polígono I. De acordo com a figura II, qual é o valor do fator de ampliação?
+
+- A) 
+- B) 
+- C) 2
+- D) 3
+
+Gabarito: B | imagens: 1 | dêiticos: abaixo|figura|malha | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama5_2025t3-D113_M-06 (p. 18-18)
+
+**Enunciado:** A figura abaixo foi dada para os alunos e algumas crianças resolveram ampliá-la. Veja as ampliações feitas por quatro crianças. Quem ampliou corretamente a figura?
+
+- A) Ana
+- B) Bernardo
+- C) Célia
+- D) Diana
+
+Gabarito: D | imagens: 3 | dêiticos: abaixo|figura | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
 
 ## sedu_es_9ef-D02-02 (p. 11-11)
 

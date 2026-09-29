@@ -9,3 +9,13 @@ sedu_es_9ef-D20-01,sim,sim,sim,sim,,Mickael de Albuquerque Silva,comparação vi
 sedu_es_9ef-D22-04,sim,sim,nao,sim,Frações reconstruídas corretamente; gabarito do PDF errado (ver revisao_manual.csv).,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
 sedu_es_9ef-D35-03,parcial,sim,sim,sim,Sistema de equações extraído com símbolos de chave corrompidos; item excluído por figura e fórmula.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
 sedu_es_9ef-D37-02,sim,sim,sim,sim,Alternativas em tabela-imagem; resposta impressa '(Resp. D)' removida e coerente com o gabarito.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2023t1-D011_M-03,sim,sim,sim,sim,Frações das alternativas reconstruídas; item excluído por figura.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2023t1-D014_M-02,sim,sim,sim,sim,,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2023t1-D023_M-02,sim,sim,sim,sim,,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2023t1-D060_M-01,sim,sim,sim,sim,,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2024t3-D022_M-01,sim,sim,sim,sim,Clip-art decorativo ao lado das alternativas não disparou a marcação de figura.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2024t3-D113_M-03,sim,sim,sim,sim,Fragmentos invisíveis de fim de linha ('Paulo de') removidos corretamente.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2025t3-D111_M-05,sim,sim,sim,sim,Alternativas em imagem.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2025t3-D112_M-04,sim,sim,sim,sim,Sem termo dêitico; a marcação por imagem capturou corretamente a dependência dos quadriláteros I-IV.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2025t3-D113_M-03,sim,parcial,sim,sim,Alternativas A e B são frações desenhadas como vetor e não chegam ao texto; item excluído.,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29
+sedu_ama5_2025t3-D113_M-06,sim,sim,sim,sim,,Mickael de Albuquerque Silva,comparação visual com o PDF renderizado,2026-09-29

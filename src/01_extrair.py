@@ -9,6 +9,7 @@ src/extratores, junta o gabarito, marca dependência de figura e grava:
   02_extraidos/amostra_conferencia.md itens sorteados para comparar com o PDF
 """
 import importlib
+import re
 import sys
 
 import pandas as pd
@@ -20,12 +21,15 @@ CHAVE = ["fonte", "descritor", "numero"]
 
 
 def item_id(linha: pd.Series) -> str:
-    return f"{linha['fonte']}-D{int(linha['descritor'][1:]):02d}-{linha['numero']:02d}"
+    descritor = linha["descritor"]
+    if re.fullmatch(r"D\d{1,2}", descritor):  # numeração do SAEB: D1 -> D01
+        descritor = f"D{int(descritor[1:]):02d}"
+    return f"{linha['fonte']}-{descritor}-{linha['numero']:02d}"
 
 
 def extrair_fonte(fonte: str, spec: dict) -> dict:
     modulo = importlib.import_module(f"extratores.{spec['extrator']}")
-    return modulo.extrair(config.BRUTOS / spec["arquivo"])
+    return modulo.extrair(config.BRUTOS / spec["arquivo"], fonte, spec["ano"])
 
 
 def juntar_gabarito(itens: pd.DataFrame, gabarito: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
@@ -43,8 +47,10 @@ def aplicar_revisao(df: pd.DataFrame) -> pd.DataFrame:
     """Incorpora dados/referencia/revisao_manual.csv sem alterar o gabarito da fonte.
 
     `gabarito` guarda o que está no PDF; `gabarito_revisado` é o que deve ser usado.
+    `duplicata_de` aponta o mesmo item publicado em outra fonte.
     """
     df["gabarito_revisado"] = df["gabarito"]
+    df["duplicata_de"] = ""
     df["revisao"] = ""
     if not config.ARQ_REVISAO.exists():
         return df
@@ -56,6 +62,8 @@ def aplicar_revisao(df: pd.DataFrame) -> pd.DataFrame:
     for r in revisao.itertuples():
         if r.tipo == "gabarito_divergente":
             df.loc[df["item_id"] == r.item_id, "gabarito_revisado"] = r.valor
+        elif r.tipo == "duplicata":
+            df.loc[df["item_id"] == r.item_id, "duplicata_de"] = r.valor
         notas.setdefault(r.item_id, []).append(f"{r.tipo}: {r.descricao}")
     df["revisao"] = df["item_id"].map(lambda i: "; ".join(notas.get(i, [])))
     return df
@@ -68,7 +76,11 @@ def marcar_figura(df: pd.DataFrame) -> pd.DataFrame:
     df["sinal_imagem"] = df["n_imagens"] > 0
     df["sinal_deitico"] = df["termos_deiticos"] != ""
     df["depende_figura"] = df["sinal_imagem"] | df["sinal_deitico"]
-    df["apto_verificacao"] = ~df["depende_figura"] & ~df["formula_corrompida"]
+    # Alternativas desenhadas como imagem ou vetor não chegam ao texto: o item fica incompleto.
+    df["alternativas_incompletas"] = (df[["alt_a", "alt_b", "alt_c", "alt_d"]] == "").any(axis=1)
+    df["apto_verificacao"] = (
+        ~df["depende_figura"] & ~df["formula_corrompida"] & ~df["alternativas_incompletas"]
+    )
     return df
 
 
@@ -89,6 +101,7 @@ def relatorio(df: pd.DataFrame, orfaos: dict, avisos: list[str]) -> str:
             sinal_deitico=("sinal_deitico", "sum"),
             depende_figura=("depende_figura", "sum"),
             formula_corrompida=("formula_corrompida", "sum"),
+            alternativas_incompletas=("alternativas_incompletas", "sum"),
             aptos=("apto_verificacao", "sum"),
         )
         .reset_index()
@@ -153,11 +166,15 @@ def conferencia() -> str:
 
 
 def amostra(df: pd.DataFrame) -> str:
-    sorteio = df.sample(n=min(config.TAMANHO_AMOSTRA, len(df)), random_state=config.SEMENTE_AMOSTRA)
+    sorteio = pd.concat(
+        grupo.sample(n=min(config.TAMANHO_AMOSTRA, len(grupo)), random_state=config.SEMENTE_AMOSTRA)
+        for _, grupo in df.groupby("ano")
+    )
     partes = [
         "# Amostra para conferência manual",
         "",
-        f"Sorteio com semente {config.SEMENTE_AMOSTRA}. Compare cada item com o PDF e anote as divergências.",
+        f"Sorteio de {config.TAMANHO_AMOSTRA} itens por ano com semente {config.SEMENTE_AMOSTRA}. "
+        "Compare cada item com o PDF e anote as divergências.",
         "",
     ]
     for r in sorteio.sort_values("item_id").itertuples():
@@ -188,6 +205,8 @@ def main() -> int:
         avisos += [f"{fonte}: {a}" for a in r["avisos"]]
 
     df = pd.DataFrame(itens)
+    df["origem_item"] = df["origem_item"].fillna("")
+    df["topico_saeb"] = df["topico_saeb"].replace("", "(fonte sem tópico SAEB)")
     gab = pd.DataFrame(gabaritos)
     df, orfaos = juntar_gabarito(df, gab)
     df.insert(0, "item_id", df.apply(item_id, axis=1))

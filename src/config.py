@@ -43,7 +43,10 @@ ANOS_TAXONOMIA = list(range(1, 10))
 
 # Fontes de questões: fonte_id -> arquivo em dados/01_brutos e módulo em src/extratores
 FONTES = {
-    "sedu_es_9ef": {"arquivo": "sedu_es_saeb_mat_9ano.pdf", "extrator": "sedu_es"},
+    "sedu_es_9ef": {"arquivo": "sedu_es_saeb_mat_9ano.pdf", "extrator": "sedu_es", "ano": 9},
+    "sedu_ama5_2023t1": {"arquivo": "sedu_es_ama_mat_5ano_1tri_2023.pdf", "extrator": "sedu_ama", "ano": 5},
+    "sedu_ama5_2024t3": {"arquivo": "sedu_es_ama_mat_5ano_3tri_2024.pdf", "extrator": "sedu_ama", "ano": 5},
+    "sedu_ama5_2025t3": {"arquivo": "sedu_es_ama_mat_5ano_3tri_2025.pdf", "extrator": "sedu_ama", "ano": 5},
 }
 SEMENTE_AMOSTRA = 2026
 TAMANHO_AMOSTRA = 10
