@@ -39,6 +39,13 @@ ANOS = [5, 9]  # anos das questões (etapas avaliadas pelo SAEB)
 # se alinham a habilidades de anos anteriores ao avaliado.
 ANOS_TAXONOMIA = list(range(1, 10))
 
+# Fontes de questões: fonte_id -> arquivo em dados/01_brutos e módulo em src/extratores
+FONTES = {
+    "sedu_es_9ef": {"arquivo": "sedu_es_saeb_mat_9ano.pdf", "extrator": "sedu_es"},
+}
+SEMENTE_AMOSTRA = 2026
+TAMANHO_AMOSTRA = 10
+
 # Extração: marcadores de dependência de figura (seção 2.4 do guia)
 TERMOS_DEITICOS = [
     "figura", "imagem", "malha", "gráfico", "grafico", "tabela", "desenho",

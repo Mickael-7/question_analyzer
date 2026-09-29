@@ -1,0 +1,1296 @@
+item_id,fonte,ano,codificacao,descritor,numero,numero_pdf,topico_saeb,pagina_inicio,pagina_fim,enunciado,alt_a,alt_b,alt_c,alt_d,gabarito_inline,n_imagens,formula_corrompida,observacoes,texto_original,gabarito,termos_deiticos,sinal_imagem,sinal_deitico,depende_figura,apto_verificacao
+sedu_es_9ef-D01-01,sedu_es_9ef,9,SAEB_9EF,D1,1,1,I. ESPAÇO E FORMA,8,8,"João e Pedro utilizaram uma malha quadriculada para construir um tabuleiro de “jogo da velha”, no qual as linhas são identificadas por letras, e, as colunas, por números. Durante uma partida, Pedro decidiu começar o jogo pela casa destacada em cinza. Quais são as coordenadas da casa na qual Pedro começou o jogo?",F2.,F3.,G1.,G3.,,1,False,,"João e Pedro utilizaram uma malha quadriculada para construir um tabuleiro de “jogo
+da velha”, no qual as linhas são identificadas por letras, e, as colunas, por números.
+Durante uma partida, Pedro decidiu começar o jogo pela casa destacada em cinza.
+Quais são as coordenadas da casa na qual Pedro começou o jogo?
+A) F2.
+B) F3.
+C) G1.
+D) G3.",D,malha,True,True,True,False
+sedu_es_9ef-D01-02,sedu_es_9ef,9,SAEB_9EF,D1,2,2,I. ESPAÇO E FORMA,8,9,"No jogo de xadrez utiliza-se um tabuleiro composto por oito colunas e oito linhas. A figura abaixo, representa um tabuleiro desse jogo, onde as colunas estão classificadas de F a M e as linhas numeradas de 1 a 8. Qual é a posição da peça nesse tabuleiro?",F4.,H5.,H6.,K6.,,2,False,,"No jogo de xadrez utiliza-se um tabuleiro composto por oito colunas e oito linhas. A
+figura abaixo, representa um tabuleiro desse jogo, onde as colunas estão classificadas
+de F a M e as linhas numeradas de 1 a 8.
+Qual é a posição da peça
+nesse tabuleiro?
+A) F4.
+B) H5.
+C) H6.
+D) K6.",C,abaixo|figura,True,True,True,False
+sedu_es_9ef-D01-03,sedu_es_9ef,9,SAEB_9EF,D1,3,3,I. ESPAÇO E FORMA,9,9,"No quarto de Fernando tem uma estante de nichos para carrinhos, onde cada nicho pode ser localizado por uma linha e uma coluna conforme o desenho abaixo. Arrumando essa estante, Fernando colocou seu carrinho favorito no nicho cuja posição é 2Q. Qual é o carrinho favorito de Fernando?",,,,,D,2,False,"resposta impressa no enunciado, removida; alternativas não localizadas no texto","No quarto de Fernando tem uma estante de nichos para carrinhos, onde cada nicho
+pode ser localizado por uma linha e uma coluna conforme o desenho abaixo.
+Arrumando essa estante, Fernando colocou seu carrinho favorito no nicho cuja posição
+é 2Q.
+Qual é o carrinho favorito de Fernando?  (RESP. D)",D,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D01-04,sedu_es_9ef,9,SAEB_9EF,D1,4,4,I. ESPAÇO E FORMA,10,10,"No mapa abaixo, encontram-se representadas as ruas do bairro onde Mariana mora. Mariana informou que mora numa rua entre as avenidas A e B e entre as ruas do hospital e da locadora. Mariana mora na:",Rua 4.,Rua 5.,Rua 7.,Rua 9.,,1,False,,"No mapa abaixo, encontram-se representadas as ruas do bairro onde Mariana mora.
+Mariana informou que mora numa rua entre as avenidas A e B e entre as ruas do hospital
+e da locadora. Mariana mora na:
+A) Rua 4.
+B) Rua 5.
+C) Rua 7.
+D) Rua 9.",A,abaixo|mapa,True,True,True,False
+sedu_es_9ef-D02-01,sedu_es_9ef,9,SAEB_9EF,D2,1,1,I. ESPAÇO E FORMA,11,11,Observe o sólido apresentado abaixo. Uma planificação da superfície desse sólido está representada em,,,,,,3,False,alternativas não localizadas no texto,"Observe o sólido apresentado abaixo.
+Uma planificação da superfície desse sólido está representada em",D,abaixo,True,True,True,False
+sedu_es_9ef-D02-02,sedu_es_9ef,9,SAEB_9EF,D2,2,2,I. ESPAÇO E FORMA,11,11,É comum encontrar em acampamentos barracas com fundo e que têm a forma apresentada na figura abaixo. Qual desenho representa a planificação dessa barraca?,,,,,,3,False,alternativas não localizadas no texto,"É comum encontrar em acampamentos barracas com fundo e que têm a forma
+apresentada na figura abaixo.
+Qual desenho representa a planificação dessa barraca?",C,abaixo|desenho|figura,True,True,True,False
+sedu_es_9ef-D02-03,sedu_es_9ef,9,SAEB_9EF,D2,3,3,I. ESPAÇO E FORMA,12,12,O desenho abaixo representa um sólido. Uma possível planificação desse sólido é,,,,,,3,False,alternativas não localizadas no texto,"O desenho abaixo representa um sólido.
+Uma possível planificação desse sólido é",B,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D02-04,sedu_es_9ef,9,SAEB_9EF,D2,4,4,I. ESPAÇO E FORMA,12,13,"Observe as figuras abaixo: Entre elas, a planificação de uma caixa em forma de cubo é a figura;",A,B,C,D,,2,False,,"Observe as figuras abaixo:
+Entre elas, a planificação de uma caixa em forma de cubo é a figura;
+A) A                 B) B                 C) C                D) D",C,abaixo|figura,True,True,True,False
+sedu_es_9ef-D03-01,sedu_es_9ef,9,SAEB_9EF,D3,1,1,I. ESPAÇO E FORMA,14,14,Observe os triângulos abaixo. Qual desses triângulos é equilátero?,I,II,III,IV,,2,False,,"Observe os triângulos abaixo.
+Qual desses triângulos é equilátero?
+A) I
+B) II
+C) III
+D) IV",C,abaixo,True,True,True,False
+sedu_es_9ef-D03-02,sedu_es_9ef,9,SAEB_9EF,D3,2,2,I. ESPAÇO E FORMA,14,15,"Observe o triângulo EFG abaixo, retângulo em F. Quanto mede o ângulo x desse triângulo?",30º,60º,90º,120º,,1,False,,"Observe o triângulo EFG abaixo, retângulo em F.
+Quanto mede o ângulo x desse triângulo?
+A) 30º
+B) 60º
+C) 90º
+D) 120º",A,abaixo,True,True,True,False
+sedu_es_9ef-D03-03,sedu_es_9ef,9,SAEB_9EF,D3,3,3,I. ESPAÇO E FORMA,15,15,Observe a figura abaixo. A afirmativa correta é 𝐴𝐵 𝐵𝐶,𝐷𝐸 ≠ 𝐸𝐶,AD e BE são concorrentes. 𝐴𝐵 𝐵𝐶,𝐷𝐸= 𝐸𝐶,BC e EC são paralelos.,,1,True,,"Observe a figura abaixo.
+A afirmativa correta é
+𝐴𝐵
+𝐵𝐶
+A)
+𝐷𝐸 ≠
+𝐸𝐶
+B) AD e BE são concorrentes.
+𝐴𝐵
+𝐵𝐶
+C)
+𝐷𝐸=
+𝐸𝐶
+D) BC e EC são paralelos.",C,abaixo|figura,True,True,True,False
+sedu_es_9ef-D03-04,sedu_es_9ef,9,SAEB_9EF,D3,4,4,I. ESPAÇO E FORMA,16,16,"Na figura abaixo, o valor de X é",45°,55°,35°,65°,,1,False,,"Na figura abaixo, o valor de X é
+A) 45°
+B) 55°
+C) 35°
+D) 65°",A,abaixo|figura,True,True,True,False
+sedu_es_9ef-D04-01,sedu_es_9ef,9,SAEB_9EF,D4,1,1,I. ESPAÇO E FORMA,17,17,Isabel ampliou uma fotografia de 3cm de largura por 4cm de comprimento. O único par de medidas que podem corresponder as da foto ampliada é:,6 cm de largura e 7 cm de comprimento.,7 cm de largura e 8 cm de comprimento.,9 cm de largura e 10 cm de comprimento.,12 cm de largura e 16 cm de comprimento.,,0,False,,"Isabel ampliou uma fotografia de 3cm de largura por 4cm de comprimento. O único par
+de medidas que podem corresponder as da foto ampliada é:
+A) 6 cm de largura e 7 cm de comprimento.
+B) 7 cm de largura e 8 cm de comprimento.
+C) 9 cm de largura e 10 cm de comprimento.
+D) 12 cm de largura e 16 cm de comprimento.",D,,False,False,False,True
+sedu_es_9ef-D04-02,sedu_es_9ef,9,SAEB_9EF,D4,2,2,I. ESPAÇO E FORMA,17,17,Observe os retângulos e as medidas de seus lados. Qual é o par de retângulo semelhantes?,I e IV,II e III,II e IV,III e IV,,1,False,,"Observe os retângulos e as medidas de seus lados.
+Qual é o par de retângulo semelhantes?
+A) I e IV
+B) II e III
+C) II e IV
+D) III e IV",A,,True,False,True,False
+sedu_es_9ef-D04-03,sedu_es_9ef,9,SAEB_9EF,D4,3,3,I. ESPAÇO E FORMA,17,18,"João passa horas brincando de aviões de papel que constrói. Sua avó, sabendo disso, deu-lhe uma folha de papel medindo 60cm por 40cm conforme a figura abaixo. João ficou muito feliz com a surpresa e, para aproveitar melhor o papel resolveu dividir a folha em 4 partes iguais mantendo a semelhança com a folha que ganhou. Dessa forma, João ficou com 4 folhas de tamanho",,,,,A,3,False,"resposta impressa no enunciado, removida; alternativas não localizadas no texto","João passa horas brincando de aviões de papel que constrói. Sua avó, sabendo disso,
+deu-lhe uma folha de papel medindo 60cm por 40cm conforme a figura abaixo.
+João ficou muito feliz com a surpresa e, para aproveitar melhor o papel resolveu dividir
+a folha em 4 partes iguais mantendo a semelhança com a folha que ganhou.
+(Resp. A)
+Dessa forma, João ficou com 4 folhas de tamanho",A,abaixo|figura,True,True,True,False
+sedu_es_9ef-D04-04,sedu_es_9ef,9,SAEB_9EF,D4,4,5,I. ESPAÇO E FORMA,18,19,Um quadrilátero possui as seguintes características: * Todos os ângulos tem a mesma medida. * Todos os lados tem a mesma medida. * suas diagonais tem a mesma medida e são perpendiculares. Esse quadrilátero é o,losango,quadrado,retângulo,trapézio CÓDIGOS,,0,False,numerado 05 no PDF; posição 4 no bloco,"Um quadrilátero possui as seguintes características:
+* Todos os ângulos tem a mesma medida.
+* Todos os lados tem a mesma medida.
+* suas diagonais tem a mesma medida e são perpendiculares.
+Esse quadrilátero é o
+A) losango
+B) quadrado
+C) retângulo
+D) trapézio
+CÓDIGOS",B,,False,False,False,True
+sedu_es_9ef-D05-01,sedu_es_9ef,9,SAEB_9EF,D5,1,1,I. ESPAÇO E FORMA,19,19,Carla utilizou um molde com formato de um trapézio para fazer um ladrilho de argila conforme representado no desenho abaixo. A área do ladrilho de argila em relação à área do molde é,a metade.,a quarta parte.,o dobro.,o quádruplo.,,1,False,,"Carla utilizou um molde com formato de um trapézio para fazer um ladrilho de argila
+conforme representado no desenho abaixo.
+A área do ladrilho de argila em relação à área do molde é
+A) a metade.
+B) a quarta parte.
+C) o dobro.
+D) o quádruplo.",D,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D05-02,sedu_es_9ef,9,SAEB_9EF,D5,2,2,I. ESPAÇO E FORMA,19,20,Veja o quadrilátero MNPQ desenhado na malha quadriculada abaixo: O quadrilátero semelhante ao quadrilátero MNPQ é:,,,,,,3,False,alternativas não localizadas no texto,"Veja o quadrilátero MNPQ desenhado na malha quadriculada abaixo:
+O quadrilátero semelhante ao quadrilátero MNPQ é:",A,abaixo|malha,True,True,True,False
+sedu_es_9ef-D05-03,sedu_es_9ef,9,SAEB_9EF,D5,3,3,I. ESPAÇO E FORMA,20,21,"Observe a figura abaixo. Considere o lado de cada quadradinho como unidade de medida de comprimento. Para que o perímetro do retângulo seja reduzido à metade, a medida de cada lado deverá ser",dividida por 2.,multiplicada por 2.,aumentada em 2 unidades.,dividida por 3.,,1,False,,"Observe a figura abaixo.
+Considere o lado de cada quadradinho como unidade de medida de comprimento.
+Para que o perímetro do retângulo seja reduzido à metade, a medida de cada lado
+deverá ser
+A) dividida por 2.
+B) multiplicada por 2.
+C) aumentada em 2 unidades.
+D) dividida por 3.",A,abaixo|figura,True,True,True,False
+sedu_es_9ef-D05-04,sedu_es_9ef,9,SAEB_9EF,D5,4,4,I. ESPAÇO E FORMA,21,22,"Uma torre de comunicação está representada na figura abaixo. Para construir uma miniatura dessa torre que tenha dimensões 8 vezes menores que a original, deve-se:",multiplicar as dimensões da original por 8.,dividir as dimensões da original por 8.,multiplicar as dimensões da original por 4.,dividir as dimensões da original por 4. ESCRITOR CÓDIGOS,,1,False,,"Uma torre de comunicação está representada na figura abaixo.
+Para construir uma miniatura dessa torre que tenha dimensões 8 vezes menores que a
+original, deve-se:
+A) multiplicar as dimensões da original por 8.
+B) dividir as dimensões da original por 8.
+C) multiplicar as dimensões da original por 4.
+D) dividir as dimensões da original por 4.
+ESCRITOR
+CÓDIGOS",B,abaixo|figura,True,True,True,False
+sedu_es_9ef-D06-01,sedu_es_9ef,9,SAEB_9EF,D6,1,1,I. ESPAÇO E FORMA,22,22,"Observe, na malha quadriculada abaixo, o caminho que Luana faz para ir de sua casa até a escola. Nesse caminho, ela muda de direção 4 vezes e essas mudanças de direção foram representadas pelos ângulos α, β, γ e δ. Qual desses ângulos é um ângulo reto?",α,β,γ,δ,,1,False,,"Observe, na malha quadriculada abaixo, o caminho que Luana faz para ir de sua casa
+até a escola.
+Nesse caminho, ela muda de direção 4 vezes e essas mudanças de direção foram
+representadas pelos ângulos α, β, γ e δ.
+Qual desses ângulos é um ângulo reto?
+A) α
+B) β
+C) γ
+D) δ",A,abaixo|malha,True,True,True,False
+sedu_es_9ef-D06-02,sedu_es_9ef,9,SAEB_9EF,D6,2,2,I. ESPAÇO E FORMA,22,22,"Para entrar em uma agência bancária, as pessoas devem passar por uma porta giratória, que funciona no sentido anti-horário. Maurício adentrou nessa porta giratória, conforme representado no desenho abaixo. Qual é a posição de Maurício após a porta dar um giro de meia-volta?",,,,,C,2,False,"resposta impressa no enunciado, removida; alternativas não localizadas no texto","Para entrar em uma agência bancária, as pessoas devem passar por uma porta
+giratória, que funciona no sentido anti-horário. Maurício adentrou nessa porta giratória,
+conforme representado no desenho abaixo.
+Qual é a posição de Maurício após a porta dar um giro de meia-volta?   (Resp. C)",C,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D06-03,sedu_es_9ef,9,SAEB_9EF,D6,3,3,I. ESPAÇO E FORMA,23,23,"Com o objetivo de treinar um cão durante os passeios, um adestrador montou um circuito. Esse circuito está representado no desenho abaixo. Durante o treinamento, o cão dá várias voltas completas nesse circuito partindo do início e seguindo em direção ao ponto S. Em quais pontos destacados nesse desenho a mudança de direção do cão, durante uma volta, corresponde a um ângulo reto?",P e R.,Q e S.,S e T.,T e V.,,1,False,,"Com o objetivo de treinar um cão durante os passeios, um adestrador montou um
+circuito. Esse circuito está representado no desenho abaixo.
+Durante o treinamento, o cão dá várias voltas completas nesse circuito partindo do
+início e seguindo em direção ao ponto S.
+Em quais pontos destacados nesse desenho a mudança de direção do cão, durante
+uma volta, corresponde a um ângulo reto?
+A) P e R.
+B) Q e S.
+C) S e T.
+D) T e V.",A,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D06-04,sedu_es_9ef,9,SAEB_9EF,D6,4,4,I. ESPAÇO E FORMA,23,24,"Observe a figura abaixo: Se realizarmos um giro de 90º nessa figura, no sentido horário, a figura que encontraremos será:",,,,,,3,False,alternativas não localizadas no texto,"Observe a figura abaixo:
+Se realizarmos um giro de 90º nessa figura, no sentido horário, a figura que
+encontraremos será:",C,abaixo|figura,True,True,True,False
+sedu_es_9ef-D07-01,sedu_es_9ef,9,SAEB_9EF,D7,1,1,I. ESPAÇO E FORMA,25,25,Os retângulos I e II da imagem abaixo são semelhantes e o fator de ampliação é 3. Veja Qual é o valor do comprimento x no retângulo II?,10,15,21,24,,1,False,,"Os retângulos I e II da imagem abaixo são semelhantes e o fator de ampliação é 3.
+Veja
+Qual é o valor do comprimento x no retângulo II?
+A) 10
+B) 15
+C) 21
+D) 24",C,abaixo|imagem,True,True,True,False
+sedu_es_9ef-D07-02,sedu_es_9ef,9,SAEB_9EF,D7,2,2,I. ESPAÇO E FORMA,25,25,"O quadrilátero P'Q'R'S' é uma projeção do quadrilátero PQRS. O segmento PS = 6, e o segmento P'S' = 15. A razão entre o lado P'S' e o lado PS é",,,,,,2,False,alternativas não localizadas no texto,"O quadrilátero P'Q'R'S' é uma projeção do quadrilátero PQRS.
+O segmento PS = 6, e o segmento P'S' = 15. A razão entre o lado P'S' e o lado PS é",D,,True,False,True,False
+sedu_es_9ef-D07-03,sedu_es_9ef,9,SAEB_9EF,D7,3,3,I. ESPAÇO E FORMA,26,26,"Observe o desenho abaixo, em que o triângulo EFG é semelhante ao triângulo HIJ. A razão de semelhança entre os triângulos HIJ e EFG é","1,5","2,5","7,5","12,5",,1,False,,"Observe o desenho abaixo, em que o triângulo EFG é semelhante ao triângulo HIJ.
+A razão de semelhança entre os triângulos HIJ e EFG é
+A) 1,5
+B) 2,5
+C) 7,5
+D) 12,5",A,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D07-04,sedu_es_9ef,9,SAEB_9EF,D7,4,4,I. ESPAÇO E FORMA,26,26,A ﬁgura abaixo mostra a ampliação da bandeira do Brasil. Qual é a razão de semelhança dessa ampliação? 1 1 A) 5 B) 2 C) 2 D⁾ 5,,,,,,1,False,alternativas não localizadas no texto,"A ﬁgura abaixo mostra a ampliação da bandeira do Brasil.
+Qual é a razão de semelhança dessa ampliação?
+1
+1
+A) 5               B) 2                  C)
+2               D⁾
+5",B,abaixo,True,True,True,False
+sedu_es_9ef-D08-01,sedu_es_9ef,9,SAEB_9EF,D8,1,1,I. ESPAÇO E FORMA,27,27,"Um arquiteto deseja construir um mosaico de ladrilhos. Ele escolheu um modelo de ladrilho com o formato de um pentágono regular, porém devido à medida dos ângulos internos desse polígono, ele precisou de ladrilhos de outros formatos para compor esse mosaico. A medida do ângulo interno do ladrilho de formato pentagonal regular é",108°.,180°.,360°.,540°.,,0,False,,"Um arquiteto deseja construir um mosaico de ladrilhos. Ele escolheu um modelo de
+ladrilho com o formato de um pentágono regular, porém devido à medida dos ângulos
+internos desse polígono, ele precisou de ladrilhos de outros formatos para compor esse
+mosaico.
+A medida do ângulo interno do ladrilho de formato pentagonal regular é
+A) 108°.
+B) 180°.
+C) 360°.
+D) 540°.",A,,False,False,False,True
+sedu_es_9ef-D08-02,sedu_es_9ef,9,SAEB_9EF,D8,2,2,I. ESPAÇO E FORMA,27,27,"A logomarca de uma empresa é formada por um hexágono regular, um trapézio retângulo e um quadrado, como mostra a figura abaixo. Quanto mede o ângulo α, indicado nessa figura?",30°,45°,60°,90°,,1,False,,"A logomarca de uma empresa é formada por um hexágono regular, um trapézio
+retângulo e um quadrado, como mostra a figura abaixo.
+Quanto mede o ângulo α, indicado nessa figura?
+A) 30°
+B) 45°
+C) 60°
+D) 90°",A,abaixo|figura,True,True,True,False
+sedu_es_9ef-D08-03,sedu_es_9ef,9,SAEB_9EF,D8,3,3,I. ESPAÇO E FORMA,27,28,Um polígono regular possui a medida do ângulo central igual a 40º. Esse polígono é formado por:,5 lados.,9 lados.,10 lados.,20 lados.,,0,False,,"Um polígono regular possui a medida do ângulo central igual a 40º.
+Esse polígono é formado por:
+A) 5 lados.
+B) 9 lados.
+C) 10 lados.
+D) 20 lados.",B,,False,False,False,True
+sedu_es_9ef-D08-04,sedu_es_9ef,9,SAEB_9EF,D8,4,4,I. ESPAÇO E FORMA,28,28,Mário desenhou quatro polígonos regulares e anotou dentro deles o valor da soma de seus ângulos internos. Qual é a medida de cada ângulo interno do hexágono regular?,60°,108°,120°,135°,,4,False,,"Mário desenhou quatro polígonos regulares e anotou dentro deles o valor da soma de
+seus ângulos internos.
+Qual é a medida de cada ângulo interno do hexágono regular?
+A) 60°
+B) 108°
+C) 120°
+D) 135°",C,,True,False,True,False
+sedu_es_9ef-D09-01,sedu_es_9ef,9,SAEB_9EF,D9,1,1,I. ESPAÇO E FORMA,29,29,Um mostruário de acessórios de uma loja é composto por pequenos nichos que são identificados por um referencial de linhas e colunas conforme representado no desenho abaixo. Paula comprou nessa loja o acessório que está no nicho de coordenadas Z2. Qual foi o acessório comprado por Paula nessa loja?,Anel.,Brincos.,Cordão.,Pulseira.,,1,False,,"Um mostruário de acessórios de uma loja é composto por pequenos nichos que são
+identificados por um referencial de linhas e colunas conforme representado no
+desenho abaixo.
+Paula comprou nessa loja o acessório que está no nicho de coordenadas Z2.
+Qual foi o acessório comprado por Paula nessa loja?
+A) Anel.
+B) Brincos.
+C) Cordão.
+D) Pulseira.",B,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D09-02,sedu_es_9ef,9,SAEB_9EF,D9,2,2,I. ESPAÇO E FORMA,30,30,"Observe os pontos representados no plano cartesiano abaixo. O par ordenado (2, – 1) está representado nesse plano cartesiano pelo ponto",Q.,R.,S.,T.,,1,False,,"Observe os pontos representados no plano cartesiano abaixo.
+O par ordenado (2, – 1) está representado nesse plano cartesiano pelo ponto
+A) Q.
+B) R.
+C) S.
+D) T.",B,abaixo,True,True,True,False
+sedu_es_9ef-D09-03,sedu_es_9ef,9,SAEB_9EF,D9,3,3,I. ESPAÇO E FORMA,30,31,"No plano cartesiano, abaixo, estão assinalados os pontos P e Q. Quais são as coordenadas dos pontos P e Q nesse plano cartesiano?","P(1, 1) e Q(1, 1)","P(1, 0) e Q(0, 1)","P(0, 1) e Q(0, 1)","P(0, 1) e Q(1, 0)",,1,False,,"No plano cartesiano, abaixo, estão assinalados os pontos P e Q.
+Quais são as coordenadas dos pontos P e Q nesse plano cartesiano?
+A) P(1, 1) e Q(1, 1)
+B) P(1, 0) e Q(0, 1)
+C) P(0, 1) e Q(0, 1)
+D) P(0, 1) e Q(1, 0)",D,abaixo,True,True,True,False
+sedu_es_9ef-D09-04,sedu_es_9ef,9,SAEB_9EF,D9,4,4,I. ESPAÇO E FORMA,31,31,"Observe a figura abaixo: Quais as coordenadas de A, B e C, respectivamente, no gráfico?","(1, 4), (5, 6) e (4, 2)","(4, 1), (6, 5) e (2, 4)","(5, 6), (1, 4) e (4, 2)","(6, 5), (4, 1) e (2, 4)",,1,False,,"Observe a figura abaixo:
+Quais as coordenadas de A, B e C, respectivamente, no gráfico?
+A) (1, 4),  (5, 6)  e  (4, 2)
+B) (4, 1),  (6, 5)  e  (2, 4)
+C) (5, 6),  (1, 4)  e  (4, 2)
+D) (6, 5),  (4, 1)  e  (2, 4)",C,abaixo|figura|grafico|gráfico,True,True,True,False
+sedu_es_9ef-D10-01,sedu_es_9ef,9,SAEB_9EF,D10,1,1,I. ESPAÇO E FORMA,32,32,"Um serralheiro confeccionou um portão no formato retangular com medidas de comprimento e altura indicadas no desenho abaixo. Para uma melhor sustentação desse portão, uma viga de aço foi colocada na diagonal desse portão. Qual é a medida do comprimento x da viga desse portão?",√7 m,5 m,7 m,√²⁵ 2 m,,1,False,,"Um serralheiro confeccionou um portão no formato retangular com medidas de
+comprimento e altura indicadas no desenho abaixo. Para uma melhor sustentação
+desse portão, uma viga de aço foi colocada na diagonal desse portão.
+Qual é a medida do comprimento x da viga desse portão?
+A) √7 m
+B) 5 m
+C) 7 m
+D) √²⁵
+2 m",B,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D10-02,sedu_es_9ef,9,SAEB_9EF,D10,2,2,I. ESPAÇO E FORMA,32,33,"Durante a reforma de uma cobertura, a empreiteira responsável instalou uma rampa de madeira para depositar o entulho da obra diretamente na caçamba, conforme ilustra o desenho abaixo. Qual é a medida x do comprimento da madeira utilizada para construção dessa rampa?",10 m,14 m,50 m,100 m,,1,False,,"Durante a reforma de uma cobertura, a empreiteira responsável instalou uma rampa de
+madeira para depositar o entulho da obra diretamente na caçamba, conforme ilustra o
+desenho abaixo.
+Qual é a medida x do comprimento da madeira utilizada para construção dessa rampa?
+A) 10 m
+B) 14 m
+C) 50 m
+D) 100 m",A,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D10-03,sedu_es_9ef,9,SAEB_9EF,D10,3,3,I. ESPAÇO E FORMA,33,33,"Um observador, da janela de um edifício, avista um carro parado a 12 metros de distância da entrada da portaria do seu prédio, conforme ilustrado no desenho abaixo. Considerando essa rua plana, a distância, em metros, entre o carro e observador, nesse momento, é",20.,28.,96.,400.,,1,False,,"Um observador, da janela de um edifício, avista um carro parado a 12 metros de
+distância da entrada da portaria do seu prédio, conforme ilustrado no desenho abaixo.
+Considerando essa rua plana, a distância, em metros, entre o carro e observador, nesse
+momento, é
+A) 20.
+B) 28.
+C) 96.
+D) 400.",A,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D10-04,sedu_es_9ef,9,SAEB_9EF,D10,4,4,I. ESPAÇO E FORMA,33,34,"Observe abaixo o esquema de uma rampa inflável para um parque infantil. Essa rampa possui o formato de um prisma reto de base triangular. De acordo com esse desenho, qual é a medida do comprimento dessa rampa inflável?",5 m,7 m,14 m,25 m,,1,False,,"Observe abaixo o esquema de uma rampa inflável para um parque infantil. Essa rampa
+possui o formato de um prisma reto de base triangular.
+De acordo com esse desenho, qual é a medida do comprimento dessa rampa inflável?
+A) 5 m
+B) 7 m
+C) 14 m
+D) 25 m",A,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D11-01,sedu_es_9ef,9,SAEB_9EF,D11,1,1,I. ESPAÇO E FORMA,35,35,"Na circunferência abaixo, de centro O, os segmentos CD , OF e AB são, nessa ordem:","corda, raio e diâmetro.","diâmetro, raio e corda.","raio, corda e diâmetro.","corda, diâmetro e raio.",,1,False,,"Na circunferência abaixo, de centro O, os segmentos CD , OF e AB são, nessa ordem:
+A) corda, raio e diâmetro.
+B) diâmetro, raio e corda.
+C) raio, corda e diâmetro.
+D) corda, diâmetro e raio.",,abaixo,True,True,True,False
+sedu_es_9ef-D11-02,sedu_es_9ef,9,SAEB_9EF,D11,2,2,I. ESPAÇO E FORMA,35,35,"Exatamente no centro de uma mesa redonda com 1m de raio, foi colocado um prato de 30 cm de diâmetro, com doces e salgados para uma festa de final de ano. Qual a distância entre a borda desse prato e a borda da mesa?",115 cm,85 cm,70 cm,20 cm,,0,False,,"Exatamente no centro de uma mesa redonda com 1m de raio, foi colocado um prato de 30 cm
+de diâmetro, com doces e salgados para uma festa de final de ano. Qual a distância entre a
+borda desse prato e a borda da mesa?
+A) 115 cm
+B) 85 cm
+C) 70 cm
+D) 20 cm",C,,False,False,False,True
+sedu_es_9ef-D11-03,sedu_es_9ef,9,SAEB_9EF,D11,3,3,I. ESPAÇO E FORMA,35,36,O diâmetro das rodas de um caminhão é de 80cm. O valor do raio da roda do caminhão é:,20 cm.,120 cm.,80 cm.,40 cm.,,1,False,,"O diâmetro das rodas de um caminhão é de 80cm.
+O valor do raio da roda do caminhão é:
+A) 20 cm.
+B) 120 cm.
+C) 80 cm.
+D) 40 cm.",D,,True,False,True,False
+sedu_es_9ef-D11-04,sedu_es_9ef,9,SAEB_9EF,D11,4,4,I. ESPAÇO E FORMA,36,36,"O senhor Geraldo tem um compromisso às 3 horas. Portanto, às 3 horas, a relação entre o ângulo central (menor ângulo) e o arco correspondente é:",ângulo central é 90º e o arco 180º.,ângulo central é 90º e o arco 90º.,ângulo central é 90º e o arco 180º.,ângulo central é 270º e o arco 270º.,,1,False,,"O senhor Geraldo tem um compromisso às 3 horas.
+Portanto, às 3 horas, a relação entre o ângulo central (menor ângulo) e o arco
+correspondente é:
+A) ângulo central é 90º e o arco 180º.
+B) ângulo central é 90º e o arco 90º.
+C) ângulo central é 90º e o arco 180º.
+D) ângulo central é 270º e o arco 270º.",B,,True,False,True,False
+sedu_es_9ef-D12-01,sedu_es_9ef,9,SAEB_9EF,D12,1,1,II. GRANDEZAS E MEDIDAS,37,37,"Jorge queria fazer uma cerca em volta do jardim de sua chácara e levou o desenho do jardim com as medidas numa loja: Quantos metros de cerca ele vai usar no mínimo para cercar seu jardim? Use π = 3,14.","7,14","12,56","25,12","50,24",,1,False,,"Jorge queria fazer uma cerca em volta do jardim de sua chácara e levou o desenho do
+jardim com as medidas numa loja:
+Quantos metros de cerca ele vai usar no mínimo para cercar seu jardim? Use π = 3,14.
+A) 7,14
+B) 12,56
+C) 25,12
+D) 50,24",C,desenho,True,True,True,False
+sedu_es_9ef-D12-02,sedu_es_9ef,9,SAEB_9EF,D12,2,2,II. GRANDEZAS E MEDIDAS,37,37,Qual é o comprimento de uma circunferência que possui 6 cm de raio?,3 π,6 π,12 π,36 π,,0,False,,"Qual é o comprimento de uma circunferência que possui 6 cm de raio?
+A) 3 π
+B) 6 π
+C) 12 π
+D) 36 π",C,,False,False,False,True
+sedu_es_9ef-D12-03,sedu_es_9ef,9,SAEB_9EF,D12,3,3,II. GRANDEZAS E MEDIDAS,37,38,"Todos os dias de manhã, Rafael dá três voltas completas em torno de uma praça que tem o formato de um hexágono regular, como mostra o desenho abaixo. Quantos metros, no mínimo, Rafael percorre por dia em volta dessa praça?",27,54,152,162,,1,False,,"Todos os dias de manhã, Rafael dá três voltas completas em torno de uma praça que
+tem o formato de um hexágono regular, como mostra o desenho abaixo.
+Quantos metros, no mínimo, Rafael percorre por dia em volta dessa praça?
+A) 27
+B) 54
+C) 152
+D) 162",D,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D12-04,sedu_es_9ef,9,SAEB_9EF,D12,4,4,II. GRANDEZAS E MEDIDAS,38,38,Observe abaixo o formato da cruz que Fábio desenhou em uma malha quadriculada. O lado de cada quadradinho dessa malha equivale a 3 cm. Qual é a medida do perímetro da cruz que Fábio desenhou?,36 cm,45 cm,120 cm,132 cm,,1,False,,"Observe abaixo o formato da cruz que Fábio desenhou em uma malha quadriculada. O
+lado de cada quadradinho dessa malha equivale a 3 cm.
+Qual é a medida do perímetro da cruz que Fábio desenhou?
+A) 36 cm
+B) 45 cm
+C) 120 cm
+D) 132 cm",C,abaixo|malha,True,True,True,False
+sedu_es_9ef-D13-01,sedu_es_9ef,9,SAEB_9EF,D13,1,1,II. GRANDEZAS E MEDIDAS,39,39,"Calcular a área da região limitada por duas circunferências concêntricas, uma com raio 10 cm e a outra com raio 6 cm.",64π cm²,60π cm²,52π cm²,16π cm²,,1,False,,"Calcular a área da região limitada por duas circunferências concêntricas, uma com raio
+10 cm e a outra com raio 6 cm.
+A) 64π cm²
+B) 60π cm²
+C) 52π cm²
+D) 16π cm²",A,,True,False,True,False
+sedu_es_9ef-D13-02,sedu_es_9ef,9,SAEB_9EF,D13,2,2,II. GRANDEZAS E MEDIDAS,39,40,"Uma empresa que fabrica peças em aço foi contratada para produzir um logotipo cujo formato é o de uma justaposição de um triângulo a um semicírculo. Nesse logotipo, a medida do diâmetro do semicírculo é igual a medida da base do triângulo. A figura abaixo apresenta o desenho desse logotipo com algumas de suas medidas. Qual foi a quantidade de aço utilizada por essa empresa para produzir esse logotipo?","65,70 cm².","89,25 cm².","100,00 cm².","207,00 cm².",,1,False,,"Uma empresa que fabrica peças em aço foi contratada para produzir um logotipo cujo
+formato é o de uma justaposição de um triângulo a um semicírculo. Nesse logotipo, a
+medida do diâmetro do semicírculo é igual a medida da base do triângulo. A figura
+abaixo apresenta o desenho desse logotipo com algumas de suas medidas.
+Qual foi a quantidade de aço utilizada por essa empresa para produzir esse logotipo?
+A) 65,70 cm².
+B) 89,25 cm².
+C) 100,00 cm².
+D) 207,00 cm².",C,abaixo|desenho|figura,True,True,True,False
+sedu_es_9ef-D13-03,sedu_es_9ef,9,SAEB_9EF,D13,3,3,II. GRANDEZAS E MEDIDAS,40,40,"Carlos comprou um terreno retangular cujas medidas estão representadas no desenho abaixo e, no centro dele, construiu uma casa de base também retangular medindo 6 metros de largura por 16 metros de comprimento. Ao redor da casa, ele plantou grama de forma a cobrir todo espaço que sobrou do terreno. Quantos metros quadrados de grama Carlos plantou nesse terreno?",16,96,104,200,,1,False,,"Carlos comprou um terreno retangular cujas medidas estão representadas no desenho
+abaixo e, no centro dele, construiu uma casa de base também retangular medindo 6
+metros de largura por 16 metros de comprimento. Ao redor da casa, ele plantou grama
+de forma a cobrir todo espaço que sobrou do terreno.
+Quantos metros quadrados de grama Carlos plantou nesse terreno?
+A) 16
+B) 96
+C) 104
+D) 200",C,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D13-04,sedu_es_9ef,9,SAEB_9EF,D13,4,4,II. GRANDEZAS E MEDIDAS,40,41,"Sérgio resolveu gramar uma área plana que se encontra representada na malha quadriculada abaixo. O preço da grama é R$ 5,00 o metro quadrado. Quantos reais Sérgio gastará para gramar essa área?","R$ 32,00","R$ 81,00","R$ 160,00","R$ 385,00",,1,False,,"Sérgio resolveu gramar uma área plana que se encontra representada na malha
+quadriculada abaixo. O preço da grama é R$ 5,00 o metro quadrado.
+Quantos reais Sérgio gastará para gramar essa área?
+A) R$ 32,00
+B) R$ 81,00
+C) R$ 160,00
+D) R$ 385,00",D,abaixo|malha,True,True,True,False
+sedu_es_9ef-D14-01,sedu_es_9ef,9,SAEB_9EF,D14,1,1,II. GRANDEZAS E MEDIDAS,42,42,Uma caixa de água no formato de um prisma reto está apenas com parte de sua capacidade ocupada com água. O volume de água existente nessa caixa é igual a,6 m³.,9 m³.,12 m³.,24 m³.,,1,False,,"Uma caixa de água no formato de um prisma reto está apenas com parte de sua
+capacidade ocupada com água.
+O volume de água existente nessa caixa é igual a
+A) 6 m³.
+B) 9 m³.
+C) 12 m³.
+D) 24 m³.",D,,True,False,True,False
+sedu_es_9ef-D14-02,sedu_es_9ef,9,SAEB_9EF,D14,2,2,II. GRANDEZAS E MEDIDAS,42,43,"Uma substância estava armazenada em um recipiente no formato de um paralelepípedo retângulo e ocupava toda a capacidade desse recipiente. Essa substância foi completamente transferida para um recipiente de formato cilíndrico. As medidas internas desses dois recipientes estão indicadas no desenho abaixo. Considere: π = 3,14. Qual é a capacidade máxima restante desse cilindro após a transferência dessa substância?","38,8 m³","50,2 m³","62,8 m³","86,8 m³",,1,False,,"Uma substância estava armazenada em um recipiente no formato de um paralelepípedo
+retângulo e ocupava toda a capacidade desse recipiente. Essa substância foi
+completamente transferida para um recipiente de formato cilíndrico. As medidas
+internas desses dois recipientes estão indicadas no desenho abaixo.
+Considere: π = 3,14.
+Qual é a capacidade máxima restante desse cilindro após a transferência dessa
+substância?
+A) 38,8 m³
+B) 50,2 m³
+C) 62,8 m³
+D) 86,8 m³",A,abaixo|desenho,True,True,True,False
+sedu_es_9ef-D14-03,sedu_es_9ef,9,SAEB_9EF,D14,3,3,II. GRANDEZAS E MEDIDAS,43,43,"Devido ao aumento na venda de bancadas de mármore e granito, o dono de uma marmoraria instalou em seu estabelecimento outra caixa d’água, com formato de paralelepípedo retângulo, cujas medidas internas são: 1,7 m de comprimento, 1,5 m de largura e 5,6 m de altura. Qual é o volume interno dessa caixa d’água?","14,28 m³","8,80 m³","8,15 m³","2,55 m³",,0,False,,"Devido ao aumento na venda de bancadas de mármore e granito, o dono de uma
+marmoraria instalou em seu estabelecimento outra caixa d’água, com formato de
+paralelepípedo retângulo, cujas medidas internas são: 1,7 m de comprimento, 1,5 m de
+largura e 5,6 m de altura.
+Qual é o volume interno dessa caixa d’água?
+A) 14,28 m³
+B) 8,80 m³
+C) 8,15 m³
+D) 2,55 m³",A,,False,False,False,True
+sedu_es_9ef-D14-04,sedu_es_9ef,9,SAEB_9EF,D14,4,4,II. GRANDEZAS E MEDIDAS,43,43,"Maria produz, em sua fábrica, um produto na forma cúbica. Para vender seus produtos ela acondiciona-os em caixa maiores. A quantidade produtos que Maria consegue colocar na caixa grande é",4,32,72,192,,1,False,,"Maria produz, em sua fábrica, um produto na forma cúbica. Para vender seus produtos
+ela acondiciona-os em caixa maiores.
+A quantidade produtos que Maria consegue colocar na caixa grande é
+A) 4
+B) 32
+C) 72
+D) 192",D,,True,False,True,False
+sedu_es_9ef-D15-01,sedu_es_9ef,9,SAEB_9EF,D15,1,1,II. GRANDEZAS E MEDIDAS,44,44,"Foram descarregados em um porto 7,8 toneladas de equipamentos eletrônicos e 4 500 quilogramas de materiais elétricos, importados por uma empresa. A quantidade total desses produtos, em quilogramas, é igual a","4 507,8",5 280,12 300,82 500,,0,False,,"Foram descarregados em um porto 7,8 toneladas de equipamentos eletrônicos e 4 500
+quilogramas de materiais elétricos, importados por uma empresa.
+A quantidade total desses produtos, em quilogramas, é igual a
+A) 4 507,8
+B) 5 280
+C) 12 300
+D) 82 500",C,,False,False,False,True
+sedu_es_9ef-D15-02,sedu_es_9ef,9,SAEB_9EF,D15,2,2,II. GRANDEZAS E MEDIDAS,44,44,"O médico de Laura receitou um antibiótico para tratar uma infecção de garganta. O tratamento de Laura consiste em tomar 1 comprimido de 500 mg duas vezes ao dia, durante 10 dias. Quantos gramas desse antibiótico Laura deverá tomar durante esse tratamento?",5 g,10 g,1 000 g,10 000 g,,0,False,,"O médico de Laura receitou um antibiótico para tratar uma infecção de garganta. O
+tratamento de Laura consiste em tomar 1 comprimido de 500 mg duas vezes ao dia,
+durante 10 dias.
+Quantos gramas desse antibiótico Laura deverá tomar durante esse tratamento?
+A) 5 g
+B) 10 g
+C) 1 000 g
+D) 10 000 g",B,,False,False,False,True
+sedu_es_9ef-D15-03,sedu_es_9ef,9,SAEB_9EF,D15,3,3,II. GRANDEZAS E MEDIDAS,44,44,"Pedro vai comprar 2 litros de refrigerante. Ao chegar ao supermercado, a garrafa de refrigerante de 500 ml estava na promoção. Pedro precisa comprar quantas garrafas de 500 ml para levar os dois litros de refrigerantes que ele precisa?",3 garrafas.,2 garrafas.,4 garrafas.,5 garrafas.,,0,False,,"Pedro vai comprar 2 litros de refrigerante. Ao chegar ao supermercado, a garrafa de
+refrigerante de 500 ml estava na promoção.
+Pedro precisa comprar quantas garrafas de 500 ml para levar os dois litros de
+refrigerantes que ele precisa?
+A) 3 garrafas.
+B) 2 garrafas.
+C) 4 garrafas.
+D) 5 garrafas.",C,,False,False,False,True
+sedu_es_9ef-D15-04,sedu_es_9ef,9,SAEB_9EF,D15,4,4,II. GRANDEZAS E MEDIDAS,45,45,"A placa de trânsito abaixo indica a distância de um determinado ponto de uma rodovia até a cidade de Brasílica – DF. De acordo com essa placa, essa distância, em metros, é igual a",50 000,5 000,500,50,,1,False,,"A placa de trânsito abaixo indica a distância de um determinado ponto de uma rodovia até a cidade
+de Brasílica – DF.
+De acordo com essa placa, essa distância, em metros, é igual a
+A) 50 000
+B) 5 000
+C) 500
+D) 50",B,abaixo,True,True,True,False
+sedu_es_9ef-D16-01,sedu_es_9ef,9,SAEB_9EF,D16,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,46,46,"Observe abaixo a reta numérica em que os segmentos marcados estão igualmente espaçados. Nessa reta, os pontos que representam os números – 2 e 3 são, respectivamente,",P e Q.,Q e S.,R e S.,R e P.,,1,False,,"Observe abaixo a reta numérica em que os segmentos marcados estão igualmente
+espaçados.
+Nessa reta, os pontos que representam os números      – 2 e 3 são, respectivamente,
+A) P e Q.
+B) Q e S.
+C) R e S.
+D) R e P.",B,abaixo,True,True,True,False
+sedu_es_9ef-D16-02,sedu_es_9ef,9,SAEB_9EF,D16,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,46,46,Veja a temperatura de algumas cidades em determinado dia do ano. RESP. A Essa tabela pode ser representada pela reta:,,,,,,5,False,alternativas não localizadas no texto,"Veja a temperatura de algumas cidades em determinado dia do ano. RESP. A
+Essa tabela pode ser representada pela reta:",A,tabela,True,True,True,False
+sedu_es_9ef-D16-03,sedu_es_9ef,9,SAEB_9EF,D16,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,47,47,"Na reta numérica da figura abaixo, o ponto E corresponde ao número inteiro -9 e o ponto F, ao inteiro -7. Nessa reta, o ponto correspondente ao inteiro zero estará:",sobre o ponto M.,entre os pontos L e M.,entre os pontos I e J.,sobre o ponto J.,,1,False,,"Na reta numérica da figura abaixo, o ponto E corresponde ao número inteiro -9 e o ponto
+F, ao inteiro -7.
+Nessa reta, o ponto correspondente ao inteiro zero estará:
+A) sobre o ponto M.
+B) entre os pontos L e M.
+C) entre os pontos I e J.
+D) sobre o ponto J.",C,abaixo|figura,True,True,True,False
+sedu_es_9ef-D16-04,sedu_es_9ef,9,SAEB_9EF,D16,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,47,47,"Na reta numérica da figura abaixo, o ponto G corresponde ao número inteiro 1 e o ponto H, ao número inteiro 2. Nessa reta, o ponto correspondente ao inteiro 5 é:",a letra K.,a letra B.,a letra L,a letra I.,,1,False,,"Na reta numérica da figura abaixo, o ponto G corresponde ao número inteiro 1 e o
+ponto H, ao número inteiro 2.
+Nessa reta, o ponto correspondente ao inteiro 5 é:
+A) a letra K.
+B) a letra B.
+C) a letra L
+D) a letra I.",A,abaixo|figura,True,True,True,False
+sedu_es_9ef-D17-01,sedu_es_9ef,9,SAEB_9EF,D17,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,48,48,"Observe a reta numerada. Nessa reta numerada, os números representados pelos pontos P e Q são","7,5 e 9,1.","7,6 e 9,1.","7,6 e 9,2.","7,5 e 9,2.",,1,False,,"Observe a reta numerada.
+Nessa reta numerada, os números representados pelos pontos P e Q são
+A) 7,5 e 9,1.
+B) 7,6 e 9,1.
+C) 7,6 e 9,2.
+D) 7,5 e 9,2.",D,,True,False,True,False
+sedu_es_9ef-D17-02,sedu_es_9ef,9,SAEB_9EF,D17,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,48,48,Observe a reta numérica abaixo. Ela está dividida em segmentos de mesma medida. 𝟓 Qual é o ponto que melhor representa a localização do número 𝟒 ⁿessa reta?,M.,L.,K.,J.,,1,False,,"Observe a reta numérica abaixo. Ela está dividida em segmentos de mesma medida.
+𝟓
+Qual é o ponto que melhor representa a localização do número
+𝟒  ⁿessa reta?
+A) M.
+B) L.
+C) K.
+D) J.",B,abaixo,True,True,True,False
+sedu_es_9ef-D17-03,sedu_es_9ef,9,SAEB_9EF,D17,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,48,49,"Observe a reta numérica abaixo. Nessa reta, que número corresponde ao ponto P?","5,4","5,5","5,6","5,9",,1,False,,"Observe a reta numérica abaixo.
+Nessa reta, que número corresponde ao ponto P?
+A) 5,4
+B) 5,5
+C) 5,6
+D) 5,9",C,abaixo,True,True,True,False
+sedu_es_9ef-D17-04,sedu_es_9ef,9,SAEB_9EF,D17,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,49,49,Observe os números que aparecem na reta abaixo. O número indicado pela seta é,"0,9","0,54","0,8","0,55",,1,False,,"Observe os números que aparecem na reta abaixo.
+O número indicado pela seta é
+A) 0,9
+B) 0,54
+C) 0,8
+D) 0,55",B,abaixo,True,True,True,False
+sedu_es_9ef-D18-01,sedu_es_9ef,9,SAEB_9EF,D18,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,50,50,Observe a expressão no quadro abaixo. Qual é o resultado dessa expressão?,"– 6,3","– 0,3","0,3","6,3",,1,False,,"Observe a expressão no quadro abaixo.
+Qual é o resultado dessa expressão?
+A) – 6,3
+B) – 0,3
+C) 0,3
+D) 6,3",C,abaixo,True,True,True,False
+sedu_es_9ef-D18-02,sedu_es_9ef,9,SAEB_9EF,D18,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,50,50,"Sendo N = (–3)² – 3², então, o valor de N é:",18.,0.,– 18.,12.,,0,False,,"Sendo N = (–3)² – 3², então, o valor de N é:
+A) 18.
+B) 0.
+C) – 18.
+D) 12.",B,,False,False,False,True
+sedu_es_9ef-D18-03,sedu_es_9ef,9,SAEB_9EF,D18,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,50,50,Ao resolver corretamente a expressão: –1 – (–5)·(–3) + (–4)³ : (–4) O resultado é,– 13,– 2,0,30,,0,False,,"Ao resolver corretamente a expressão:
+–1 – (–5)·(–3) + (–4)³ : (–4)
+O resultado é
+A) – 13
+B) – 2
+C) 0
+D) 30",C,,False,False,False,True
+sedu_es_9ef-D18-04,sedu_es_9ef,9,SAEB_9EF,D18,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,51,51,A professora solicitou a um aluno que resolvesse a seguinte expressão: N = (– 4)² – 4².,32,0,– 32,16,,0,False,,"A professora solicitou a um aluno que resolvesse a seguinte expressão: N = (– 4)² – 4².
+A) 32
+B) 0
+C) – 32
+D) 16",B,,False,False,False,True
+sedu_es_9ef-D19-01,sedu_es_9ef,9,SAEB_9EF,D19,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,52,52,"Uma companhia aérea possui um programa de fidelidade segundo o qual os clientes acumulam pontos ao dar preferência para ela em suas viagens, podendo trocá-los, no futuro, por passagens aéreas ou descontos, de acordo com a promoção vigente. Joaquim, que participa desse programa, deseja adquirir uma passagem aérea dessa companhia utilizando seus pontos acumulados e foi informado de que, para isso, precisaria ter 33 684 pontos. Ele verificou que já possui 18 945 pontos acumulados em sua conta. Quantos pontos Joaquim ainda precisa acumular em sua conta para adquirir essa passagem aérea?",14 739,18 945,25 341,52 629,,0,False,,"Uma companhia aérea possui um programa de fidelidade segundo o qual os clientes
+acumulam pontos ao dar preferência para ela em suas viagens, podendo trocá-los, no
+futuro, por passagens aéreas ou descontos, de acordo com a promoção vigente.
+Joaquim, que participa desse programa, deseja adquirir uma passagem aérea dessa
+companhia utilizando seus pontos acumulados e foi informado de que, para isso,
+precisaria ter 33 684 pontos. Ele verificou que já possui 18 945 pontos acumulados em
+sua conta.
+Quantos pontos Joaquim ainda precisa acumular em sua conta para adquirir essa
+passagem aérea?
+A) 14 739
+B) 18 945
+C) 25 341
+D) 52 629",A,,False,False,False,True
+sedu_es_9ef-D19-02,sedu_es_9ef,9,SAEB_9EF,D19,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,52,52,"Uma loja de sapatos anunciou a seguinte promoção: “Na compra de três pares de tênis, o de menor valor sai pela metade do preço.” André aproveitou essa promoção e comprou 3 pares de tênis para seus filhos que custaram 112 reais, 98 reais e 138 reais. A quantia que André pagou por essa compra foi",174 reais.,279 reais.,299 reais.,348 reais.,,0,False,,"Uma loja de sapatos anunciou a seguinte promoção:
+“Na compra de três pares de tênis, o de menor valor sai pela metade do preço.”
+André aproveitou essa promoção e comprou 3 pares de tênis para seus filhos que
+custaram 112 reais, 98 reais e 138 reais.
+A quantia que André pagou por essa compra foi
+A) 174 reais.
+B) 279 reais.
+C) 299 reais.
+D) 348 reais.",C,,False,False,False,True
+sedu_es_9ef-D19-03,sedu_es_9ef,9,SAEB_9EF,D19,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,53,53,"No mês de janeiro foi feita uma liquidação em uma loja. Um rapaz comprou duas calças de 94 reais cada, três camisas de 65 reais cada, um tênis de 125 reais, um boné e uma sandália de 49 reais cada um. Desse total, o rapaz pagou 156 reais à vista e o restante dividiu em 3 vezes sem juros no cartão. Qual foi o valor pago em cada uma dessas parcelas?",59 reais.,150 reais.,202 reais.,254 reais.,,0,False,,"No mês de janeiro foi feita uma liquidação em uma loja. Um rapaz comprou duas calças
+de 94 reais cada, três camisas de 65 reais cada, um tênis de 125 reais, um boné e uma
+sandália de 49 reais cada um. Desse total, o rapaz pagou 156 reais à vista e o restante
+dividiu em 3 vezes sem juros no cartão.
+Qual foi o valor pago em cada uma dessas parcelas?
+A) 59 reais.
+B) 150 reais.
+C) 202 reais.
+D) 254 reais.",C,,False,False,False,True
+sedu_es_9ef-D19-04,sedu_es_9ef,9,SAEB_9EF,D19,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,53,53,"Para uma festa de aniversário, Nélia comprou 200 salgados, sendo que, desse total, 110 são coxinhas, 50 são quibes e o restante são empadas. Quantas empadas, ao todo, Nélia comprou para essa festa de aniversário?",360,160,90,40,,0,False,,"Para uma festa de aniversário, Nélia comprou 200 salgados, sendo que, desse total, 110
+são coxinhas, 50 são quibes e o restante são empadas. Quantas empadas, ao todo,
+Nélia comprou para essa festa de aniversário?
+A) 360
+B) 160
+C) 90
+D) 40",C,,False,False,False,True
+sedu_es_9ef-D20-01,sedu_es_9ef,9,SAEB_9EF,D20,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,54,54,Pedro viajou para Buenos Aires e no dia em que chegou a temperatura máxima registrada foi de 11 °C e a mínima foi de – 3 °C. Qual foi a variação da temperatura em Buenos Aires nesse dia?,– 14 °C,– 8 °C,8 °C,14 °C,,0,False,,"Pedro viajou para Buenos Aires e no dia em que chegou a temperatura máxima
+registrada foi de 11 °C e a mínima foi de – 3 °C.
+Qual foi a variação da temperatura em Buenos Aires nesse dia?
+A) – 14 °C
+B) – 8 °C
+C) 8 °C
+D) 14 °C",D,,False,False,False,True
+sedu_es_9ef-D20-02,sedu_es_9ef,9,SAEB_9EF,D20,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,54,54,"Em um campeonato de futebol, um time obtém 3 pontos a cada gol marcado e perde 2 pontos a cada gol sofrido. Esse time jogou três partidas nesse campeonato. Na primeira, ele marcou 3 gols e sofreu 1, na segunda, empatou por 2 a 2 e, na terceira, sofreu um gol e não marcou nenhum. Quantos pontos no total esse time obteve nessas três partidas?",1,2,7,15,,0,False,,"Em um campeonato de futebol, um time obtém 3 pontos a cada gol marcado e perde 2
+pontos a cada gol sofrido. Esse time jogou três partidas nesse campeonato. Na
+primeira, ele marcou 3 gols e sofreu 1, na segunda, empatou por 2 a 2 e, na terceira,
+sofreu um gol e não marcou nenhum.
+Quantos pontos no total esse time obteve nessas três partidas?
+A) 1
+B) 2
+C) 7
+D) 15",C,,False,False,False,True
+sedu_es_9ef-D20-03,sedu_es_9ef,9,SAEB_9EF,D20,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,54,55,"Paulo abriu uma conta corrente com crédito de cheque especial e nela fez um depósito de 300 reais. Ele emitiu 2 cheques, um no valor de 200 reais e outro de 300 reais. Considerando que não houve nenhuma outra transação na conta de Paulo nesse período, seu saldo após a compensação desses cheques é de",800 reais positivos.,200 reais positivos.,200 reais negativos.,800 reais negativos.,,0,False,,"Paulo abriu uma conta corrente com crédito de cheque especial e nela fez um depósito
+de 300 reais. Ele emitiu 2 cheques, um no valor de 200 reais e outro de 300 reais.
+Considerando que não houve nenhuma outra transação na conta de Paulo nesse
+período, seu saldo após a compensação desses cheques é de
+A) 800 reais positivos.
+B) 200 reais positivos.
+C) 200 reais negativos.
+D) 800 reais negativos.",C,,False,False,False,True
+sedu_es_9ef-D20-04,sedu_es_9ef,9,SAEB_9EF,D20,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,55,55,"Num determinado dia, numa cidade do Rio Grande do Sul, o termômetro marcava, às 7 horas da manhã, – 2 °C. Às dez horas da manhã do mesmo dia, o termômetro marcava 10°C. Quanto variou a temperatura, em °C, dessa cidade nesse intervalo de tempo?",– 12,– 8,12,8,,0,False,,"Num determinado dia, numa cidade do Rio Grande do Sul, o termômetro marcava, às 7
+horas da manhã, – 2 °C. Às dez horas da manhã do mesmo dia, o termômetro marcava
+10°C. Quanto variou a temperatura, em °C, dessa cidade nesse intervalo de tempo?
+A) – 12
+B) – 8
+C) 12
+D) 8",C,,False,False,False,True
+sedu_es_9ef-D21-01,sedu_es_9ef,9,SAEB_9EF,D21,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,56,56,"De uma turma com 20 estudantes, 9 são meninas. A fração que representa a quantidade de meninas em relação ao total de estudantes dessa turma é",,,,,D,1,False,"resposta impressa no enunciado, removida; alternativas não localizadas no texto","De uma turma com 20 estudantes, 9 são meninas.           (Resp. D)
+A fração que representa a quantidade de meninas em relação ao total de estudantes
+dessa turma é",D,,True,False,True,False
+sedu_es_9ef-D21-02,sedu_es_9ef,9,SAEB_9EF,D21,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,56,56,"Mirian vende doces no trabalho. Em um dia, ela levou 30 doces e vendeu 25. Qual é a fração que representa a razão entre a quantidade vendida e o total de doces levados por Mirian nesse dia?",,,,,B,1,False,"resposta impressa no enunciado, removida; alternativas não localizadas no texto","Mirian vende doces no trabalho. Em um dia, ela levou 30 doces e vendeu 25.
+Qual é a fração que representa a razão entre a quantidade vendida e o total de doces
+levados por Mirian nesse dia?      (Resp. B)",B,,True,False,True,False
+sedu_es_9ef-D21-03,sedu_es_9ef,9,SAEB_9EF,D21,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,56,56,"Uma empresa petrolífera processa em sua refinaria 1,7 milhões de barris por dia. Ela pretende aumentar sua capacidade para 2,342 milhões de barris por dia. Qual é, em milhões de barris por dia, a diferença entre a capacidade atual e a que ela pretende alcançar?","14,658","2340,3","2,325","0,642",,0,False,,"Uma empresa petrolífera processa em sua refinaria 1,7 milhões de barris por dia. Ela
+pretende aumentar sua capacidade para 2,342 milhões de barris por dia.
+Qual é, em milhões de barris por dia, a diferença entre a capacidade atual e a que ela
+pretende alcançar?
+A) 14,658
+B) 2340,3
+C) 2,325
+D) 0,642",D,,False,False,False,True
+sedu_es_9ef-D21-04,sedu_es_9ef,9,SAEB_9EF,D21,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,57,57,"Observe as figuras: Pedrinho e José fizeram uma aposta para ver quem comia mais pedaços de pizza. Pediram duas pizzas de igual tamanho. Pedrinho dividiu a sua em oito pedaços iguais e comeu seis: José dividiu a sua em doze pedaços iguais e comeu nove. Então,",Pedrinho e José comeram a mesma quantidade de pizza.,José comeu o dobro do que Pedrinho comeu.,Pedrinho comeu o triplo do que José comeu.,José comeu a metade do que Pedrinho comeu.,,1,False,,"Observe as figuras:
+Pedrinho e José fizeram uma aposta para ver quem comia mais pedaços de pizza.
+Pediram duas pizzas de igual tamanho.
+Pedrinho dividiu a sua em oito pedaços iguais e comeu seis: José dividiu a sua em doze
+pedaços iguais e comeu nove. Então,
+A) Pedrinho e José comeram a mesma quantidade de pizza.
+B) José comeu o dobro do que Pedrinho comeu.
+C) Pedrinho comeu o triplo do que José comeu.
+D) José comeu a metade do que Pedrinho comeu.",A,,True,False,True,False
+sedu_es_9ef-D22-01,sedu_es_9ef,9,SAEB_9EF,D22,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,58,58,Joice coloriu 3/5 dos quadradinhos da figura abaixo. Quantos quadradinhos sobraram sem colorir?,12,9,8,6,,1,False,,"Joice coloriu
+3/5 dos quadradinhos da figura abaixo.
+Quantos quadradinhos sobraram sem colorir?
+A) 12
+B) 9
+C) 8
+D) 6",D,abaixo|figura,True,True,True,False
+sedu_es_9ef-D22-02,sedu_es_9ef,9,SAEB_9EF,D22,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,58,58,Um bolo foi cortado em 16 pedaços iguais e 14 fatias foram distribuídas. A fração que representa a parte do bolo que foi distribuída é:,7/8,1/7,1/8,8/7,,1,True,,"Um bolo foi cortado em 16 pedaços iguais e 14 fatias foram distribuídas.
+A fração que representa a parte do bolo que foi distribuída é:
+A)
+7/8
+B)
+1/7
+C)
+1/8
+D)
+8/7",A,,True,False,True,False
+sedu_es_9ef-D22-03,sedu_es_9ef,9,SAEB_9EF,D22,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,58,59,"Uma massa de bolo precisa ser batida durante 1/4 de hora, ou seja, durante:",5 min,15 min,30 min,45 min,,0,False,,"Uma massa de bolo precisa ser batida durante
+1/4 de hora, ou seja, durante:
+A) 5 min
+B) 15 min
+C) 30 min
+D) 45 min",B,,False,False,False,True
+sedu_es_9ef-D22-04,sedu_es_9ef,9,SAEB_9EF,D22,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,59,59,"Paula comprou dois potes de sorvete, ambos com a mesma quantidade do produto. Um dos potes continha quantidades iguais dos sabores chocolate, creme e morango; e o outro quantidades iguais dos sabores chocolate e baunilha. Então, é CORRETO afirmar que, nessa compra, a fração correspondente à quantidade de sorvete do sabor chocolate foi",2/5,3/5,5/12,5/6,,0,False,,"Paula comprou dois potes de sorvete, ambos com a mesma quantidade do produto.
+Um dos potes continha quantidades iguais dos sabores chocolate, creme e morango;
+e o outro quantidades iguais dos sabores chocolate e baunilha.
+Então, é CORRETO afirmar que, nessa compra, a fração correspondente à quantidade
+de sorvete do sabor chocolate foi
+A)
+2/5
+B)
+3/5
+C)
+5/12             D)
+5/6",A,,False,False,False,True
+sedu_es_9ef-D23-01,sedu_es_9ef,9,SAEB_9EF,D23,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,60,60,"Carlos, Adriana, Paulo e Joana participaram de uma olimpíada de Matemática. Do total de questões propostas. Carlos acertou 2/4 , Adriana acertou 3/4 , Paulo acertou 3/8 e Joana acertou 6/8 . Houve empate entre dois deles. Quais participantes acertaram o mesmo número de questões.",Carlos e Adriana,Paulo e Joana,Carlos e Paulo,Adriana e Joana,,0,False,,"Carlos, Adriana, Paulo e Joana participaram de uma olimpíada de Matemática.
+Do total de questões propostas. Carlos acertou
+2/4 , Adriana acertou
+3/4 , Paulo acertou
+3/8 e Joana acertou
+6/8 .
+Houve empate entre dois deles. Quais participantes acertaram o mesmo número de
+questões.
+A) Carlos e Adriana
+B) Paulo e Joana
+C) Carlos e Paulo
+D) Adriana e Joana",D,,False,False,False,True
+sedu_es_9ef-D23-02,sedu_es_9ef,9,SAEB_9EF,D23,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,60,60,Observe as frações a seguir: 92 9 54 46 I − II − III − IV − 72 7 60 36 São equivalentes as frações,I e III.,I e IV.,II e III.,"I, II, III e IV.",,0,True,,"Observe as frações a seguir:
+92
+9
+54
+46
+I
+−
+II
+−
+III
+−
+IV
+−
+72
+7
+60
+36
+São equivalentes as frações
+A) I e III.
+B) I e IV.
+C) II e III.
+(D) I, II, III e IV.",B,a seguir,False,True,True,False
+sedu_es_9ef-D23-03,sedu_es_9ef,9,SAEB_9EF,D23,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,60,61,Qual das frações abaixo é equivalente a 4/9 ?,28/63,14/19,13/9,16/9,,0,True,,"Qual das frações abaixo é equivalente a
+4/9 ?
+A)
+28/63
+B)
+14/19
+C)
+13/9
+D)
+16/9",A,abaixo,False,True,True,False
+sedu_es_9ef-D23-04,sedu_es_9ef,9,SAEB_9EF,D23,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,61,61,"Observe o quadrinho abaixo e assinale a opção que conclui corretamente a discussão do casal. A) Essa discussão é inútil, pois as quantias são iguais. B) Ele está com a razão, pois ela quer muito mais dinheiro do que ele ofereceu. B) Ela está com a razão, pois ele está oferecendo muito pouco dinheiro. D) Essa discussão é inútil, pois ela está pedindo uma quantia inferior à que ele está oferecendo.",,,,,,1,False,alternativas não localizadas no texto,"Observe o quadrinho abaixo e assinale a opção que conclui corretamente a discussão
+do casal.
+A) Essa discussão é inútil, pois as quantias são iguais.
+B) Ele está com a razão, pois ela quer muito mais dinheiro do que ele ofereceu.
+B) Ela está com a razão, pois ele está oferecendo muito pouco dinheiro.
+D) Essa discussão é inútil, pois ela está pedindo uma quantia inferior à que ele está
+oferecendo.",A,abaixo,True,True,True,False
+sedu_es_9ef-D24-01,sedu_es_9ef,9,SAEB_9EF,D24,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,62,62,"Um posto de combustível colocou um cartaz anunciando o preço da gasolina por 2,206 reais o litro. Isso significa que o posto vende a gasolina a 2 reais e:","0,206 centésimo de real.","0,206 décimos de real.",206 centésimos de real.,206 milésimo de real.,,0,False,,"Um posto de combustível colocou um cartaz anunciando o preço da gasolina por 2,206
+reais o litro.
+Isso significa que o posto vende a gasolina a 2 reais e:
+A) 0,206 centésimo de real.
+B) 0,206 décimos de real.
+C) 206 centésimos de real.
+D) 206 milésimo de real.",D,,False,False,False,True
+sedu_es_9ef-D24-02,sedu_es_9ef,9,SAEB_9EF,D24,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,62,62,"O número decimal que é decomposto em 5 + 0,06 + 0,002 é","5,62","5,602","5,206","5,062",,0,False,,"O número decimal que é decomposto em
+5 + 0,06 + 0,002
+é
+A) 5,62
+B) 5,602
+C) 5,206
+D) 5,062",D,,False,False,False,True
+sedu_es_9ef-D24-03,sedu_es_9ef,9,SAEB_9EF,D24,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,62,62,"O número decimal 2,401 pode ser decomposto em:","2 + 0,4 + 0,001","2 + 0,4 + 0,01","2 + 0,4 + 0,1","2 + 4 + 0,1",,0,False,,"O número decimal 2,401 pode ser decomposto em:
+A) 2 + 0,4 + 0,001
+B) 2 + 0,4 + 0,01
+C) 2 + 0,4 + 0,1
+D) 2 + 4 + 0,1",A,,False,False,False,True
+sedu_es_9ef-D24-04,sedu_es_9ef,9,SAEB_9EF,D24,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,63,63,"Um posto de combustível colocou um cartaz anunciando o preço do etanol por 1,448 reais o litro. Isso significa que o posto vende o etanol a 1 real e:","0,448 centésimos de real.","0,448 décimos de real.",448 centésimos de real.,448 milésimos de real.,,1,False,,"Um posto de combustível colocou um cartaz anunciando o preço do etanol por 1,448
+reais o litro.
+Isso significa que o posto vende o etanol a 1 real e:
+A) 0,448 centésimos de real.
+B) 0,448 décimos de real.
+C) 448 centésimos de real.
+D) 448 milésimos de real.",D,,True,False,True,False
+sedu_es_9ef-D25-01,sedu_es_9ef,9,SAEB_9EF,D25,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,64,64,Observe a expressão no quadro abaixo. Qual é o resultado dessa expressão?,– 69,– 61,– 37,– 29,,1,False,,"Observe a expressão no quadro abaixo.
+Qual é o resultado dessa expressão?
+A) – 69
+B) – 61
+C) – 37
+D) – 29",B,abaixo,True,True,True,False
+sedu_es_9ef-D25-02,sedu_es_9ef,9,SAEB_9EF,D25,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,64,64,"3/2  Seja M = ,0 03 + 49 −   4  .   O valor de M é:",103,"0,103","10,3","1,03",,0,True,,"3/2
+
+Seja
+M
+=
+,0
+03
++
+49
+−
+
+
+4
+
+.
+
+
+O valor de M é:
+A) 103
+B) 0,103
+C) 10,3
+D) 1,03",D,,False,False,False,False
+sedu_es_9ef-D25-03,sedu_es_9ef,9,SAEB_9EF,D25,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,64,65,1/3  1/3  A professora de matemática propôs como exercício a expressão: +  1  −  1  .     Os alunos que resolveram corretamente a expressão encontraram como resultado: 8/9,−,0,8/9,2,,0,True,,"1/3
+
+1/3
+
+A professora de matemática propôs como exercício a expressão:
++
+
+1
+
+−
+
+1
+
+.
+
+
+
+
+Os alunos que resolveram corretamente a expressão encontraram como resultado:
+8/9
+A)
+−
+B) 0
+C)
+8/9
+D) 2",C,,False,False,False,False
+sedu_es_9ef-D25-04,sedu_es_9ef,9,SAEB_9EF,D25,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,65,65,"Fazendo-se as operações indicadas em 0,74 + 0,5 – 1,5 obtém-se:","– 0,64","– 0,26","0,26","0,64.",,0,False,,"Fazendo-se as operações indicadas em  0,74 + 0,5 – 1,5 obtém-se:
+A) – 0,64
+B) – 0,26
+C) 0,26
+D) 0,64.",B,,False,False,False,True
+sedu_es_9ef-D26-01,sedu_es_9ef,9,SAEB_9EF,D26,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,66,66,"Vanessa comprou 2,3 metros de tecido para fazer um vestido. Ela gastou apenas 1,5 metro desse tecido para confeccionar o vestido. Quantos metros desse tecido sobraram?","0,8 m","1,2 m","1,8 m","3,8 m",,0,False,,"Vanessa comprou 2,3 metros de tecido para fazer um vestido. Ela gastou apenas 1,5
+metro desse tecido para confeccionar o vestido.
+Quantos metros desse tecido sobraram?
+A) 0,8 m
+B) 1,2 m
+C) 1,8 m
+D) 3,8 m",A,,False,False,False,True
+sedu_es_9ef-D26-02,sedu_es_9ef,9,SAEB_9EF,D26,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,66,66,"Uma torre de celular de 9,5 metros de altura vai ser ampliada para atender melhor e mais pessoas. O engenheiro encarregado de projetar a mudança calculou que para atender a região desejada pela operadora, seria necessário ampliar a altura da torre já existente, essa altura seria a altura original elevada ao quadrado (9,5²). Qual a nova altura da torre de celular?",19 m,"90,25 m",190 m,"902,5 m",,0,False,,"Uma torre de celular de 9,5 metros de altura vai ser ampliada para atender melhor e
+mais pessoas. O engenheiro encarregado de projetar a mudança calculou que para
+atender a região desejada pela operadora, seria necessário ampliar a altura da torre já
+existente, essa altura seria a altura original elevada ao quadrado (9,5²). Qual a nova
+altura da torre de celular?
+A) 19 m
+B) 90,25 m
+C) 190 m
+D) 902,5 m",B,,False,False,False,True
+sedu_es_9ef-D26-03,sedu_es_9ef,9,SAEB_9EF,D26,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,66,66,"Dona Florinda compra uma dúzia de um certo produto por R$ 162,00 e vende cada unidade por R$ 15,50. Comprando e vendendo 20 dessas unidades ela terá","lucro de R$ 40,00.","lucro de R$ 310,00.","prejuízo de R$ 40,00.","prejuízo de R$ 270,00.",,0,False,,"Dona Florinda compra uma dúzia de um certo produto por R$ 162,00 e vende cada
+unidade por R$ 15,50.
+Comprando e vendendo 20 dessas unidades ela terá
+A) lucro de R$ 40,00.
+B) lucro de R$ 310,00.
+C) prejuízo de R$ 40,00.
+D) prejuízo de R$ 270,00.",A,,False,False,False,True
+sedu_es_9ef-D26-04,sedu_es_9ef,9,SAEB_9EF,D26,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,67,67,No tanque de gasolina de um carro cabe 48 litros de combustível. Observe o marcador e calcule quantos litros há no tanque.,10 litros,12 litros,14 litros,16 litros,,1,False,,"No tanque de gasolina de um carro cabe 48 litros de combustível.
+Observe o marcador e calcule quantos litros há no tanque.
+A) 10 litros
+B) 12 litros
+C) 14 litros
+D) 16 litros",B,,True,False,True,False
+sedu_es_9ef-D27-01,sedu_es_9ef,9,SAEB_9EF,D27,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,68,68,Observe a expressão numérica no quadro abaixo. 𝟕+ √𝟕 O valor aproximado dessa expressão é,"9,6.","10,5.","21,0.","56,0.",,0,False,,"Observe a expressão numérica no quadro abaixo.
+𝟕+ √𝟕
+O valor aproximado dessa expressão é
+A) 9,6.
+B) 10,5.
+C) 21,0.
+D) 56,0.",A,abaixo,False,True,True,False
+sedu_es_9ef-D27-02,sedu_es_9ef,9,SAEB_9EF,D27,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,68,68,"Observe a operação no quadro abaixo. √𝟐𝟎−√𝟐 O resultado dessa operação, com aproximação na ordem dos centésimos, é","3,06","4,24","9,00","18,00",,0,False,,"Observe a operação no quadro abaixo.
+√𝟐𝟎−√𝟐
+O resultado dessa operação, com aproximação na ordem dos centésimos, é
+A) 3,06
+B) 4,24
+C) 9,00
+D) 18,00",A,abaixo,False,True,True,False
+sedu_es_9ef-D27-03,sedu_es_9ef,9,SAEB_9EF,D27,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,68,68,Observe a expressão numérica no quadro abaixo. O valor dessa expressão melhor se aproxima de qual número inteiro?,5,6,9,11,,1,False,,"Observe a expressão numérica no quadro abaixo.
+O valor dessa expressão melhor se aproxima de qual número inteiro?
+A) 5
+B) 6
+C) 9
+D) 11",C,abaixo,True,True,True,False
+sedu_es_9ef-D27-04,sedu_es_9ef,9,SAEB_9EF,D27,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,69,69,Resolva a operação abaixo. 𝟕√𝟑− 𝟒√𝟓 O resultado aproximado dessa operação é,"0,50.","1,00.","3,19.","4,23.",,0,False,,"Resolva a operação abaixo.
+𝟕√𝟑− 𝟒√𝟓
+O resultado aproximado dessa operação é
+A) 0,50.
+B) 1,00.
+C) 3,19.
+D) 4,23.",C,abaixo,False,True,True,False
+sedu_es_9ef-D28-01,sedu_es_9ef,9,SAEB_9EF,D28,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,70,70,"Anderson comprou 120 figurinhas para o seu álbum. Porém, dessas 120 figurinhas, 72 eram repetidas. As figurinhas repetidas representam qual porcentagem do total de figurinhas que ele comprou?",40%,48%,60%,72%,,0,False,,"Anderson comprou 120 figurinhas para o seu álbum. Porém, dessas 120 figurinhas, 72
+eram repetidas.
+As figurinhas repetidas representam qual porcentagem do total de figurinhas que ele
+comprou?
+A) 40%
+B) 48%
+C) 60%
+D) 72%",C,,False,False,False,True
+sedu_es_9ef-D28-02,sedu_es_9ef,9,SAEB_9EF,D28,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,70,70,"Na semana passada, o quilograma do feijão em um supermercado custava R$ 3,50. Nesta semana, o preço desse feijão sofreu um acréscimo de 20%. Quanto passou a custar o quilograma do feijão nesse supermercado?","R$ 0,70","R$ 2,80","R$ 3,70","R$ 4,20",,0,False,,"Na semana passada, o quilograma do feijão em um supermercado custava R$ 3,50.
+Nesta semana, o preço desse feijão sofreu um acréscimo de 20%.
+Quanto passou a custar o quilograma do feijão nesse supermercado?
+A) R$ 0,70
+B) R$ 2,80
+C) R$ 3,70
+D) R$ 4,20",D,,False,False,False,True
+sedu_es_9ef-D28-03,sedu_es_9ef,9,SAEB_9EF,D28,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,70,71,"Júnior comprou uma chuteira em uma promoção com 15% de desconto. Antes dessa promoção, a chuteira custava R$ 320,00. Qual foi o valor pago por Júnior ao comprar essa chuteira?","R$ 48,00","R$ 298,66","R$ 272,00","R$ 305,00",,0,False,,"Júnior comprou uma chuteira em uma promoção com 15% de desconto. Antes dessa
+promoção, a chuteira custava R$ 320,00.
+Qual foi o valor pago por Júnior ao comprar essa chuteira?
+A) R$ 48,00
+B) R$ 298,66
+C) R$ 272,00
+D) R$ 305,00",C,,False,False,False,True
+sedu_es_9ef-D28-04,sedu_es_9ef,9,SAEB_9EF,D28,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,71,71,"Em uma determinada loja, um tipo de computador, no valor de 800 reais, foi vendido em uma promoção com um desconto de 15%. Esse computador foi vendido por",680 reais.,785 reais,815 reais.,920 reais.,,0,False,,"Em uma determinada loja, um tipo de computador, no valor de 800 reais, foi vendido
+em uma promoção com um desconto de 15%.
+Esse computador foi vendido por
+A) 680 reais.
+B) 785 reais
+C) 815 reais.
+D) 920 reais.",A,,False,False,False,True
+sedu_es_9ef-D29-01,sedu_es_9ef,9,SAEB_9EF,D29,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,72,72,"Na embalagem de certa barra de chocolate, consta que, em cada 100 gramas de chocolate, há 18 gramas de açúcar. Júlia comprou uma barra de 250 gramas desse chocolate. Quantos gramas de açúcar contém essa barra que Júlia comprou?",27,45,63,168,,0,False,,"Na embalagem de certa barra de chocolate, consta que, em cada 100 gramas de
+chocolate, há 18 gramas de açúcar. Júlia comprou uma barra de 250 gramas desse
+chocolate.
+Quantos gramas de açúcar contém essa barra que Júlia comprou?
+A) 27
+B) 45
+C) 63
+D) 168",B,,False,False,False,True
+sedu_es_9ef-D29-02,sedu_es_9ef,9,SAEB_9EF,D29,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,72,72,"Margarida gastou 10 kg de limão para fazer 30 litros de limonada. Mantendo essa proporção, quantos litros de limonada Margarida poderá fazer com 50 kg de limão?",30,70,120,150,,0,False,,"Margarida gastou 10 kg de limão para fazer 30 litros de limonada.
+Mantendo essa proporção, quantos litros de limonada Margarida poderá fazer com 50
+kg de limão?
+A) 30
+B) 70
+C) 120
+D) 150",D,,False,False,False,True
+sedu_es_9ef-D29-03,sedu_es_9ef,9,SAEB_9EF,D29,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,72,73,"Com velocidade média de 60 km/h, um automóvel gastou 3 horas para percorrer o trajeto entre duas cidades. Aumentando a velocidade média desse veículo para 90 km/h, qual seria o tempo gasto para percorrer o mesmo trajeto?",2 horas.,2 horas e 30 minutos.,4 horas.,4 horas e 30 minutos.,,0,False,,"Com velocidade média de 60 km/h, um automóvel gastou 3 horas para percorrer o
+trajeto entre duas cidades.
+Aumentando a velocidade média desse veículo para 90 km/h, qual seria o tempo gasto
+para percorrer o mesmo trajeto?
+A) 2 horas.
+B) 2 horas e 30 minutos.
+C) 4 horas.
+D) 4 horas e 30 minutos.",A,,False,False,False,True
+sedu_es_9ef-D29-04,sedu_es_9ef,9,SAEB_9EF,D29,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,73,73,"Para fazer 15 picolés, Marta usa 750 ml de uma mistura de chocolate. Utilizando essa mesma proporção, para fazer 20 picolés, quantos ml dessa mistura Marta deve usar?","37,5",50,"562,5",1 000,,0,False,,"Para fazer 15 picolés, Marta usa 750 ml de uma mistura de chocolate.
+Utilizando essa mesma proporção, para fazer 20 picolés, quantos ml dessa mistura
+Marta deve usar?
+A) 37,5
+B) 50
+C) 562,5
+D) 1 000",D,,False,False,False,True
+sedu_es_9ef-D30-01,sedu_es_9ef,9,SAEB_9EF,D30,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,74,74,"O número de diagonais de um polígono é calculado com o uso da expressão n ( − n )3 d = , sendo d o número de diagonais e n o número de lados do polígono. O 2 número de diagonais de um polígono de 5 lados é:",4,5,6,7,,0,True,,"O número de diagonais de um polígono é calculado com o uso da expressão
+n
+( −
+n
+)3
+d
+=
+, sendo d o número de diagonais e n o número de lados do polígono. O
+2
+número de diagonais de um polígono de 5 lados é:
+A) 4
+B) 5
+C) 6
+D) 7",B,,False,False,False,False
+sedu_es_9ef-D30-02,sedu_es_9ef,9,SAEB_9EF,D30,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,74,74,"Uma bola é lançada obliquamente. Sua trajetória é descrita pela função h ( t ) = − t 2 + 3 t , sendo h (t ) a altura, em metros, e t o tempo em segundo. Quantos metros de altura estará essa bola após 2 segundos do lançamento?","0,5",1,2,3,,0,True,,"Uma bola é lançada obliquamente. Sua trajetória é descrita pela função
+h
+(
+t
+)
+=
+−
+t
+2 +
+3
+t
+, sendo
+h
+(t
+)
+a altura, em metros, e t o tempo em segundo. Quantos
+metros de altura estará essa bola após 2 segundos do lançamento?
+A) 0,5
+B) 1
+C) 2
+D) 3",C,,False,False,False,False
+sedu_es_9ef-D30-03,sedu_es_9ef,9,SAEB_9EF,D30,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,74,74,O valor numérico da expressão 2x² + 3y + 3 para x = 3 e y = – 2 é,9,15,20,27,,0,False,,"O valor numérico da expressão
+2x² + 3y + 3
+para x = 3 e y = – 2 é
+A) 9
+B) 15
+C) 20
+D) 27",B,,False,False,False,True
+sedu_es_9ef-D30-04,sedu_es_9ef,9,SAEB_9EF,D30,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,75,75,"O preço do quilo de carne em um açougue é dado pela função p = 9x – 3, sendo x a quantidade de quilos de carne comprada. O preço de 7 quilos de carne é","R$ 63,00","R$ 60,00","R$ 66,00","R$ 65,00",,0,False,,"O preço do quilo de carne em um açougue é dado pela função p = 9x – 3, sendo x a
+quantidade de quilos de carne comprada. O preço de 7 quilos de carne é
+A) R$ 63,00
+B) R$ 60,00
+C) R$ 66,00
+D) R$ 65,00",B,,False,False,False,True
+sedu_es_9ef-D31-01,sedu_es_9ef,9,SAEB_9EF,D31,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,76,76,"O Sr. Barnabé finalmente comprou seu lote e agora vai conseguir realizar o seu sonho de construir a sua primeira casa própria, mas ele se deparou com um problema. Ele deseja construir a sua residência no centro do lote com as seguintes medidas 10m x 12m, de modo que se mantenham as mesmas distâncias entre as paredes, como indicado na figura a seguir. Sabendo que a área do lote do Sr. Barnabé é 120 m². Então o valor de X é:","0,75 m","0,80 m","1,0 m","1,5 m",,1,False,,"O Sr. Barnabé finalmente comprou seu lote e agora vai conseguir realizar o seu sonho
+de construir a sua primeira casa própria, mas ele se deparou com um problema. Ele
+deseja construir a sua residência no centro do lote com as seguintes medidas 10m x
+12m, de modo que se mantenham as mesmas distâncias entre as paredes, como
+indicado na figura a seguir.
+Sabendo que a área do lote do Sr. Barnabé é 120 m². Então o valor de X é:
+A) 0,75 m
+B) 0,80 m
+C) 1,0 m
+D) 1,5 m",C,a seguir|figura,True,True,True,False
+sedu_es_9ef-D31-02,sedu_es_9ef,9,SAEB_9EF,D31,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,76,77,"O Sr. Manuel comprou um lote de formato retangular. A área representada pela letra “A” corresponde o local onde vai ser construída a sua residência e a parte sombreada seria os espaços vazios do lote. Sabendo que a área sombreada possui 150 m², pode-se concluir que a medida indicada por x, na figura, é igual a",12 cm.,14 cm.,15 cm.,17 cm.,,1,False,,"O Sr. Manuel comprou um lote de formato retangular. A área representada pela letra
+“A” corresponde o local onde vai ser construída a sua residência e a parte sombreada
+seria os espaços vazios do lote.
+Sabendo que a área sombreada possui 150 m², pode-se concluir que a medida indicada
+por x, na figura, é igual a
+A) 12 cm.
+B) 14 cm.
+C) 15 cm.
+D) 17 cm.",C,figura,True,True,True,False
+sedu_es_9ef-D31-03,sedu_es_9ef,9,SAEB_9EF,D31,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,77,77,A equação x² – 6x = 0,não tem raízes reais.,tem uma raiz nula e outra negativa.,tem uma raiz nula e outra positiva.,tem duas raízes reais simétricas.,,0,False,,"A equação x² – 6x = 0
+A) não tem raízes reais.
+B) tem uma raiz nula e outra negativa.
+C) tem uma raiz nula e outra positiva.
+D) tem duas raízes reais simétricas.",C,,False,False,False,True
+sedu_es_9ef-D31-04,sedu_es_9ef,9,SAEB_9EF,D31,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,77,77,"Em uma empresa do ramo da construção civil, o custo de produção, milhares de reais, de n caçambas iguais é calculado pela expressão C(n)= n² – n + 10. Se o custo foi de 66 mil reais, então, o número de caçambas utilizadas na produção foi",6.,7.,8.,9.,,0,False,,"Em uma empresa do ramo da construção civil, o custo de produção, milhares de reais,
+de n caçambas iguais é calculado pela expressão                 C(n)= n² – n + 10.
+Se o custo foi de 66 mil reais, então, o número de caçambas utilizadas na produção foi
+A) 6.
+B) 7.
+C) 8.
+D) 9.",C,,False,False,False,True
+sedu_es_9ef-D32-01,sedu_es_9ef,9,SAEB_9EF,D32,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,78,78,"A sequência numérica abaixo pode ser definida por uma expressão algébrica, que relaciona o valor do termo com a sua posição na sequência. A expressão algébrica que permite determinar o n-ésimo termo dessa sequência é",n + 1,n + 2,n² + 11,n² + 34,,1,False,,"A sequência numérica abaixo pode ser definida por uma expressão algébrica, que
+relaciona o valor do termo com a sua posição na sequência.
+A expressão algébrica que permite determinar o n-ésimo termo dessa sequência é
+A) n + 1
+B) n + 2
+C) n² + 11
+D) n² + 34",C,abaixo,True,True,True,False
+sedu_es_9ef-D32-02,sedu_es_9ef,9,SAEB_9EF,D32,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,78,79,"As figuras mostradas abaixo estão organizadas dentro de um padrão que se repete. Mantendo esta disposição, a expressão algébrica que representa o número de pontos N em função da ordem n (n = 1, 2, ...) é:",N = n +1.,N = n² – 1.,N = 2n +1,N = n² +1,,1,False,,"As figuras mostradas abaixo estão organizadas dentro de um padrão que se repete.
+Mantendo esta disposição, a expressão algébrica que representa o número de pontos
+N em função da ordem n (n = 1, 2, ...) é:
+A) N = n +1.
+B) N = n² – 1.
+C) N = 2n +1
+D) N = n² +1",D,abaixo,True,True,True,False
+sedu_es_9ef-D32-03,sedu_es_9ef,9,SAEB_9EF,D32,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,79,79,As variáveis n e P assumem valores conforme mostra o quadro abaixo: n 5 6 7 8 9 10 P 8 10 12 14 16 18 A relação entre P e n é dada pela expressão:,P = n + 1.,P = n + 2,P = 2n - 2,P = n - 2,,0,True,,"As variáveis n e P assumem valores conforme mostra o quadro abaixo:
+n
+5
+6
+7
+8
+9
+10
+P
+8
+10
+12
+14
+16
+18
+A relação entre P e n é dada pela expressão:
+A) P = n + 1.
+B) P = n + 2
+C) P = 2n - 2
+D) P = n - 2",C,abaixo,False,True,True,False
+sedu_es_9ef-D32-04,sedu_es_9ef,9,SAEB_9EF,D32,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,79,79,"As figuras mostradas abaixo estão organizadas dentro de um padrão que se repete. Mantendo essa disposição, a expressão algébrica que representa o número de bolinhas B em função da ordem n (n = 1, 2, 3, ...) é:",B = 4n.,B = 2n + 1.,B = 3n + 1.,B = 4n + 1.,,1,False,,"As figuras mostradas abaixo estão organizadas dentro de um padrão que se repete.
+Mantendo essa disposição, a expressão algébrica que representa o número de
+bolinhas B em função da ordem n (n = 1, 2, 3, ...) é:
+A) B = 4n.
+B) B = 2n + 1.
+C) B = 3n + 1.
+D) B = 4n + 1.",D,abaixo,True,True,True,False
+sedu_es_9ef-D33-01,sedu_es_9ef,9,SAEB_9EF,D33,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,80,80,"Se a mãe de Murilo triplicar o valor pago de sua mesada e descontar 5 reais, ele ficará com R$ 40,00. Uma equação que expressa essa situação é",3x + 5 = 40,3x – 5 = 40,3(x + 5) = 40,3x + 35 = 0,,0,False,,"Se a mãe de Murilo triplicar o valor pago de sua mesada e descontar 5 reais, ele ficará
+com R$ 40,00.
+Uma equação que expressa essa situação é
+A) 3x + 5 = 40
+B) 3x – 5 = 40
+C) 3(x + 5) = 40
+D) 3x + 35 = 0",B,,False,False,False,True
+sedu_es_9ef-D33-02,sedu_es_9ef,9,SAEB_9EF,D33,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,80,80,"Veja o encarte do supermercado abaixo. D. Lurdes quer aproveitar a promoção e possui R$ 45,00 para comprar cenouras e alface. Sendo x o nº de quilos de cenouras e y a quantidade de molhos de alface, assinale a opção que mostra a equação que corresponde a esta situação.","x + 2,00 + y + 1,50 = 45.","x + y + 3,50 = 45.","1,50x + 2y = 45.","3,50xy = 45.",,1,False,,"Veja o encarte do supermercado abaixo. D. Lurdes quer aproveitar a promoção e possui
+R$ 45,00 para comprar cenouras e alface. Sendo  x o nº de quilos de cenouras e y a
+quantidade de molhos de alface, assinale a opção que mostra a equação que
+corresponde a esta situação.
+A) x + 2,00 + y + 1,50 = 45.
+B) x + y + 3,50 = 45.
+C) 1,50x + 2y = 45.
+D) 3,50xy = 45.",C,abaixo,True,True,True,False
+sedu_es_9ef-D33-03,sedu_es_9ef,9,SAEB_9EF,D33,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,80,81,"Professor Marcos escreveu um número no quadro, multiplicou ele por 5, somou 18 e depois dividiu o resultado por 5, obtendo o número 30. A equação que representa está situação é 5 x + 13",= 30 5 5 x + 3,= 30 5 x +,5 = 30 5 5 x + 18,= 30 5,,0,True,,"Professor Marcos escreveu um número no quadro, multiplicou ele por 5, somou 18 e
+depois dividiu o resultado por 5, obtendo o número 30.
+A equação que representa está situação é
+5
+x
++
+13
+A)
+=
+30
+5
+5
+x
++
+3
+B)
+=
+30
+5
+x
++
+C)
+5 =
+30
+5
+5
+x
++
+18
+D)
+=
+30
+5",D,,False,False,False,False
+sedu_es_9ef-D33-04,sedu_es_9ef,9,SAEB_9EF,D33,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,81,81,"Plínio é garçom de um badalado restaurante na Zona Sul da cidade. Ele recebe, por mês, R$ 650,00 mais R$ 20,00 por hora extra que trabalha. Veja quanto ele vai receber esse mês. A equação que calcula o salário de Plínio de acordo com as x horas extras que ele trabalhou é",650 + 20 + x = 1050.,20 + x = 1050 – 650.,650 + 20 x = 1050.,650 x + 20 = 1050.,,1,False,,"Plínio é garçom de um badalado restaurante na Zona Sul da cidade. Ele recebe, por
+mês, R$ 650,00 mais R$ 20,00 por hora extra que trabalha. Veja quanto ele vai receber
+esse mês. A equação que calcula o salário de Plínio de acordo com as x horas extras
+que ele trabalhou é
+A) 650 + 20 + x = 1050.
+B) 20 + x = 1050 – 650.
+C) 650 + 20 x = 1050.
+D) 650 x + 20 = 1050.",C,,True,False,True,False
+sedu_es_9ef-D34-01,sedu_es_9ef,9,SAEB_9EF,D34,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,82,82,"Durante os jogos interclasse, Karen foi até a lanchonete e comprou um suco e um salgado por R$ 3,20. Raul comprou dois sucos e um salgado por R$ 4,20. O sistema de equações do 1º grau que representa a situação é",,,,,,1,False,alternativas não localizadas no texto,"Durante os jogos interclasse, Karen foi até a lanchonete e comprou um suco e um salgado por R$ 3,20.
+Raul comprou dois sucos e um salgado por R$ 4,20.
+O sistema de equações do 1º grau que representa a situação é",D,,True,False,True,False
+sedu_es_9ef-D34-02,sedu_es_9ef,9,SAEB_9EF,D34,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,82,82,Observe a situação apresentada abaixo: Considere p o “peso” de uma Pêra e m o “peso” de uma maçã. É correto representar a situação apresentada por meio do sistema de equações:,,,,,,2,False,alternativas não localizadas no texto,"Observe a situação apresentada abaixo:
+Considere p o “peso” de uma Pêra e m o “peso” de uma maçã.
+É correto representar a situação apresentada por meio do sistema de equações:",C,abaixo,True,True,True,False
+sedu_es_9ef-D34-03,sedu_es_9ef,9,SAEB_9EF,D34,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,82,83,"Num campeonato de futebol, os times ganham 3 pontos em cada vitória, 1 ponto por empate e 0 ponto por derrota. O time Cruzadão participou de 50 jogos e fez 54 pontos, tendo perdido 12 jogos. Chame de v o número de jogos que Cruzadão venceu, d, o número de jogos em que foi derrotado e e, os jogos em que houve empate. Assinale a alternativa que mostra corretamente o sistema de equações que representa essa situação.  v + e = 50  v + e + 12 = 50 ( A )  ( B )   3 v + e = 54  3 v + e = 54  v + e + d = 54  v + e + ,0 12/54 = 50 ( C )  ( D )   3 v + e + 0 d = 50  3 v + e =",,,,,,0,True,alternativas não localizadas no texto,"Num campeonato de futebol, os times ganham 3 pontos em cada vitória, 1 ponto por empate e 0
+ponto por derrota. O time Cruzadão participou de 50 jogos e fez 54 pontos, tendo perdido 12 jogos.
+Chame de v o número de jogos que Cruzadão venceu, d, o número de jogos em que foi derrotado e
+e, os jogos em que houve empate.
+Assinale a alternativa que mostra corretamente o sistema de equações que representa essa
+situação.
+
+v
++
+e
+=
+50
+
+v
++
+e
++
+12
+=
+50
+(
+A
+)
+
+(
+B
+)
+
+
+3
+v
++
+e
+=
+54
+
+3
+v
++
+e
+=
+54
+
+v
++
+e
++
+d
+=
+54
+
+v
++
+e
++
+,0
+12/54
+=
+50
+(
+C
+)
+
+(
+D
+)
+
+
+3
+v
++
+e
++
+0
+d
+=
+50
+
+3
+v
++
+e
+=",B,,False,False,False,False
+sedu_es_9ef-D34-04,sedu_es_9ef,9,SAEB_9EF,D34,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,83,83,"Numa gincana de Matemática, Hélio calculou mentalmente dois números de modo que sua soma fosse igual a 12 e sua diferença 2. Lúcia utilizou outra estratégia, determinando esses dois números algebricamente. Dessa forma, um possível sistema de equações para indicar o raciocínio de Lúcia é  x + y = 12  2/4 x − y = 9",,  2 x + 3 y = 1  x + 3 y = 10  x − y = 5/7  x + y = 12/2,,  x + y =  x − y =,,0,True,,"Numa gincana de Matemática, Hélio calculou mentalmente dois números de modo que sua soma
+fosse igual a 12 e sua diferença 2. Lúcia utilizou outra estratégia, determinando esses dois números
+algebricamente. Dessa forma, um possível sistema de equações para indicar o raciocínio de Lúcia é
+
+x
++
+y
+=
+12
+
+2/4
+x
+−
+y
+=
+9
+(A)
+
+(B)
+
+
+2
+x
++
+3
+y
+=
+1
+
+x
++
+3
+y
+=
+10
+
+x
+−
+y
+=
+5/7
+
+x
++
+y
+=
+12/2
+(C)
+
+(D)
+
+
+x
++
+y
+=
+
+x
+−
+y
+=",D,,False,False,False,False
+sedu_es_9ef-D35-01,sedu_es_9ef,9,SAEB_9EF,D35,1,1,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,84,84,"Observe este gráfico, em que estão representadas duas retas:  x + 2 y = a Para que esse gráfico seja a representação geométrica do sistema:  , os  x − y = b valores de a e b devem ser:",a = –1 e b = 8.,a = 2 e b = 3.,a = 3 e b = 2.,a = 8 e b = – 1.,,1,True,,"Observe este gráfico, em que estão representadas duas retas:
+
+x
++
+2
+y
+=
+a
+Para que esse gráfico seja a representação geométrica do sistema:
+
+, os
+
+x
+−
+y
+=
+b
+valores de a e b devem ser:
+A) a = –1 e b = 8.
+B) a = 2 e b = 3.
+C) a = 3 e b = 2.
+D) a = 8 e b = – 1.",D,grafico|gráfico,True,True,True,False
+sedu_es_9ef-D35-02,sedu_es_9ef,9,SAEB_9EF,D35,2,2,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,84,84,Observe o gráfico abaixo. O gráfico representa o sistema,,,,,,2,False,alternativas não localizadas no texto,"Observe o gráfico abaixo.
+O gráfico representa o sistema",B,abaixo|grafico|gráfico,True,True,True,False
+sedu_es_9ef-D35-03,sedu_es_9ef,9,SAEB_9EF,D35,3,3,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,85,85,"Observe este gráfico, em que estão representadas duas retas: Para que esse gráfico seja a representação geométrica do sistema:  x + 3 y = a   2 x − y = b os valores de “a” e “b” devem ser:",a = –1 e b = 2.,a = 2 e b = –1.,a = – 4 e b = 5.,a = 5 e b = – 4.,,1,True,,"Observe este gráfico, em que estão representadas duas retas:
+Para que esse gráfico seja a representação geométrica do sistema:
+
+x
++
+3
+y
+=
+a
+
+
+2
+x
+−
+y
+=
+b
+os valores de “a” e “b” devem ser:
+A) a = –1 e b = 2.
+B) a = 2 e b = –1.
+C) a = – 4 e b = 5.
+D) a = 5 e b = – 4.",D,grafico|gráfico,True,True,True,False
+sedu_es_9ef-D35-04,sedu_es_9ef,9,SAEB_9EF,D35,4,4,III. NÚMEROS E OPERAÇÕES/ÁLGEBRA E FUNÇÕES,85,86,"Observe este gráfico, em que estão representadas duas retas: Para que esse gráfico seja a representação geométrica do sistema:  x + y = a   x − y = b os valores de “a” e “b” devem ser:",a = 4 e b = 7.,a = 7 e b = 4.,a = 11 e b = 3.,a = 3 e b = 11.,,1,True,,"Observe este gráfico, em que estão representadas duas retas:
+Para que esse gráfico seja a representação geométrica do sistema:
+
+x
++
+y
+=
+a
+
+
+x
+−
+y
+=
+b
+os valores de “a” e “b” devem ser:
+A) a = 4 e b = 7.
+B) a = 7 e b = 4.
+C) a = 11 e b = 3.
+D) a = 3 e b = 11.",C,grafico|gráfico,True,True,True,False
+sedu_es_9ef-D36-01,sedu_es_9ef,9,SAEB_9EF,D36,1,1,IV. TRATAMENTO DA INFORMAÇÃO,87,87,"Para confeccionar 1 000 ml de refrigerante no sabor laranja, a Indústria Refrigerante Colorido utiliza as quantidades de ingredientes como mostra o gráfico abaixo. Para fabricar 3 000 ml de refrigerante sabor laranja, as quantidades, em ml, utilizadas de suco natural, água e corante são, respectivamente,","1 350, 1 050 e 600.","900, 700 e 400.","600, 1 050 e 1 350.","400, 700 e 900.",,1,False,,"Para confeccionar 1 000 ml de refrigerante no sabor laranja, a Indústria Refrigerante
+Colorido utiliza as quantidades de ingredientes como mostra o gráfico abaixo.
+Para fabricar 3 000 ml de refrigerante sabor laranja, as quantidades, em ml, utilizadas
+de suco natural, água e corante são, respectivamente,
+A) 1 350, 1 050 e 600.
+B) 900, 700 e 400.
+C) 600, 1 050 e 1 350.
+D) 400, 700 e 900.",A,abaixo|grafico|gráfico,True,True,True,False
+sedu_es_9ef-D36-02,sedu_es_9ef,9,SAEB_9EF,D36,2,2,IV. TRATAMENTO DA INFORMAÇÃO,87,88,O quadro abaixo mostra a quantidade de algodão colhida por três irmãos durante o mês de agosto. Qual a diferença entre a maior quantidade e a menor quantidade de algodão colhida?,"2,12 kg.","2,27 kg.","4,71 kg.","5,25 kg.",,1,False,,"O quadro abaixo mostra a quantidade de algodão colhida por três irmãos durante o mês
+de agosto.
+Qual a diferença entre a maior quantidade e a menor quantidade de algodão colhida?
+A) 2,12 kg.
+B) 2,27 kg.
+C) 4,71 kg.
+D) 5,25 kg.",B,abaixo,True,True,True,False
+sedu_es_9ef-D36-03,sedu_es_9ef,9,SAEB_9EF,D36,3,3,IV. TRATAMENTO DA INFORMAÇÃO,88,88,"Veja no quadro abaixo o número de visitantes em um museu. De acordo com esses dados, em que mês o museu recebeu mais visitantes?",Janeiro.,Fevereiro.,Março.,Abril.,,1,False,,"Veja no quadro abaixo o número de visitantes em um museu.
+De acordo com esses dados, em que mês o museu recebeu mais visitantes?
+A) Janeiro.
+B) Fevereiro.
+C) Março.
+D) Abril.",B,abaixo,True,True,True,False
+sedu_es_9ef-D36-04,sedu_es_9ef,9,SAEB_9EF,D36,4,4,IV. TRATAMENTO DA INFORMAÇÃO,88,88,Considere a tabela abaixo: A diferença entre o consumo de água para produzir 1 tonelada de papel para o gasto na produção de 1 tonelada de aço é o:,dobro dessa quantidade,triplo dessa quantidade,quádruplo dessa quantidade,quíntuplo dessa quantidade,,1,False,,"Considere a tabela abaixo:
+A diferença entre o consumo de água para produzir 1 tonelada de papel para o gasto na
+produção de 1 tonelada de aço é o:
+A) dobro dessa quantidade
+B) triplo dessa quantidade
+C) quádruplo dessa quantidade
+D) quíntuplo dessa quantidade",B,abaixo|tabela,True,True,True,False
+sedu_es_9ef-D37-01,sedu_es_9ef,9,SAEB_9EF,D37,1,1,IV. TRATAMENTO DA INFORMAÇÃO,89,89,A tabela abaixo apresenta os dados sobre a produção e a venda de automóveis de três montadoras em certo mês do ano. O gráfico que melhor representa a quantidade da produção vendida por essas três montadoras é,,,,,,3,False,alternativas não localizadas no texto,"A tabela abaixo apresenta os dados sobre a produção e a venda de automóveis de três
+montadoras em certo mês do ano.
+O gráfico que melhor representa a quantidade da produção vendida por essas três
+montadoras é",C,abaixo|grafico|gráfico|tabela,True,True,True,False
+sedu_es_9ef-D37-02,sedu_es_9ef,9,SAEB_9EF,D37,2,2,IV. TRATAMENTO DA INFORMAÇÃO,89,90,"O gráfico a seguir representa o resultado de uma pesquisa feita com moradores de uma cidade, para verificar o nível de aprovação da administração do prefeito. Das tabelas abaixo qual representa corretamente os dados apresentados no gráfico?",,,,,D,5,False,"resposta impressa no enunciado, removida; alternativas não localizadas no texto","O gráfico a seguir representa o resultado de uma pesquisa feita com moradores de uma
+cidade, para verificar o nível de aprovação da administração do prefeito.
+Das tabelas abaixo qual representa corretamente os dados apresentados no gráfico?
+(Resp. D)",D,a seguir|abaixo|grafico|gráfico,True,True,True,False
+sedu_es_9ef-D37-03,sedu_es_9ef,9,SAEB_9EF,D37,3,3,IV. TRATAMENTO DA INFORMAÇÃO,90,90,"As notas que os dez alunos de uma classe tiveram em uma prova de Biologia foram transcritas na tabela seguinte. Para visualizar melhor o desempenho da turma, o professor dividiu as notes em três grupos descritos a seguir, e construiu com eles um gráfico de setores. G1: notas maiores ou iguais a 6,0. G2: notas entre 4,0 e 6,00. G3: notas menores ou iguais a 4,0. O gráfico que corresponde aos dados apresentados é",,,,,,3,False,alternativas não localizadas no texto,"As notas que os dez alunos de uma classe tiveram em uma prova de Biologia foram
+transcritas na tabela seguinte.
+Para visualizar melhor o desempenho da turma, o professor dividiu as notes em três
+grupos descritos a seguir, e construiu com eles um gráfico de setores.
+G1: notas maiores ou iguais a 6,0.
+G2: notas entre 4,0 e 6,00.
+G3: notas menores ou iguais a 4,0.
+O gráfico que corresponde aos dados apresentados é",B,a seguir|grafico|gráfico|tabela,True,True,True,False
+sedu_es_9ef-D37-04,sedu_es_9ef,9,SAEB_9EF,D37,4,4,IV. TRATAMENTO DA INFORMAÇÃO,91,91,"Observe na tabela abaixo, a quantidade de carne bovina produzida por um frigorífico no período de 2006 a 2010. Qual é o gráfico que melhor representa os dados apresentados nessa tabela?",,,,,,3,False,alternativas não localizadas no texto,"Observe na tabela abaixo, a quantidade de carne bovina produzida por um frigorífico
+no período de 2006 a 2010.
+Qual é o gráfico que melhor representa os dados apresentados nessa tabela?",B,abaixo|grafico|gráfico|tabela,True,True,True,False
