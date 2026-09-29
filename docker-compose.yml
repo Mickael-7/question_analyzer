@@ -1,0 +1,7 @@
+services:
+  pipeline:
+    build: .
+    image: question_analyzer
+    volumes:
+      - .:/app
+    working_dir: /app

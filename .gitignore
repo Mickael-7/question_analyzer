@@ -1,0 +1,19 @@
+# Ambiente
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# PDFs originais não são versionados (licença e tamanho).
+# A proveniência de cada um fica em dados/referencia/fontes.csv.
+dados/01_brutos/*
+!dados/01_brutos/.gitkeep
+
+# Cache de embeddings
+.cache/
+
+# Sistema
+.DS_Store
+Thumbs.db
+.vscode/

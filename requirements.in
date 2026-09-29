@@ -1,0 +1,8 @@
+# Dependências diretas. As versões congeladas ficam em requirements.txt
+# (gerado com: pip freeze > requirements.txt)
+pandas
+pdfplumber
+PyMuPDF
+sentence-transformers
+scikit-learn
+matplotlib
