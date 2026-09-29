@@ -95,7 +95,7 @@ def ler_itens(doc: pymupdf.Document, paginas: range) -> list[ItemBruto]:
     # Qualquer linha de cabeçalho encerra o item corrente.
     for linha in linhas:
         texto = linha.texto
-        if texto == "DESCRITOR":
+        if texto in ("DESCRITOR", "CÓDIGOS"):
             fechar(linha)
             atual = None
             continue

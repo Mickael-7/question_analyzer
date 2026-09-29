@@ -25,6 +25,8 @@ ARQ_ALINHAMENTO = REFERENCIA / "alinhamento_descritor_habilidade.csv"
 ARQ_EQUIVALENCIA = REFERENCIA / "equivalencia_codificacoes.csv"
 ARQ_VOCABULARIO = REFERENCIA / "vocabulario.csv"
 ARQ_FONTES = REFERENCIA / "fontes.csv"
+ARQ_REVISAO = REFERENCIA / "revisao_manual.csv"
+ARQ_CONFERENCIA = REFERENCIA / "conferencia_amostra.csv"
 
 # Taxonomia: bncc.dev (github.com/bncc-dev/bncc-dados), CC BY 4.0
 BNCC_VERSAO = "dados-2026.07.1"

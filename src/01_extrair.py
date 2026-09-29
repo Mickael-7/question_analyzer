@@ -39,6 +39,28 @@ def juntar_gabarito(itens: pd.DataFrame, gabarito: pd.DataFrame) -> tuple[pd.Dat
     return junto, orfaos
 
 
+def aplicar_revisao(df: pd.DataFrame) -> pd.DataFrame:
+    """Incorpora dados/referencia/revisao_manual.csv sem alterar o gabarito da fonte.
+
+    `gabarito` guarda o que está no PDF; `gabarito_revisado` é o que deve ser usado.
+    """
+    df["gabarito_revisado"] = df["gabarito"]
+    df["revisao"] = ""
+    if not config.ARQ_REVISAO.exists():
+        return df
+    revisao = pd.read_csv(config.ARQ_REVISAO, dtype=str, keep_default_na=False)
+    desconhecidos = set(revisao["item_id"]) - set(df["item_id"])
+    if desconhecidos:
+        raise ValueError(f"revisao_manual.csv cita itens inexistentes: {sorted(desconhecidos)}")
+    notas: dict[str, list[str]] = {}
+    for r in revisao.itertuples():
+        if r.tipo == "gabarito_divergente":
+            df.loc[df["item_id"] == r.item_id, "gabarito_revisado"] = r.valor
+        notas.setdefault(r.item_id, []).append(f"{r.tipo}: {r.descricao}")
+    df["revisao"] = df["item_id"].map(lambda i: "; ".join(notas.get(i, [])))
+    return df
+
+
 def marcar_figura(df: pd.DataFrame) -> pd.DataFrame:
     df["termos_deiticos"] = df["enunciado"].map(
         lambda t: "|".join(comum.termos_deiticos(t, config.TERMOS_DEITICOS))
@@ -105,8 +127,29 @@ def relatorio(df: pd.DataFrame, orfaos: dict, avisos: list[str]) -> str:
         *[f"- {a}" for a in avisos],
         *[f"- {r.item_id}: {r.observacoes}" for r in df[df["observacoes"] != ""].itertuples()],
         "",
+        "## Revisão manual (dados/referencia/revisao_manual.csv)",
+        "",
+        *[f"- {r.item_id}: {r.revisao}" for r in df[df["revisao"] != ""].itertuples()],
+        "",
+        conferencia(),
     ]
     return "\n".join(partes)
+
+
+def conferencia() -> str:
+    if not config.ARQ_CONFERENCIA.exists():
+        return "## Conferência da amostra\n\nAinda não registrada em dados/referencia/conferencia_amostra.csv.\n"
+    c = pd.read_csv(config.ARQ_CONFERENCIA, dtype=str, keep_default_na=False)
+    campos = ["texto_ok", "alternativas_ok", "gabarito_ok", "figura_ok"]
+    resumo = {campo: f"{(c[campo] == 'sim').sum()}/{len(c)}" for campo in campos}
+    return "\n".join([
+        "## Conferência da amostra (dados/referencia/conferencia_amostra.csv)",
+        "",
+        tabela_md(pd.DataFrame([resumo])),
+        "",
+        *[f"- {r.item_id}: {r.observacao}" for r in c[c["observacao"] != ""].itertuples()],
+        "",
+    ])
 
 
 def amostra(df: pd.DataFrame) -> str:
@@ -148,7 +191,7 @@ def main() -> int:
     gab = pd.DataFrame(gabaritos)
     df, orfaos = juntar_gabarito(df, gab)
     df.insert(0, "item_id", df.apply(item_id, axis=1))
-    df = marcar_figura(df).sort_values("item_id").reset_index(drop=True)
+    df = aplicar_revisao(marcar_figura(df)).sort_values("item_id").reset_index(drop=True)
 
     if df["item_id"].duplicated().any():
         print(f"ERRO: item_id duplicado: {df.loc[df['item_id'].duplicated(), 'item_id'].tolist()}")

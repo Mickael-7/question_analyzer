@@ -1,0 +1,11 @@
+item_id,texto_ok,alternativas_ok,gabarito_ok,figura_ok,observacao,revisor,data
+sedu_es_9ef-D02-02,sim,sim,sim,sim,Alternativas em imagem; corretamente sem texto.,Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D05-03,sim,sim,sim,sim,Item atravessa as páginas 20-21; unido corretamente.,Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D11-03,sim,sim,sim,sim,"Imagem ilustrativa; enunciado seria autossuficiente, mas a regra de imagem o exclui.",Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D13-03,sim,sim,sim,sim,,Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D15-04,sim,sim,sim,sim,"'Brasílica' é erro de digitação do próprio PDF, preservado.",Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D18-02,sim,sim,sim,sim,Expoentes reconstruídos corretamente.,Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D20-01,sim,sim,sim,sim,,Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D22-04,sim,sim,nao,sim,Frações reconstruídas corretamente; gabarito do PDF errado (ver revisao_manual.csv).,Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D35-03,parcial,sim,sim,sim,Sistema de equações extraído com símbolos de chave corrompidos; item excluído por figura e fórmula.,Claude (comparação visual com o PDF renderizado),2026-09-29
+sedu_es_9ef-D37-02,sim,sim,sim,sim,Alternativas em tabela-imagem; resposta impressa '(Resp. D)' removida e coerente com o gabarito.,Claude (comparação visual com o PDF renderizado),2026-09-29
