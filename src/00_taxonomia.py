@@ -1,8 +1,13 @@
-"""Passo 1: taxonomia de referência da BNCC (Matemática, Ensino Fundamental).
+"""Passo 1: taxonomia de referência da BNCC (Matemática, EF e EM).
 
 Baixa os CSVs derivados do bncc.dev na versão fixada em config.BNCC_VERSAO,
 resolve os identificadores de unidade temática e objeto de conhecimento
 para os nomes oficiais, valida e grava dados/referencia/bncc_matematica.csv.
+
+As habilidades do Ensino Médio (EM13MAT) entram no espaço de rótulos para que
+a V1 detecte previsões de etapa posterior. Elas valem para as três séries e não
+têm unidade temática nem objeto de conhecimento; recebem ano = ANO_EM, que só
+serve para ordenação (posterior ao 9º ano do EF).
 """
 import re
 import sys
@@ -12,7 +17,7 @@ import pandas as pd
 
 import config
 
-ARQUIVOS_FONTE = ["habilidades-ef.csv", "contextos-organizacao.csv"]
+ARQUIVOS_FONTE = ["habilidades-ef.csv", "habilidades-em.csv", "contextos-organizacao.csv"]
 SEPARADOR_OC = " | "
 
 
@@ -24,6 +29,22 @@ def baixar(nome: str) -> pd.DataFrame:
         print(f"baixando {url}")
         urllib.request.urlretrieve(url, destino)
     return pd.read_csv(destino, dtype=str, keep_default_na=False)
+
+
+def montar_em(habilidades_em: pd.DataFrame) -> pd.DataFrame:
+    mat = habilidades_em[habilidades_em["area"] == "em-area-mat"]
+    return pd.DataFrame({
+        "codigo": mat["codigo"],
+        "etapa": "EM",
+        "ano": config.ANO_EM,
+        "componente": "MAT",
+        "unidade_tematica": config.UNIDADE_EM,
+        "objeto_conhecimento": "",
+        "texto_habilidade": mat["texto"].str.strip(),
+        "vigencia": mat["vigencia_status"],
+        "fonte_pdf": mat["fonte_localizador_pdf"],
+        "versao_bncc_dev": config.BNCC_VERSAO,
+    })
 
 
 def montar(habilidades: pd.DataFrame, contextos: pd.DataFrame) -> pd.DataFrame:
@@ -58,20 +79,22 @@ def validar(df: pd.DataFrame) -> list[str]:
     duplicados = df.loc[df["codigo"].duplicated(), "codigo"]
     if len(duplicados):
         erros.append(f"códigos duplicados: {list(duplicados)}")
+    ef = df[df["etapa"] == "EF"]
     for coluna in ["texto_habilidade", "unidade_tematica", "objeto_conhecimento"]:
-        vazios = df.loc[df[coluna].isna() | (df[coluna] == ""), "codigo"]
+        alvo = df if coluna == "texto_habilidade" else ef
+        vazios = alvo.loc[alvo[coluna].isna() | (alvo[coluna] == ""), "codigo"]
         if len(vazios):
             erros.append(f"{coluna} vazio em: {list(vazios)}")
-    ano_no_codigo = df["codigo"].str[2:4].astype(int)
-    divergentes = df.loc[ano_no_codigo != df["ano"], "codigo"]
+    ano_no_codigo = ef["codigo"].str[2:4].astype(int)
+    divergentes = ef.loc[ano_no_codigo != ef["ano"], "codigo"]
     if len(divergentes):
         erros.append(f"ano do código diverge da coluna ano: {list(divergentes)}")
     return erros
 
 
 def main() -> int:
-    habilidades, contextos = (baixar(n) for n in ARQUIVOS_FONTE)
-    df = montar(habilidades, contextos)
+    habilidades, habilidades_em, contextos = (baixar(n) for n in ARQUIVOS_FONTE)
+    df = pd.concat([montar(habilidades, contextos), montar_em(habilidades_em)], ignore_index=True)
 
     erros = validar(df)
     if erros:
@@ -84,7 +107,8 @@ def main() -> int:
     df.to_csv(config.ARQ_BNCC, index=False, encoding="utf-8")
 
     print(f"gravado {config.ARQ_BNCC} ({len(df)} habilidades)\n")
-    print(pd.crosstab(df["unidade_tematica"], df["ano"], margins=True, margins_name="total"))
+    print(pd.crosstab(df["unidade_tematica"], df["ano"].map(lambda a: "EM" if a == config.ANO_EM else a),
+                      margins=True, margins_name="total"))
     return 0
 
 

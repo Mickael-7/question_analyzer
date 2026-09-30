@@ -62,6 +62,15 @@ Unidade temática da BNCC só é conhecida após o cruzamento (script 2).
 - sedu_es_9ef-D37-03: alternativas não localizadas no texto
 - sedu_es_9ef-D37-04: alternativas não localizadas no texto
 
+## Candidatos a duplicata (semelhança >= 0.9, enunciado + alternativas)
+
+- sedu_ama5_2024t3-D023_M-03 ~ sedu_es_9ef-D19-03 (semelhança 1.0): confirmada
+- sedu_es_9ef-D18-01 ~ sedu_es_9ef-D25-01 (semelhança 0.912): descartada (itens distintos)
+- sedu_es_9ef-D32-02 ~ sedu_es_9ef-D32-04 (semelhança 0.916): descartada (itens distintos)
+- sedu_es_9ef-D35-01 ~ sedu_es_9ef-D35-03 (semelhança 0.919): descartada (itens distintos)
+- sedu_es_9ef-D35-01 ~ sedu_es_9ef-D35-04 (semelhança 0.906): descartada (itens distintos)
+- sedu_es_9ef-D35-03 ~ sedu_es_9ef-D35-04 (semelhança 0.91): descartada (itens distintos)
+
 ## Revisão manual (dados/referencia/revisao_manual.csv)
 
 - sedu_ama5_2023t1-D011_M-02: observacao: Alternativa C traz a anotação editorial 'acertar gabarito', impressa no próprio PDF; mantida por fidelidade.
@@ -69,9 +78,13 @@ Unidade temática da BNCC só é conhecida após o cruzamento (script 2).
 - sedu_es_9ef-D11-01: gabarito_ausente: Gabarito impresso como 'S' no PDF (p. 93), letra inexistente.
 - sedu_es_9ef-D11-02: gabarito_divergente: Raio da mesa 100 cm, raio do prato 15 cm: distância 85 cm (B). O PDF indica C (70 cm).
 - sedu_es_9ef-D11-04: observacao: Alternativas A e C idênticas no PDF ('ângulo central é 90º e o arco 180º').
+- sedu_es_9ef-D18-01: nao_duplicata: Mesmo enunciado-modelo; expressões (em imagem) e alternativas diferentes.
 - sedu_es_9ef-D19-03: gabarito_divergente: Total 606 reais, menos 156 à vista = 450, em 3 parcelas = 150 (B). O PDF indica C (202 = 606/3, ignora a entrada).
 - sedu_es_9ef-D19-04: gabarito_divergente: 200 - 110 - 50 = 40 empadas (D). O PDF indica C (90).
 - sedu_es_9ef-D22-04: gabarito_divergente: Chocolate = (1/3 + 1/2) / 2 = 5/12 (C). O PDF indica A (2/5).
+- sedu_es_9ef-D32-02: nao_duplicata: Mesmo enunciado-modelo; padrões de figuras e alternativas diferentes.
+- sedu_es_9ef-D35-01: nao_duplicata: Mesmo enunciado-modelo; gráficos, sistemas e alternativas diferentes.; nao_duplicata: Mesmo enunciado-modelo; gráficos, sistemas e alternativas diferentes.
+- sedu_es_9ef-D35-03: nao_duplicata: Mesmo enunciado-modelo; gráficos, sistemas e alternativas diferentes.
 
 ## Conferência da amostra (dados/referencia/conferencia_amostra.csv)
 

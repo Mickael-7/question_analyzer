@@ -34,12 +34,15 @@ BNCC_URL_BASE = (
     f"https://raw.githubusercontent.com/bncc-dev/bncc-dados/{BNCC_VERSAO}/derivados/csv"
 )
 CACHE = RAIZ / ".cache"
-PADRAO_CODIGO_BNCC = r"^EF\d{2}MA\d{2}$"
+PADRAO_CODIGO_BNCC = r"^(EF\d{2}MA\d{2}|EM13MAT\d{3})$"
 ANOS = [5, 9]  # anos das questões (etapas avaliadas pelo SAEB)
 # Anos incluídos na taxonomia. Todos do EF, porque a V1 mede se a previsão
 # cai no ano do item ou em anos anteriores, e os descritores do SAEB
-# se alinham a habilidades de anos anteriores ao avaliado.
+# se alinham a habilidades de anos anteriores ao avaliado. O EM entra
+# inteiro, para que a V1 detecte previsões de etapa posterior.
 ANOS_TAXONOMIA = list(range(1, 10))
+ANO_EM = 10  # posição de ordenação das habilidades do EM (valem para as 3 séries)
+UNIDADE_EM = "Ensino Médio"
 
 # Fontes de questões: fonte_id -> arquivo em dados/01_brutos e módulo em src/extratores
 FONTES = {
@@ -59,8 +62,13 @@ TERMOS_DEITICOS = [
 
 # Etiquetagem
 MODELO_EMBEDDING = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+MODELO_REVISAO = "4328cf26390c98c5e3c738b4460a05b95f4911f5"  # commit no Hugging Face (2025-08-19)
 TOP_K = 5
-RESTRINGIR_AO_ANO = False  # decisão de escopo da seção 4.1: não restringir
+# Decisão da seção 3.2.1, tomada em 2026-09-29 com a V6 (03_rotulados/relatorio_cruzamento.md),
+# antes da etiquetagem: não restringir. Nos itens aptos do 9º ano, 72 de 88 pares
+# item-habilidade de referência são de anos anteriores e 29 de 45 itens não têm
+# nenhuma habilidade do 9º ano no rótulo; restringir tornaria esses acertos inalcançáveis.
+RESTRINGIR_AO_ANO = False
 
 # Peso da semântica na combinação; a heurística recebe (1 - PESO_SEMANTICA).
 PESO_SEMANTICA = 0.5

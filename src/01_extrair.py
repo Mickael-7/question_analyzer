@@ -11,6 +11,7 @@ src/extratores, junta o gabarito, marca dependência de figura e grava:
 import importlib
 import re
 import sys
+from difflib import SequenceMatcher
 
 import pandas as pd
 
@@ -69,6 +70,33 @@ def aplicar_revisao(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+LIMIAR_DUPLICATA = 0.9
+
+
+def candidatos_duplicata(df: pd.DataFrame) -> list[dict]:
+    """Pares de itens com enunciado e alternativas quase idênticos.
+
+    O texto é normalizado (minúsculas, sem acentos, só letras e dígitos) e
+    comparado por SequenceMatcher. Incluir as alternativas separa itens-modelo
+    ("Observe a expressão no quadro abaixo...") que só diferem na figura.
+    A confirmação é manual, em revisao_manual.csv (tipo "duplicata").
+    """
+    texto = (df["enunciado"] + " " + df[["alt_a", "alt_b", "alt_c", "alt_d"]].agg(" ".join, axis=1)).map(
+        lambda t: re.sub(r"[^a-z0-9]", "", comum.sem_acentos(t.lower()))
+    )
+    ids, textos = df["item_id"].tolist(), texto.tolist()
+    pares = []
+    for i in range(len(ids)):
+        for j in range(i + 1, len(ids)):
+            a, b = textos[i], textos[j]
+            if min(len(a), len(b)) < 40 or min(len(a), len(b)) / max(len(a), len(b)) < LIMIAR_DUPLICATA:
+                continue
+            razao = SequenceMatcher(None, a, b).ratio()
+            if razao >= LIMIAR_DUPLICATA:
+                pares.append({"item_a": ids[i], "item_b": ids[j], "semelhanca": round(razao, 3)})
+    return pares
+
+
 def marcar_figura(df: pd.DataFrame) -> pd.DataFrame:
     df["termos_deiticos"] = df["enunciado"].map(
         lambda t: "|".join(comum.termos_deiticos(t, config.TERMOS_DEITICOS))
@@ -77,9 +105,9 @@ def marcar_figura(df: pd.DataFrame) -> pd.DataFrame:
     df["sinal_deitico"] = df["termos_deiticos"] != ""
     df["depende_figura"] = df["sinal_imagem"] | df["sinal_deitico"]
     # Alternativas desenhadas como imagem ou vetor não chegam ao texto: o item fica incompleto.
-    df["alternativas_incompletas"] = (df[["alt_a", "alt_b", "alt_c", "alt_d"]] == "").any(axis=1)
+    df["alternativas_completas"] = (df[["alt_a", "alt_b", "alt_c", "alt_d"]] != "").all(axis=1)
     df["apto_verificacao"] = (
-        ~df["depende_figura"] & ~df["formula_corrompida"] & ~df["alternativas_incompletas"]
+        ~df["depende_figura"] & ~df["formula_corrompida"] & df["alternativas_completas"]
     )
     return df
 
@@ -91,7 +119,28 @@ def tabela_md(df: pd.DataFrame) -> str:
     return "\n".join(linhas)
 
 
-def relatorio(df: pd.DataFrame, orfaos: dict, avisos: list[str]) -> str:
+def secao_duplicatas(df: pd.DataFrame, pares: list[dict]) -> list[str]:
+    decisoes = {}
+    if config.ARQ_REVISAO.exists():
+        revisao = pd.read_csv(config.ARQ_REVISAO, dtype=str, keep_default_na=False)
+        for r in revisao[revisao["tipo"].isin(["duplicata", "nao_duplicata"])].itertuples():
+            decisoes[frozenset((r.item_id, r.valor))] = (
+                "confirmada" if r.tipo == "duplicata" else "descartada (itens distintos)"
+            )
+    linhas = [
+        f"- {p['item_a']} ~ {p['item_b']} (semelhança {p['semelhanca']}): "
+        + decisoes.get(frozenset((p["item_a"], p["item_b"])), "PENDENTE de revisão")
+        for p in pares
+    ]
+    return [
+        f"## Candidatos a duplicata (semelhança >= {LIMIAR_DUPLICATA}, enunciado + alternativas)",
+        "",
+        *(linhas or ["- nenhum"]),
+        "",
+    ]
+
+
+def relatorio(df: pd.DataFrame, orfaos: dict, avisos: list[str], pares: list[dict]) -> str:
     divergentes = df[(df["gabarito_inline"] != "") & (df["gabarito_inline"] != df["gabarito"])]
     por_topico = (
         df.groupby("topico_saeb")
@@ -101,7 +150,7 @@ def relatorio(df: pd.DataFrame, orfaos: dict, avisos: list[str]) -> str:
             sinal_deitico=("sinal_deitico", "sum"),
             depende_figura=("depende_figura", "sum"),
             formula_corrompida=("formula_corrompida", "sum"),
-            alternativas_incompletas=("alternativas_incompletas", "sum"),
+            alternativas_incompletas=("alternativas_completas", lambda s: int((~s).sum())),
             aptos=("apto_verificacao", "sum"),
         )
         .reset_index()
@@ -140,6 +189,7 @@ def relatorio(df: pd.DataFrame, orfaos: dict, avisos: list[str]) -> str:
         *[f"- {a}" for a in avisos],
         *[f"- {r.item_id}: {r.observacoes}" for r in df[df["observacoes"] != ""].itertuples()],
         "",
+        *secao_duplicatas(df, pares),
         "## Revisão manual (dados/referencia/revisao_manual.csv)",
         "",
         *[f"- {r.item_id}: {r.revisao}" for r in df[df["revisao"] != ""].itertuples()],
@@ -220,7 +270,8 @@ def main() -> int:
     df.to_csv(config.ARQ_ITENS, index=False, encoding="utf-8")
     gab.to_csv(config.EXTRAIDOS / "gabarito.csv", index=False, encoding="utf-8")
     pd.DataFrame(descritores).to_csv(config.EXTRAIDOS / "descritores.csv", index=False, encoding="utf-8")
-    texto_relatorio = relatorio(df, orfaos, avisos)
+    pares = candidatos_duplicata(df)
+    texto_relatorio = relatorio(df, orfaos, avisos, pares)
     (config.EXTRAIDOS / "relatorio_extracao.md").write_text(texto_relatorio, encoding="utf-8")
     (config.EXTRAIDOS / "amostra_conferencia.md").write_text(amostra(df), encoding="utf-8")
 
