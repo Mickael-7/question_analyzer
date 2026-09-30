@@ -104,7 +104,13 @@ def tabela_md(df: pd.DataFrame) -> str:
 def relatorio_v6(rot, alinhamento, equivalencia, taxonomia) -> str:
     ano_hab = dict(zip(taxonomia["codigo"], taxonomia["ano"].astype(int)))
     unidade = dict(zip(taxonomia["codigo"], taxonomia["unidade_tematica"]))
-    partes = ["# Relatório do cruzamento documental (V6)", ""]
+    partes = [
+        "# Relatório do cruzamento documental (V6)",
+        "",
+        f"Anos com rótulo de referência usado nas métricas (config.ANOS_COM_ROTULO): {config.ANOS_COM_ROTULO}. "
+        "Os itens dos demais anos são etiquetados e entram em V1, V3, V4 e V5.",
+        "",
+    ]
 
     # 1. descritores e itens
     linhas = []

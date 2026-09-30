@@ -70,6 +70,14 @@ TOP_K = 5
 # nenhuma habilidade do 9º ano no rótulo; restringir tornaria esses acertos inalcançáveis.
 RESTRINGIR_AO_ANO = False
 
+# Anos cujos itens têm rótulo de referência válido para acurácia top-1/top-3,
+# F1 macro e V2. Decisão de 2026-09-29, após a V6: não há documento oficial
+# que vincule os descritores Paebes dos itens aptos do 5º ano a habilidades
+# específicas (as Orientações Curriculares só listam descritores por
+# trimestre). Os itens do 5º ano são etiquetados e entram em V1, V3, V4 e V5,
+# que não dependem do rótulo; as métricas contra a referência ficam no 9º ano.
+ANOS_COM_ROTULO = [9]
+
 # Peso da semântica na combinação; a heurística recebe (1 - PESO_SEMANTICA).
 PESO_SEMANTICA = 0.5
 

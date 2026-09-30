@@ -1,5 +1,7 @@
 # Relatório do cruzamento documental (V6)
 
+Anos com rótulo de referência usado nas métricas (config.ANOS_COM_ROTULO): [9]. Os itens dos demais anos são etiquetados e entram em V1, V3, V4 e V5.
+
 ## Cobertura do alinhamento
 
 | ano | descritores_na_fonte | descritores_com_habilidade | itens | itens_sem_rotulo | aptos | aptos_sem_rotulo | habilidades_por_item_rotulado |
