@@ -65,11 +65,18 @@ RESTRINGIR_AO_ANO = False  # decisão de escopo da seção 4.1: não restringir
 # Peso da semântica na combinação; a heurística recebe (1 - PESO_SEMANTICA).
 PESO_SEMANTICA = 0.5
 
-# Limiar da verificação V4: diferença mínima entre 1ª e 2ª candidata
-# (pontuação combinada, escala 0-1). DEVE ser definido antes de ver resultados.
-# Enquanto for None, o script de etiquetagem se recusa a rodar.
-LIMIAR_MARGEM = None
-JUSTIFICATIVA_LIMIAR = ""
+# Limiar da verificação V4: diferença mínima entre 1ª e 2ª candidata na
+# pontuação combinada. Definido em 2026-09-29, antes da existência do script de
+# etiquetagem e de qualquer resultado. Normalização fixada junto: cada
+# componente (semântico e heurístico) é levado a [0, 1] por min-max sobre todas
+# as habilidades candidatas do item; a combinada é a média ponderada por
+# PESO_SEMANTICA; margem = combinada(1ª) - combinada(2ª).
+LIMIAR_MARGEM = 0.05
+JUSTIFICATIVA_LIMIAR = (
+    "5% da amplitude da escala normalizada: diferença abaixo da qual a ordem entre "
+    "as duas primeiras candidatas pode ser invertida por variações pequenas do "
+    "texto do enunciado ou do vocabulário, e a decisão é tratada como ambígua."
+)
 
 # Colunas que o script 3 pode ler. habilidades_referencia NUNCA entra aqui.
 COLUNAS_ETIQUETAGEM = ["item_id", "fonte", "ano", "enunciado", "depende_figura"]
