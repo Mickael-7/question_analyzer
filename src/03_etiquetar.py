@@ -70,6 +70,9 @@ def ranquear(pontuacoes: pd.DataFrame, k: int) -> pd.DataFrame:
             "top": SEP.join(top.index),
             "pontuacoes": SEP.join(f"{v:.4f}" for v in top.values),
             "margem": round(float(ordem.iloc[0] - ordem.iloc[1]), 6),
+            # Empate na 1ª posição: a ordem entre as empatadas segue a da taxonomia
+            # (código crescente), sem significado; a verificação trata como ambíguo.
+            "empate_top1": int((ordem == ordem.iloc[0]).sum()) > 1,
         })
     return pd.DataFrame(linhas).set_index("item_id")
 
@@ -108,6 +111,7 @@ def main() -> int:
         saida[f"{nome}_top{config.TOP_K}"] = r["top"]
         saida[f"{nome}_pontuacoes"] = r["pontuacoes"]
         saida[f"{nome}_margem"] = r["margem"]
+        saida[f"{nome}_empate_top1"] = r["empate_top1"]
         norm[nome].round(6).to_csv(config.PREDITOS / f"pontuacoes_{nome}.csv", encoding="utf-8")
     saida["combinada_ambigua"] = saida["combinada_margem"] < config.LIMIAR_MARGEM
     saida.reset_index().to_csv(config.ARQ_PREDITOS, index=False, encoding="utf-8")
