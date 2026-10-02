@@ -1,0 +1,13 @@
+configuracao,unidade_tematica,itens,acuracia_top1,acuracia_top3
+Heurística,Geometria,6,0.16666666666666666,0.16666666666666666
+Heurística,Grandezas e medidas,4,0.0,0.0
+Heurística,Números,25,0.04,0.08
+Heurística,Álgebra,10,0.2,0.3
+Semântica,Geometria,6,0.0,0.16666666666666666
+Semântica,Grandezas e medidas,4,0.0,0.0
+Semântica,Números,25,0.0,0.04
+Semântica,Álgebra,10,0.0,0.1
+Combinada,Geometria,6,0.16666666666666666,0.16666666666666666
+Combinada,Grandezas e medidas,4,0.0,0.0
+Combinada,Números,25,0.04,0.04
+Combinada,Álgebra,10,0.1,0.2
