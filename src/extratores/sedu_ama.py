@@ -29,12 +29,17 @@ CABECALHO = {
     "SUGESTÃO QUESTÕES – MATEMÁTICA",
     "5º ANO",
 }
-RE_CODIGO = re.compile(r"^(?:D\s?)?(\d[\d\s]{0,3})_M$")
-RE_QUESTAO = re.compile(r"^QUEST[ÃA]O\s*(\d+)\s*(.*)$")
+# Aceita "D057-M": o hífen no lugar do sublinhado aparece como erro de digitação em gabaritos.
+RE_CODIGO = re.compile(r"^(?:D\s?)?(\d[\d\s]{0,3})\s?[_-]M$")
+# "QUESTÃO 1" (cadernos de 2023 a 2025) ou "Questão 1" (cadernos de 2026).
+# O gabarito, que também usa "Questão N", fica fora do intervalo de páginas dos itens.
+RE_QUESTAO = re.compile(r"^QUEST[ÃA]O\s*(\d+)\s*[:.\-]?\s*(.*)$", re.I)
 RE_GABARITO = re.compile(r"^GABARITO", re.I)
 # "(Saresp - 2010). Com...", "(PROVA BRASIL) Uma..."; o fechamento é o primeiro ")"
 # seguido de ponto opcional e início de frase.
 RE_ORIGEM = re.compile(r"^\((.{2,80}?)\)\.?\s+(?=[A-ZÀ-Ú0-9“\"(])")
+# Origem cujo "(" inicial se perdeu na extração ("PAEBES). O triângulo..."): só siglas.
+RE_ORIGEM_SEM_PARENTESE = re.compile(r"^([A-Z][A-Z0-9 \-–]{1,30})\)\.?\s+(?=[A-ZÀ-Ú0-9“\"(])")
 # Distância acima da linha do código em que o cabeçalho do bloco começa
 # (a descrição às vezes começa um pouco acima do código).
 ALTURA_CABECALHO = 25
@@ -72,7 +77,13 @@ def ler_itens(doc: pymupdf.Document, paginas: range) -> tuple[list[ItemBruto], d
     soltas: list[comum.Linha] = []  # linhas fora de item e de cabeçalho
 
     for linha in linhas:
-        if codigo := _codigo(linha.texto):
+        if (codigo := _codigo(linha.texto)) and codigo == descritor and atual is not None:
+            # Código repetido no topo da página de continuação do mesmo bloco:
+            # encerra o item corrente, mas não reinicia a numeração.
+            atual.fim = (linha.pagina, linha.y0 - ALTURA_CABECALHO)
+            atual, no_cabecalho = None, True
+            continue
+        if codigo:
             # A descrição do descritor às vezes começa um pouco acima do código
             # e, na ordem de leitura, vem antes dele: recupera essas linhas.
             limite = linha.y0 - ALTURA_CABECALHO
@@ -128,7 +139,9 @@ def ler_gabarito(doc: pymupdf.Document, pagina_inicial: int) -> tuple[list[dict]
         else:
             continue
         if letra and numero is not None:
-            if letra in LETRAS:
+            if (descritor, numero) in {(r["descritor"], r["numero"]) for r in registros}:
+                avisos.append(f"gabarito: {descritor} questão {numero:02d} aparece mais de uma vez; mantida a primeira ocorrência")
+            elif letra in LETRAS:
                 registros.append({"descritor": descritor, "numero": numero, "gabarito": letra})
             else:
                 avisos.append(f"gabarito: {descritor} questão {numero:02d} tem letra inválida '{letra}', descartada")
@@ -151,7 +164,7 @@ def extrair(caminho_pdf, fonte: str, ano: int) -> dict:
     for bruto in brutos:
         texto_original = "\n".join(l.texto for l in bruto.linhas)
         enunciado, alternativas = comum.separar_alternativas(texto_original, LETRAS)
-        origem = RE_ORIGEM.match(enunciado)
+        origem = RE_ORIGEM.match(enunciado) or RE_ORIGEM_SEM_PARENTESE.match(enunciado)
         if origem:
             enunciado = enunciado[origem.end():]
         imgs = _imagens_do_item(bruto, imagens)
@@ -177,6 +190,8 @@ def extrair(caminho_pdf, fonte: str, ano: int) -> dict:
             "gabarito_inline": "",
             "n_imagens": len(imgs),
             "formula_corrompida": comum.formula_corrompida(texto_original),
+            "expressao_vetorial": comum.glifos_vetoriais(doc, bruto.inicio, bruto.fim) > 0
+            or comum.operador_ausente(texto_original),
             "observacoes": "; ".join(observacoes),
             "texto_original": texto_original,
         })

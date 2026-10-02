@@ -1,12 +1,12 @@
 {
-  "data": "2026-10-02T13:51:50+00:00",
+  "data": "2026-10-02T17:07:33+00:00",
   "modelo": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
   "modelo_revisao": "4328cf26390c98c5e3c738b4460a05b95f4911f5",
   "peso_semantica": 0.5,
   "limiar_margem": 0.05,
   "restringir_ao_ano": false,
   "top_k": 5,
-  "itens": 225,
+  "itens": 425,
   "habilidades_candidatas": 290,
   "radical_heuristica": 6,
   "versoes": {

@@ -61,7 +61,7 @@ def aplicar_revisao(df: pd.DataFrame) -> pd.DataFrame:
         raise ValueError(f"revisao_manual.csv cita itens inexistentes: {sorted(desconhecidos)}")
     notas: dict[str, list[str]] = {}
     for r in revisao.itertuples():
-        if r.tipo == "gabarito_divergente":
+        if r.tipo in ("gabarito_divergente", "gabarito_recuperado"):
             df.loc[df["item_id"] == r.item_id, "gabarito_revisado"] = r.valor
         elif r.tipo == "duplicata":
             df.loc[df["item_id"] == r.item_id, "duplicata_de"] = r.valor
@@ -107,7 +107,7 @@ def marcar_figura(df: pd.DataFrame) -> pd.DataFrame:
     # Alternativas desenhadas como imagem ou vetor não chegam ao texto: o item fica incompleto.
     df["alternativas_completas"] = (df[["alt_a", "alt_b", "alt_c", "alt_d"]] != "").all(axis=1)
     df["apto_verificacao"] = (
-        ~df["depende_figura"] & ~df["formula_corrompida"] & df["alternativas_completas"]
+        ~df["depende_figura"] & ~df["formula_corrompida"] & ~df["expressao_vetorial"] & df["alternativas_completas"]
     )
     return df
 
@@ -150,6 +150,7 @@ def relatorio(df: pd.DataFrame, orfaos: dict, avisos: list[str], pares: list[dic
             sinal_deitico=("sinal_deitico", "sum"),
             depende_figura=("depende_figura", "sum"),
             formula_corrompida=("formula_corrompida", "sum"),
+            expressao_vetorial=("expressao_vetorial", "sum"),
             alternativas_incompletas=("alternativas_completas", lambda s: int((~s).sum())),
             aptos=("apto_verificacao", "sum"),
         )
@@ -216,14 +217,15 @@ def conferencia() -> str:
 
 
 def amostra(df: pd.DataFrame) -> str:
+    # Uma amostra por ano e lote: a amostra do lote 1 permanece a mesma já conferida.
     sorteio = pd.concat(
         grupo.sample(n=min(config.TAMANHO_AMOSTRA, len(grupo)), random_state=config.SEMENTE_AMOSTRA)
-        for _, grupo in df.groupby("ano")
+        for _, grupo in df.groupby(["ano", "lote"])
     )
     partes = [
         "# Amostra para conferência manual",
         "",
-        f"Sorteio de {config.TAMANHO_AMOSTRA} itens por ano com semente {config.SEMENTE_AMOSTRA}. "
+        f"Sorteio de {config.TAMANHO_AMOSTRA} itens por ano e lote com semente {config.SEMENTE_AMOSTRA}. "
         "Compare cada item com o PDF e anote as divergências.",
         "",
     ]
@@ -260,6 +262,7 @@ def main() -> int:
     gab = pd.DataFrame(gabaritos)
     df, orfaos = juntar_gabarito(df, gab)
     df.insert(0, "item_id", df.apply(item_id, axis=1))
+    df["lote"] = df["fonte"].map(lambda f: config.FONTES[f]["lote"])
     df = aplicar_revisao(marcar_figura(df)).sort_values("item_id").reset_index(drop=True)
 
     if df["item_id"].duplicated().any():

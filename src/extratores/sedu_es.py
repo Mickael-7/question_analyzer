@@ -204,6 +204,8 @@ def extrair(caminho_pdf, fonte: str = FONTE, ano: int = ANO) -> dict:
             "gabarito_inline": resp.group(1).upper() if resp else "",
             "n_imagens": len(imgs),
             "formula_corrompida": comum.formula_corrompida(texto_original),
+            "expressao_vetorial": comum.glifos_vetoriais(doc, bruto.inicio, bruto.fim) > 0
+            or comum.operador_ausente(texto_original),
             "observacoes": "; ".join(observacoes),
             "texto_original": texto_original,
         })

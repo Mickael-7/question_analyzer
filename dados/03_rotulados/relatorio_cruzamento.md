@@ -7,7 +7,7 @@ Anos com rótulo de referência usado nas métricas (config.ANOS_COM_ROTULO): [9
 | ano | descritores_na_fonte | descritores_com_habilidade | itens | itens_sem_rotulo | aptos | aptos_sem_rotulo | habilidades_por_item_rotulado |
 |---|---|---|---|---|---|---|---|
 | 5 | 17 | 2 | 77 | 65 | 23 | 23 | 1.0 |
-| 9 | 37 | 36 | 148 | 4 | 45 | 0 | 2.0 |
+| 9 | 62 | 59 | 348 | 10 | 93 | 4 | 2.1 |
 
 Descritores sem habilidade correspondente (itens):
 
@@ -26,6 +26,8 @@ Descritores sem habilidade correspondente (itens):
 - 5º ano, D106_M: 3
 - 5º ano, D113_M: 9
 - 5º ano, D114_M: 3
+- 9º ano, D025_M: 3
+- 9º ano, D030_M: 3
 - 9º ano, D7: 4
 
 ## Habilidades inalcançáveis
@@ -48,8 +50,8 @@ Habilidades da etapa que não figuram em nenhum descritor do alinhamento usado p
 Base para decidir se as candidatas são restritas ao ano do item (seção 3.2.1).
 
 - 5º ano, todos os itens rotulados: {5: 12} | pares habilidade-item fora do ano do item: 0/12 | itens cujo rótulo não tem nenhuma habilidade do próprio ano: 0/12
-- 9º ano, todos os itens rotulados: {6: 72, 7: 100, 8: 60, 9: 56} | pares habilidade-item fora do ano do item: 232/288 | itens cujo rótulo não tem nenhuma habilidade do próprio ano: 96/144
-- 9º ano, itens aptos: {6: 20, 7: 36, 8: 16, 9: 16} | pares habilidade-item fora do ano do item: 72/88 | itens cujo rótulo não tem nenhuma habilidade do próprio ano: 29/45
+- 9º ano, todos os itens rotulados: {6: 145, 7: 280, 8: 132, 9: 154} | pares habilidade-item fora do ano do item: 557/711 | itens cujo rótulo não tem nenhuma habilidade do próprio ano: 219/338
+- 9º ano, itens aptos: {6: 37, 7: 89, 8: 35, 9: 33} | pares habilidade-item fora do ano do item: 161/194 | itens cujo rótulo não tem nenhuma habilidade do próprio ano: 57/89
 
 ## Qualidade do insumo documental
 

@@ -45,11 +45,19 @@ ANO_EM = 10  # posição de ordenação das habilidades do EM (valem para as 3 s
 UNIDADE_EM = "Ensino Médio"
 
 # Fontes de questões: fonte_id -> arquivo em dados/01_brutos e módulo em src/extratores
+# lote 1: fontes da primeira execução; lote 2: ampliação do 9º ano, incorporada
+# depois de o método ter sido fixado (os itens do lote 2 não influenciaram nenhuma escolha).
 FONTES = {
-    "sedu_es_9ef": {"arquivo": "sedu_es_saeb_mat_9ano.pdf", "extrator": "sedu_es", "ano": 9},
-    "sedu_ama5_2023t1": {"arquivo": "sedu_es_ama_mat_5ano_1tri_2023.pdf", "extrator": "sedu_ama", "ano": 5},
-    "sedu_ama5_2024t3": {"arquivo": "sedu_es_ama_mat_5ano_3tri_2024.pdf", "extrator": "sedu_ama", "ano": 5},
-    "sedu_ama5_2025t3": {"arquivo": "sedu_es_ama_mat_5ano_3tri_2025.pdf", "extrator": "sedu_ama", "ano": 5},
+    "sedu_es_9ef": {"arquivo": "sedu_es_saeb_mat_9ano.pdf", "extrator": "sedu_es", "ano": 9, "lote": 1},
+    "sedu_ama5_2023t1": {"arquivo": "sedu_es_ama_mat_5ano_1tri_2023.pdf", "extrator": "sedu_ama", "ano": 5, "lote": 1},
+    "sedu_ama5_2024t3": {"arquivo": "sedu_es_ama_mat_5ano_3tri_2024.pdf", "extrator": "sedu_ama", "ano": 5, "lote": 1},
+    "sedu_ama5_2025t3": {"arquivo": "sedu_es_ama_mat_5ano_3tri_2025.pdf", "extrator": "sedu_ama", "ano": 5, "lote": 1},
+    "sedu_ama9_2023t1": {"arquivo": "sedu_es_ama_mat_9ano_1tri_2023.pdf", "extrator": "sedu_ama", "ano": 9, "lote": 2},
+    "sedu_ama9_2024t3": {"arquivo": "sedu_es_ama_mat_9ano_3tri_2024.pdf", "extrator": "sedu_ama", "ano": 9, "lote": 2},
+    "sedu_ama9_2025t3g": {"arquivo": "sedu_es_ama_mat_9ano_3tri_2025_gama.pdf", "extrator": "sedu_ama", "ano": 9, "lote": 2},
+    "sedu_ama9_2026int": {"arquivo": "sedu_es_ama_mat_9ano_intervencao_2026.pdf", "extrator": "sedu_ama", "ano": 9, "lote": 2},
+    "sedu_ama9_2026t1": {"arquivo": "sedu_es_ama_mat_9ano_1tri_2026.pdf", "extrator": "sedu_ama", "ano": 9, "lote": 2},
+    "sedu_ama9_2026t3": {"arquivo": "sedu_es_ama_mat_9ano_3tri_2026.pdf", "extrator": "sedu_ama", "ano": 9, "lote": 2},
 }
 SEMENTE_AMOSTRA = 2026
 TAMANHO_AMOSTRA = 10
@@ -57,7 +65,7 @@ TAMANHO_AMOSTRA = 10
 # Extração: marcadores de dependência de figura (seção 2.4 do guia)
 TERMOS_DEITICOS = [
     "figura", "imagem", "malha", "gráfico", "grafico", "tabela", "desenho",
-    "planta", "croqui", "mapa", "abaixo", "a seguir", "ao lado",
+    "planta", "croqui", "mapa", "abaixo", "a seguir", "ao lado", "acima",
 ]
 
 # Etiquetagem

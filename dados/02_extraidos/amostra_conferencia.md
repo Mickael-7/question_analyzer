@@ -1,6 +1,6 @@
 # Amostra para conferência manual
 
-Sorteio de 10 itens por ano com semente 2026. Compare cada item com o PDF e anote as divergências.
+Sorteio de 10 itens por ano e lote com semente 2026. Compare cada item com o PDF e anote as divergências.
 
 ## sedu_ama5_2023t1-D011_M-03 (p. 11-12)
 
@@ -11,7 +11,7 @@ Sorteio de 10 itens por ano com semente 2026. Compare cada item com o PDF e anot
 - C) 6/2
 - D) 2/6
 
-Gabarito: D | imagens: 1 | dêiticos: abaixo|figura | fórmula corrompida: True | apto: False
+Gabarito: D | imagens: 1 | dêiticos: abaixo|acima|figura | fórmula corrompida: True | apto: False
 
 Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
 
@@ -129,6 +129,136 @@ Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação
 - D) Diana
 
 Gabarito: D | imagens: 3 | dêiticos: abaixo|figura | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2023t1-D010_M-03 (p. 9-9)
+
+**Enunciado:** O valor da expressão é:
+
+- A) 3
+- B) 7
+- C) 9
+- D) √29
+
+Gabarito: A | imagens: 1 | dêiticos: - | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2023t1-D025_M-01 (p. 5-6)
+
+**Enunciado:** Um relógio A bate a cada 15 minutos, outro relógio B bate a cada 20 minutos, e um terceiro relógio C, a cada 25 minutos. O menor intervalo de tempo decorrido entre duas batidas simultâneas dos três relógios, em horas, é igual a:
+
+- A) 3
+- B) 6
+- C) 4
+- D) 5
+
+Gabarito: D | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: True
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2025t3g-D058_M-06 (p. 7-7)
+
+**Enunciado:** A figura que segue representa as dimensões de um lote. A quantidade necessária de grama, em m², para cobrir metade desse lote, é
+
+- A) 30
+- B) 40
+- C) 50
+- D) 60
+
+Gabarito: D | imagens: 1 | dêiticos: figura | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2025t3g-D121_M-07 (p. 18-18)
+
+**Enunciado:** Gabriel vai calcular o diâmetro da circunferência de centro F representada abaixo. Para encontrar a medida do diâmetro dessa circunferência ele deve somar as medidas de quais segmentos?
+
+- A) FG e FH.
+- B) FG e FI.
+- C) FH e GH.
+- D) FI e GH.
+
+Gabarito: A | imagens: 1 | dêiticos: abaixo | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2025t3g-D121_M-10 (p. 19-19)
+
+**Enunciado:** O triângulo abaixo foi construído unindo-se os centros de três circunferências tangentes de 5 cm de raio. Quanto mede cada lado desse triângulo?
+
+- A) 30 cm
+- B) 20 cm
+- C) 15 cm
+- D) 10 cm
+
+Gabarito: D | imagens: 1 | dêiticos: abaixo | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2026t1-D010_M-02 (p. 7-7)
+
+**Enunciado:** O Espírito Santo é o maior produtor de café conilon do Brasil, responsável por cerca de 80% da produção nacional. Se um pequeno produtor colheu 2,5 toneladas de café e decidiu separar da colheita para exportação direta, quantas toneladas serão exportadas? Fonte: https://incaper.es.gov.br/cafeicultura-conilon
+
+- A) 1,5 toneladas
+- B) 0,5 toneladas
+- C) 0,625 toneladas
+- D) 1,25 toneladas
+
+Gabarito: C | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2026t1-D013_M-03 (p. 11-11)
+
+**Enunciado:** Uma escola de Jaguaré realizará um torneio interclasse. De todos os estudantes da escola, 0,25 dos estudantes irão jogar futsal, 0,4 irão jogar vôlei e 0,2 irão jogar basquete. Quais são as representações fracionárias dessas quantidades, respectivamente?
+
+- A) 
+- B) 
+- C) 
+- D) 
+
+Gabarito: C | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2026t3-D087_M-04 (p. 15-15)
+
+**Enunciado:** O número de cadeiras em cada fileira de um auditório excede em 4 o número total de fileiras. Se o auditório possui ao todo 221 cadeiras distribuídas igualmente nessas fileiras, quantas fileiras esse auditório possui?
+
+- A) 11 fileiras
+- B) 13 fileiras
+- C) 17 fileiras
+- D) 19 fileiras
+
+Gabarito: B | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: True
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2026t3-D120_M-02 (p. 30-30)
+
+**Enunciado:** Paulo entrou em uma papelaria para comprar uma caneta e acabou comprando também 2 cadernos que custavam, cada um, 4 reais a mais que a caneta que ele foi comprar. Por essa compra, Paulo pagou 14 reais. Qual é a equação que permite encontrar o preço x da caneta que Paulo comprou?
+
+- A) 2x + x = 14
+- B) x + (2x+4) = 14
+- C) x + 2(x+4) = 14
+- D) 8 + x = 14
+
+Gabarito: C | imagens: 5 | dêiticos: - | fórmula corrompida: False | apto: False
+
+Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
+
+## sedu_ama9_2026t3-D121_M-01 (p. 16-16)
+
+**Enunciado:** Considerando a circunferência e seus elementos, escreva com suas palavras o que entende por: a) Arco: _______________________________________________________________________________________ _______________________________________________________________________________________________ b) Centro: ____________________________________________________________________________________ _______________________________________________________________________________________________ c) Círculo: ____________________________________________________________________________________ _______________________________________________________________________________________________ d) Comprimento: ____________________________________________________________________________________ ________________________________________________________________________________________________________
+
+- A) 
+- B) 
+- C) 
+- D) 
+
+Gabarito:  | imagens: 0 | dêiticos: - | fórmula corrompida: False | apto: False
 
 Conferência: [ ] texto ok  [ ] alternativas ok  [ ] gabarito ok  [ ] marcação de figura ok
 

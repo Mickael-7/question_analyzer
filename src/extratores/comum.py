@@ -318,7 +318,75 @@ def separar_alternativas(texto: str, letras: str = "ABCD") -> tuple[str, dict[st
     for i, (letra, _, fim) in enumerate(posicoes):
         proximo = posicoes[i + 1][1] if i + 1 < len(posicoes) else len(texto)
         alternativas[letra] = normalizar_espacos(texto[fim:proximo])
+    # Letras além da última alternativa ("E) 6,52 - 3,48 ... P)") indicam lista de
+    # exercícios, e não questão de múltipla escolha.
+    if re.search(r"(?:^|\s)\(?[E-Z]\)\s", alternativas[letras[-1]] + " "):
+        return texto.strip(), {}
+    # Citação de dados ("Fonte: https://...") impressa depois das alternativas
+    # pertence ao texto-base: sai da alternativa e vai para o fim do enunciado.
+    ultima = letras[-1]
+    if "Fonte:" in alternativas[ultima]:
+        resto, citacao = alternativas[ultima].split("Fonte:", 1)
+        alternativas[ultima] = resto.strip()
+        enunciado = f"{enunciado} Fonte: {citacao.strip()}"
     return enunciado, alternativas
+
+
+def glifos_vetoriais(doc: pymupdf.Document, inicio: tuple[int, float], fim: tuple[int, float]) -> int:
+    """Conta formas preenchidas do tamanho de um caractere coladas às linhas de texto do item.
+
+    Alguns cadernos desenham frações e expoentes como vetores, e não como texto:
+    o número some do enunciado extraído ("separar ___ da colheita"). Ilustrações
+    também são vetoriais, mas ficam fora das linhas de texto e não são contadas.
+    """
+    total = 0
+    ultima = min(fim[0], doc.page_count)
+    for n in range(inicio[0], ultima + 1):
+        pagina = doc[n - 1]
+        y0 = inicio[1] if n == inicio[0] else 0
+        y1 = fim[1] if n == fim[0] else pagina.rect.height
+        # Compara com cada caractere visível, e não com o trecho inteiro: em texto
+        # justificado, o retângulo do trecho cobre a linha toda, inclusive a fração.
+        linhas = [
+            (pymupdf.Rect(l["bbox"]), [pymupdf.Rect(c["bbox"]) for s in l["spans"] for c in s["chars"]
+                                       if c["c"].strip() and not _largura_zero(c)])
+            for b in pagina.get_text("rawdict")["blocks"] for l in b.get("lines", [])
+        ]
+        linhas = [(r, chars) for r, chars in linhas if chars]
+        isolados = []  # glifos pretos fora das linhas de texto, por altura da base
+        for d in pagina.get_drawings():
+            r = d["rect"]
+            if d.get("type") not in ("f", "fs") or not (y0 <= (r.y0 + r.y1) / 2 < y1):
+                continue
+            if not (1.5 <= r.width <= 12 and 3 <= r.height <= 14):
+                continue
+            # Sobreposição real com um caractere (as caixas das linhas vizinhas encostam nas bordas).
+            area = r.get_area()
+            if any((r & c).get_area() > 0.3 * area for _, chars in linhas for c in chars):
+                continue
+            cy = (r.y0 + r.y1) / 2
+            if any(lr.y0 - 8 <= cy <= lr.y1 + 8 and lr.x0 - 15 <= r.x0 <= lr.x1 + 25 for lr, _ in linhas):
+                total += 1
+            elif d.get("fill") and max(d["fill"]) < 0.35:
+                isolados.append((r.y1, round(r.width * 2) / 2))
+        # Fórmula em linha própria: quatro ou mais glifos pretos na mesma base, com ao
+        # menos três larguras diferentes (letras e algarismos variam; detalhes de
+        # ilustrações, como barras e traços repetidos, têm larguras iguais).
+        isolados.sort()
+        for i in range(len(isolados)):
+            grupo = [w for y, w in isolados[i:] if y - isolados[i][0] <= 3]
+            if len(grupo) >= 4 and len(set(grupo)) >= 3:
+                total += len(grupo)
+                break
+    return total
+
+
+RE_OPERADOR_AUSENTE = re.compile(r"\d {3,}\d")
+
+
+def operador_ausente(texto: str) -> bool:
+    """Dois números separados por um vão ("64     4"): operador desenhado como vetor."""
+    return any(RE_OPERADOR_AUSENTE.search(linha.strip()) for linha in texto.splitlines())
 
 
 def formula_corrompida(texto: str) -> bool:

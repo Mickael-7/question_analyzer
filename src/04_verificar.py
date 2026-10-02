@@ -53,6 +53,13 @@ def carregar():
     tax = pd.read_csv(config.ARQ_BNCC, keep_default_na=False)
     df = rot.merge(pred, on="item_id", how="inner", validate="one_to_one")
     df = df[df["apto_verificacao"].astype(str) == "True"].copy()
+    # Duplicata do mesmo ano cujo original também é apto: o item é contado uma vez só.
+    ano_de = dict(zip(rot["item_id"], rot["ano"]))
+    aptos = set(df["item_id"])
+    repetido = df["duplicata_de"].map(lambda d: d in aptos) & (
+        df["duplicata_de"].map(ano_de) == df["ano"]
+    )
+    df = df[~repetido].copy()
     for c in CONFIGURACOES:
         df[f"{c}_lista"] = df[f"{c}_top{config.TOP_K}"].str.split(SEP)
         df[f"{c}_top1"] = df[f"{c}_lista"].str[0]
@@ -106,6 +113,21 @@ def metricas_referencia(df) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     contagem = (pd.Series([h for refs in r["refs"] for h in refs]).value_counts()
                 .rename_axis("habilidade").reset_index(name="itens"))
     return pd.DataFrame(linhas), pd.DataFrame(por_ut), contagem
+
+
+def robustez_por_lote(df) -> pd.DataFrame:
+    """Métricas do 9º ano separadas por lote. Definida antes da execução sobre o lote 2:
+    os itens do lote 2 não influenciaram nenhuma escolha de método e funcionam como
+    conjunto de verificação independente."""
+    linhas = []
+    for lote, g in com_rotulo(df).groupby("lote"):
+        for c in CONFIGURACOES:
+            linhas.append({
+                "lote": int(lote), "configuracao": NOMES[c], "itens": len(g),
+                "acuracia_top1": np.mean([l[0] in refs for l, refs in zip(g[f"{c}_lista"], g["refs"])]),
+                "acuracia_top3": np.mean([any(h in refs for h in l[:3]) for l, refs in zip(g[f"{c}_lista"], g["refs"])]),
+            })
+    return pd.DataFrame(linhas)
 
 
 def posicao_referencia(df) -> pd.DataFrame:
@@ -342,6 +364,7 @@ def main() -> int:
 
     m, m_ut, contagem = metricas_referencia(df)
     pos = posicao_referencia(df)
+    rob = robustez_por_lote(df)
     t1, t1_dist = v1(df, ano_hab)
     t2, conf = v2(df, ut_hab)
     t3 = v3(df)
@@ -351,7 +374,7 @@ def main() -> int:
 
     for nome, tabela in [("metricas_9ano", m), ("metricas_por_unidade_tematica", m_ut),
                          ("itens_por_habilidade_referencia", contagem),
-                         ("posicao_referencia_complementar", pos), ("v1_compatibilidade_ano", t1),
+                         ("posicao_referencia_complementar", pos), ("robustez_por_lote", rob), ("v1_compatibilidade_ano", t1),
                          ("v1_distribuicao_anos_previstos", t1_dist), ("v2_coerencia_unidade", t2),
                          ("v3_concordancia", t3), ("v4_margem", t4), ("v5_cobertura", t5),
                          ("v5_anos_previstos", t5_dist), ("erros_combinada", e)]:
@@ -382,6 +405,8 @@ def main() -> int:
         f"Habilidades no conjunto de referência: {len(contagem)}; itens por habilidade: "
         f"mín {contagem['itens'].min()}, mediana {contagem['itens'].median():.0f}, máx {contagem['itens'].max()} "
         "(tabela itens_por_habilidade_referencia.csv).", "",
+        "Robustez por lote (definida antes da execução sobre o lote 2, que não influenciou o método):", "",
+        tabela_md(rob, pct=("acuracia_top1", "acuracia_top3")), "",
         "Análise complementar, definida após os resultados (não pré-registrada): posição da habilidade "
         "de referência mais bem colocada no ranking completo de 290 candidatas.", "",
         tabela_md(pos, pct=("ate_10", "ate_30")), "",
