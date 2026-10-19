@@ -6,7 +6,7 @@ Saída:   06_publicacao/banco_questoes.csv   uma linha por item (listas separada
          06_publicacao/banco_questoes.json  mesmo conteúdo, com listas e previsões aninhadas
          06_publicacao/FICHA_DESCRITIVA.md  ficha no modelo de Gebru et al. (2021)
 
-O esquema segue o Quadro 1 do Capítulo 3. Os enunciados são publicados na
+O esquema segue o Quadro 2 do Capítulo 3. Os enunciados são publicados na
 íntegra, com a origem de cada item e o registro de que a fonte não declara
 condição de uso (decisão de 2026-10-19, com a orientadora).
 """
@@ -21,10 +21,11 @@ SEP = "|"
 SAIDA = config.DADOS / "06_publicacao"
 CONFIGURACOES = ["heuristica", "semantica", "combinada"]
 VERSAO_BANCO = "1.0.0"
+DOI = "10.5281/zenodo.23486009"
 LICENCA_CONTRIBUICOES = "CC BY 4.0"
 ALTERNATIVAS = ["a", "b", "c", "d"]
 
-# Ordem das colunas do CSV publicado (Quadro 1, mais lote e expressao_vetorial).
+# Ordem das colunas do CSV publicado (Quadro 2, mais lote e expressao_vetorial).
 COLUNAS = [
     "id", "enunciado", "alt_a", "alt_b", "alt_c", "alt_d", "gabarito", "gabarito_revisado",
     "etapa_ano", "descritor_origem", "codificacao_descritor", "origem_item",
@@ -150,7 +151,8 @@ def ficha(banco: pd.DataFrame) -> str:
     return f"""# Ficha descritiva do banco de questões
 
 Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC,
-versão {VERSAO_BANCO}. Ficha no modelo de Gebru et al. (2021), *Datasheets for Datasets*.
+versão {VERSAO_BANCO}, DOI [{DOI}](https://doi.org/{DOI}). Ficha no modelo de Gebru et al.
+(2021), *Datasheets for Datasets*.
 
 ## Motivação
 
@@ -170,7 +172,7 @@ versão {VERSAO_BANCO}. Ficha no modelo de Gebru et al. (2021), *Datasheets for 
 - **Campos.** Enunciado, alternativas, gabarito publicado e revisado, descritor de
   origem, avaliação de origem, rótulo de referência com a cadeia de traduções,
   habilidades previstas por três configurações automáticas, sinalização de aptidão e
-  proveniência até a página. Dicionário completo no Quadro 1 do trabalho e no README do repositório.
+  proveniência até a página. Dicionário completo no Quadro 2 do trabalho e no README do repositório.
 - **Rótulo de referência.** {rotulado.sum()} itens têm rótulo de referência, obtido
   por cruzamento documental entre o descritor do item e documentos oficiais de
   alinhamento da SEDU-ES. É um rótulo derivado, e não padrão-ouro: não foi
@@ -238,7 +240,7 @@ def main() -> int:
     banco.to_csv(SAIDA / "banco_questoes.csv", index=False)
     with open(SAIDA / "banco_questoes.json", "w", encoding="utf-8") as f:
         json.dump(
-            {"versao": VERSAO_BANCO, "taxonomia_bncc": config.BNCC_VERSAO, "itens": para_json(banco)},
+            {"versao": VERSAO_BANCO, "doi": DOI, "taxonomia_bncc": config.BNCC_VERSAO, "itens": para_json(banco)},
             f, ensure_ascii=False, indent=1,
         )
     (SAIDA / "FICHA_DESCRITIVA.md").write_text(ficha(banco), encoding="utf-8")

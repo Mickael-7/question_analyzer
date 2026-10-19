@@ -1,7 +1,8 @@
 # Ficha descritiva do banco de questões
 
 Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC,
-versão 1.0.0. Ficha no modelo de Gebru et al. (2021), *Datasheets for Datasets*.
+versão 1.0.0, DOI [10.5281/zenodo.23486009](https://doi.org/10.5281/zenodo.23486009). Ficha no modelo de Gebru et al.
+(2021), *Datasheets for Datasets*.
 
 ## Motivação
 
@@ -21,7 +22,7 @@ versão 1.0.0. Ficha no modelo de Gebru et al. (2021), *Datasheets for Datasets*
 - **Campos.** Enunciado, alternativas, gabarito publicado e revisado, descritor de
   origem, avaliação de origem, rótulo de referência com a cadeia de traduções,
   habilidades previstas por três configurações automáticas, sinalização de aptidão e
-  proveniência até a página. Dicionário completo no Quadro 1 do trabalho e no README do repositório.
+  proveniência até a página. Dicionário completo no Quadro 2 do trabalho e no README do repositório.
 - **Rótulo de referência.** 350 itens têm rótulo de referência, obtido
   por cruzamento documental entre o descritor do item e documentos oficiais de
   alinhamento da SEDU-ES. É um rótulo derivado, e não padrão-ouro: não foi
