@@ -147,6 +147,58 @@ def posicao_referencia(df) -> pd.DataFrame:
     return pd.DataFrame(linhas)
 
 
+def baseline_aleatorio(df, n_candidatas: int) -> pd.DataFrame:
+    """Análise complementar, definida após os resultados: valor esperado das métricas de
+    ranking para uma ordenação aleatória das candidatas, dado o número de habilidades de
+    referência de cada item. P(acerto em k) = 1 - C(n - r, k) / C(n, k)."""
+    from math import comb
+
+    r = com_rotulo(df)
+    n_refs = r["refs"].map(len).to_numpy()
+
+    def esperado(k: int) -> float:
+        return float(np.mean([1 - comb(n_candidatas - x, k) / comb(n_candidatas, k) for x in n_refs]))
+
+    return pd.DataFrame([{"configuracao": "Aleatória (valor esperado)", "itens": len(r),
+                          "candidatas": n_candidatas, "acuracia_top1": esperado(1),
+                          "acuracia_top3": esperado(3), "ate_10": esperado(10), "ate_30": esperado(30)}])
+
+
+def ablacao_anos_finais(df, ano_hab) -> pd.DataFrame:
+    """Análise complementar, definida após os resultados: as mesmas pontuações, com as
+    candidatas restritas às habilidades do 6º ao 9º ano. Não altera o método: as
+    pontuações já calculadas são reordenadas dentro do subconjunto; na combinada, cada
+    componente é renormalizado (min-max) no subconjunto, como no método original."""
+    r = com_rotulo(df)
+    pont = {c: pd.read_csv(config.PREDITOS / f"pontuacoes_{c}.csv", index_col=0)
+            for c in ("heuristica", "semantica")}
+    subconj = [h for h in pont["heuristica"].columns if 6 <= ano_hab[h] <= 9]
+
+    def minmax(m):
+        amp = (m.max(axis=1) - m.min(axis=1)).replace(0, 1)
+        return m.sub(m.min(axis=1), axis=0).div(amp, axis=0)
+
+    matrizes = {c: pont[c].loc[r["item_id"], subconj] for c in pont}
+    matrizes["combinada"] = ((1 - config.PESO_SEMANTICA) * minmax(matrizes["heuristica"])
+                             + config.PESO_SEMANTICA * minmax(matrizes["semantica"]))
+    linhas = []
+    for c in CONFIGURACOES:
+        m = matrizes[c]
+        a1, a3, posicoes = [], [], []
+        for item, refs in zip(r["item_id"], r["refs"]):
+            s = m.loc[item]
+            ordem = sorted(s.index, key=lambda h: (-s[h], h))  # empate: ordem do código
+            a1.append(ordem[0] in refs)
+            a3.append(any(h in refs for h in ordem[:3]))
+            posicoes.append(s.rank(ascending=False, method="min")[[h for h in refs if h in s.index]].min())
+        posicoes = np.array(posicoes)
+        linhas.append({"configuracao": NOMES[c], "itens": len(r), "candidatas": len(subconj),
+                       "acuracia_top1": float(np.mean(a1)), "acuracia_top3": float(np.mean(a3)),
+                       "posicao_mediana": float(np.median(posicoes)),
+                       "ate_10": float(np.mean(posicoes <= 10)), "ate_30": float(np.mean(posicoes <= 30))})
+    return pd.DataFrame(linhas)
+
+
 def v1(df, ano_hab) -> tuple[pd.DataFrame, pd.DataFrame]:
     linhas, dist = [], []
     for a, g in df.groupby("ano"):
@@ -365,6 +417,9 @@ def main() -> int:
     m, m_ut, contagem = metricas_referencia(df)
     pos = posicao_referencia(df)
     rob = robustez_por_lote(df)
+    base = pd.concat([baseline_aleatorio(df, len(tax)),
+                      baseline_aleatorio(df, sum(6 <= a <= 9 for a in ano_hab.values()))])
+    abl = ablacao_anos_finais(df, ano_hab)
     t1, t1_dist = v1(df, ano_hab)
     t2, conf = v2(df, ut_hab)
     t3 = v3(df)
@@ -374,7 +429,9 @@ def main() -> int:
 
     for nome, tabela in [("metricas_9ano", m), ("metricas_por_unidade_tematica", m_ut),
                          ("itens_por_habilidade_referencia", contagem),
-                         ("posicao_referencia_complementar", pos), ("robustez_por_lote", rob), ("v1_compatibilidade_ano", t1),
+                         ("posicao_referencia_complementar", pos), ("robustez_por_lote", rob),
+                         ("baseline_aleatorio_complementar", base), ("ablacao_anos_finais_complementar", abl),
+                         ("v1_compatibilidade_ano", t1),
                          ("v1_distribuicao_anos_previstos", t1_dist), ("v2_coerencia_unidade", t2),
                          ("v3_concordancia", t3), ("v4_margem", t4), ("v5_cobertura", t5),
                          ("v5_anos_previstos", t5_dist), ("erros_combinada", e)]:
@@ -410,6 +467,12 @@ def main() -> int:
         "Análise complementar, definida após os resultados (não pré-registrada): posição da habilidade "
         "de referência mais bem colocada no ranking completo de 290 candidatas.", "",
         tabela_md(pos, pct=("ate_10", "ate_30")), "",
+        "Análise complementar, definida após os resultados: valor esperado de uma ordenação "
+        "aleatória das candidatas (290 e, para comparação com a ablação, só 6º ao 9º ano).", "",
+        tabela_md(base, pct=("acuracia_top1", "acuracia_top3", "ate_10", "ate_30")), "",
+        "Análise complementar, definida após os resultados: candidatas restritas ao 6º–9º ano, "
+        "com as mesmas pontuações (o método não é alterado).", "",
+        tabela_md(abl, pct=("acuracia_top1", "acuracia_top3", "ate_10", "ate_30")), "",
         "## V1 · compatibilidade de etapa e ano", "",
         tabela_md(t1, pct=("compativel", "ano_posterior_EF", "ensino_medio")), "",
         "No 9º ano, 'ano posterior' é impossível por construção; a V1 informa só as previsões do EM. "

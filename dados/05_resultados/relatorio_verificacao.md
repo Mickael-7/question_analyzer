@@ -48,6 +48,21 @@ Análise complementar, definida após os resultados (não pré-registrada): posi
 | Semântica | 84 | 30.500 | 22.6% | 50.0% |
 | Combinada | 84 | 27.500 | 32.1% | 51.2% |
 
+Análise complementar, definida após os resultados: valor esperado de uma ordenação aleatória das candidatas (290 e, para comparação com a ablação, só 6º ao 9º ano).
+
+| configuracao | itens | candidatas | acuracia_top1 | acuracia_top3 | ate_10 | ate_30 |
+|---|---|---|---|---|---|---|
+| Aleatória (valor esperado) | 84 | 290 | 0.7% | 2.2% | 7.3% | 20.8% |
+| Aleatória (valor esperado) | 84 | 121 | 1.8% | 5.3% | 16.9% | 44.6% |
+
+Análise complementar, definida após os resultados: candidatas restritas ao 6º–9º ano, com as mesmas pontuações (o método não é alterado).
+
+| configuracao | itens | candidatas | acuracia_top1 | acuracia_top3 | posicao_mediana | ate_10 | ate_30 |
+|---|---|---|---|---|---|---|---|
+| Heurística | 84 | 121 | 10.7% | 19.0% | 6.000 | 60.7% | 94.0% |
+| Semântica | 84 | 121 | 3.6% | 16.7% | 12.000 | 46.4% | 71.4% |
+| Combinada | 84 | 121 | 13.1% | 23.8% | 10.500 | 50.0% | 73.8% |
+
 ## V1 · compatibilidade de etapa e ano
 
 | ano_item | configuracao | itens | compativel | ano_posterior_EF | ensino_medio |
