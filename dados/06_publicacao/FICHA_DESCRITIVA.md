@@ -1,7 +1,7 @@
 # Ficha descritiva do banco de questões
 
 Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC,
-versão 1.0.1, DOI [10.5281/zenodo.23486009](https://doi.org/10.5281/zenodo.23486009). Ficha no modelo de Gebru et al.
+versão 1.0.1, DOI [10.5281/zenodo.23934918](https://doi.org/10.5281/zenodo.23934918). Ficha no modelo de Gebru et al.
 (2021), *Datasheets for Datasets*.
 
 ## Motivação

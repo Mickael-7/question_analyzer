@@ -21,7 +21,7 @@ SEP = "|"
 SAIDA = config.DADOS / "06_publicacao"
 CONFIGURACOES = ["heuristica", "semantica", "combinada"]
 VERSAO_BANCO = "1.0.1"
-DOI = "10.5281/zenodo.23486009"
+DOI = "10.5281/zenodo.23934918"
 LICENCA_CONTRIBUICOES = "CC BY 4.0"
 ALTERNATIVAS = ["a", "b", "c", "d"]
 

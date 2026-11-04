@@ -1,6 +1,6 @@
 # question_analyzer
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23486009.svg)](https://doi.org/10.5281/zenodo.23486009)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23934918.svg)](https://doi.org/10.5281/zenodo.23934918)
 
 Banco público de questões de Matemática do Ensino Fundamental (5º e 9º ano) etiquetadas por habilidades da BNCC, com o pipeline reprodutível que o gera.
 
@@ -77,7 +77,7 @@ em `FICHA_DESCRITIVA.md`. Versão 1.0.1: 425 itens (77 do 5º ano, 348 do 9º an
 
 ## Como citar
 
-SILVA, Mickael de Albuquerque. **Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC**. Versão 1.0.1. [S. l.]: Zenodo, 2026. Conjunto de dados. DOI: [10.5281/zenodo.23486009](https://doi.org/10.5281/zenodo.23486009).
+SILVA, Mickael de Albuquerque. **Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC**. Versão 1.0.1. [S. l.]: Zenodo, 2026. Conjunto de dados. DOI: [10.5281/zenodo.23934918](https://doi.org/10.5281/zenodo.23934918).
 
 O banco foi construído no Trabalho de Conclusão de Curso de Engenharia de Software da Universidade de Pernambuco, Campus Garanhuns (2026), sob orientação da Profa. Aêda Monalliza Cunha de Sousa Brito. O dicionário de campos corresponde ao Quadro 2 do trabalho.
 
