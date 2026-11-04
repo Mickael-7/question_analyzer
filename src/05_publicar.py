@@ -20,7 +20,7 @@ import config
 SEP = "|"
 SAIDA = config.DADOS / "06_publicacao"
 CONFIGURACOES = ["heuristica", "semantica", "combinada"]
-VERSAO_BANCO = "1.0.0"
+VERSAO_BANCO = "1.0.1"
 DOI = "10.5281/zenodo.23486009"
 LICENCA_CONTRIBUICOES = "CC BY 4.0"
 ALTERNATIVAS = ["a", "b", "c", "d"]
@@ -231,6 +231,14 @@ que não tem acesso ao rótulo. Os parâmetros foram fixados antes dos resultado
 Mantido pelo autor no repositório do trabalho. Erros podem ser relatados por *issue*.
 Novas versões recebem número próprio; a versão {VERSAO_BANCO} corresponde aos
 resultados relatados no TCC.
+
+Histórico de versões:
+
+- 1.0.1: análises complementares do experimento-piloto (linhas de base aleatória e da
+  classe mais frequente, intervalo de Wilson, teste de McNemar e top-k com empate
+  resolvido pela ordem do código, como na lista do pipeline). Os itens, os rótulos de
+  referência e as previsões não mudaram.
+- 1.0.0: primeira versão publicada.
 """
 
 

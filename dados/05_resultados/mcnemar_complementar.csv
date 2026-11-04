@@ -1,0 +1,25 @@
+comparacao,k,a_priori,so_heurística,so_outra,p_valor
+Heurística × Semântica,1,True,6,0,0.03125
+Heurística × Semântica,3,True,7,3,0.34375
+Heurística × Semântica,5,False,6,6,1.0
+Heurística × Semântica,10,False,14,10,0.5412561893463135
+Heurística × Semântica,20,False,12,17,0.45825831964612007
+Heurística × Semântica,30,False,9,20,0.06142834573984146
+Heurística × Combinada,1,True,2,0,0.5
+Heurística × Combinada,3,True,3,0,0.25
+Heurística × Combinada,5,False,3,10,0.09228515625
+Heurística × Combinada,10,False,1,5,0.21875
+Heurística × Combinada,20,False,0,10,0.001953125
+Heurística × Combinada,30,False,0,12,0.00048828125
+Heurística × Classe mais frequente (outro lote),1,True,6,10,0.454498291015625
+Heurística × Classe mais frequente (outro lote),3,True,7,11,0.480682373046875
+Heurística × Classe mais frequente (outro lote),5,False,8,23,0.010673840530216694
+Heurística × Classe mais frequente (outro lote),10,False,17,34,0.024092907698449295
+Heurística × Classe mais frequente (outro lote),20,False,12,40,0.0001275387838557407
+Heurística × Classe mais frequente (outro lote),30,False,5,47,1.2848229147266466e-09
+Heurística × Classe mais frequente (no conjunto),1,True,6,13,0.1670684814453125
+Heurística × Classe mais frequente (no conjunto),3,True,7,24,0.003326892852783203
+Heurística × Classe mais frequente (no conjunto),5,False,8,32,0.0001821658297558315
+Heurística × Classe mais frequente (no conjunto),10,False,13,38,0.0006210434562277101
+Heurística × Classe mais frequente (no conjunto),20,False,9,46,4.336383137015787e-07
+Heurística × Classe mais frequente (no conjunto),30,False,1,52,1.199040866595169e-14

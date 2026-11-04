@@ -56,7 +56,7 @@ docker compose run --rm pipeline python src/05_publicar.py
 
 `dados/06_publicacao/` traz o banco em CSV (`banco_questoes.csv`, listas separadas por `|`)
 e JSON (`banco_questoes.json`, listas e previsões aninhadas), com a ficha descritiva
-em `FICHA_DESCRITIVA.md`. Versão 1.0.0: 425 itens (77 do 5º ano, 348 do 9º ano),
+em `FICHA_DESCRITIVA.md`. Versão 1.0.1: 425 itens (77 do 5º ano, 348 do 9º ano),
 116 aptos às verificações e 350 com rótulo de referência.
 
 | Campo | Descrição |
@@ -77,7 +77,7 @@ em `FICHA_DESCRITIVA.md`. Versão 1.0.0: 425 itens (77 do 5º ano, 348 do 9º an
 
 ## Como citar
 
-SILVA, Mickael de Albuquerque. **Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC**. Versão 1.0.0. [S. l.]: Zenodo, 2026. Conjunto de dados. DOI: [10.5281/zenodo.23486009](https://doi.org/10.5281/zenodo.23486009).
+SILVA, Mickael de Albuquerque. **Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC**. Versão 1.0.1. [S. l.]: Zenodo, 2026. Conjunto de dados. DOI: [10.5281/zenodo.23486009](https://doi.org/10.5281/zenodo.23486009).
 
 O banco foi construído no Trabalho de Conclusão de Curso de Engenharia de Software da Universidade de Pernambuco, Campus Garanhuns (2026), sob orientação da Profa. Aêda Monalliza Cunha de Sousa Brito. O dicionário de campos corresponde ao Quadro 2 do trabalho.
 

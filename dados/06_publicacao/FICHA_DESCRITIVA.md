@@ -1,7 +1,7 @@
 # Ficha descritiva do banco de questões
 
 Banco de questões de Matemática do Ensino Fundamental etiquetado por habilidades da BNCC,
-versão 1.0.0, DOI [10.5281/zenodo.23486009](https://doi.org/10.5281/zenodo.23486009). Ficha no modelo de Gebru et al.
+versão 1.0.1, DOI [10.5281/zenodo.23486009](https://doi.org/10.5281/zenodo.23486009). Ficha no modelo de Gebru et al.
 (2021), *Datasheets for Datasets*.
 
 ## Motivação
@@ -79,5 +79,13 @@ que não tem acesso ao rótulo. Os parâmetros foram fixados antes dos resultado
 ## Manutenção
 
 Mantido pelo autor no repositório do trabalho. Erros podem ser relatados por *issue*.
-Novas versões recebem número próprio; a versão 1.0.0 corresponde aos
+Novas versões recebem número próprio; a versão 1.0.1 corresponde aos
 resultados relatados no TCC.
+
+Histórico de versões:
+
+- 1.0.1: análises complementares do experimento-piloto (linhas de base aleatória e da
+  classe mais frequente, intervalo de Wilson, teste de McNemar e top-k com empate
+  resolvido pela ordem do código, como na lista do pipeline). Os itens, os rótulos de
+  referência e as previsões não mudaram.
+- 1.0.0: primeira versão publicada.

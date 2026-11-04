@@ -21,8 +21,17 @@ Definições:
 - V3: 1ª posição da heurística = 1ª posição da semântica;
 - V4: proporção de itens com margem (1ª - 2ª) abaixo de config.LIMIAR_MARGEM, ou empate;
 - V5: habilidades distintas em 1ª posição sobre o total do espaço de rótulos.
+
+Análises complementares, definidas após os resultados (não pré-registradas):
+- top-k para k em KS, com posição no ranking completo e empate resolvido pela ordem do
+  código, como na lista de candidatas do pipeline;
+- linhas de base: aleatória (valor exato e simulação) e classe mais frequente (k habilidades
+  mais frequentes na referência, calculadas no outro lote e no próprio conjunto);
+- intervalo de Wilson de 95% e teste de McNemar exato, pareado nos mesmos itens.
 """
 import sys
+from collections import Counter
+from math import comb, sqrt
 
 import matplotlib
 
@@ -30,6 +39,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from scipy.stats import binomtest
 from sklearn.metrics import f1_score
 from sklearn.preprocessing import MultiLabelBinarizer
 
@@ -43,6 +53,11 @@ CORES = {"heuristica": "#2a78d6", "semantica": "#eb6834", "combinada": "#1baf7a"
 INK, INK2, MUTED, GRID = "#0b0b0b", "#52514e", "#898781", "#e1e0d9"
 SEQUENCIAL = ["#fcfcfb", "#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
 RESULTADOS = config.RESULTADOS
+KS = [1, 3, 5, 10, 20, 30]  # k = 1 e 3 definidos a priori; os demais são complementares
+N_SIM, SEMENTE = 2000, 42  # linha de base aleatória simulada
+ALEATORIA = "Aleatória"
+FREQ_CRUZADO = "Classe mais frequente (outro lote)"
+FREQ_AMOSTRA = "Classe mais frequente (no conjunto)"
 
 
 # ---------------------------------------------------------------- dados
@@ -86,33 +101,108 @@ def nome_ano(a: int) -> str:
 
 # ---------------------------------------------------------------- métricas
 
-def metricas_referencia(df) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def wilson(acertos: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Intervalo de confiança de Wilson para uma proporção binomial."""
+    p = acertos / n
+    d = 1 + z**2 / n
+    centro = (p + z**2 / (2 * n)) / d
+    meia = z * sqrt(p * (1 - p) / n + z**2 / (4 * n**2)) / d
+    return max(0.0, centro - meia), min(1.0, centro + meia)
+
+
+def ordenar(s: pd.Series) -> list[str]:
+    """Ranking completo; empate resolvido pela ordem do código, como na Etapa 4."""
+    return sorted(s.index, key=lambda h: (-s[h], h))
+
+
+def pontuacoes() -> dict[str, pd.DataFrame]:
+    return {c: pd.read_csv(config.PREDITOS / f"pontuacoes_{c}.csv", index_col=0) for c in CONFIGURACOES}
+
+
+def rankings_pipeline(r, pont) -> dict[str, list[list[str]]]:
+    return {NOMES[c]: [ordenar(pont[c].loc[item]) for item in r["item_id"]] for c in CONFIGURACOES}
+
+
+def rankings_mais_frequente(r, todas: list[str], cruzado: bool) -> list[list[str]]:
+    """Mesmo ranking para todos os itens: habilidades por frequência no rótulo de referência
+    (empate pela ordem do código), seguidas das demais candidatas. Com `cruzado`, a
+    frequência vem só do outro lote, para não usar os itens avaliados."""
+    refs, lotes = list(r["refs"]), list(r["lote"])
+    rankings = []
+    for i in range(len(refs)):
+        base = [refs[j] for j in range(len(refs)) if not cruzado or lotes[j] != lotes[i]]
+        freq = Counter(h for R in base for h in R)
+        topo = sorted(freq, key=lambda h: (-freq[h], h))
+        rankings.append(topo + sorted(set(todas) - set(topo)))
+    return rankings
+
+
+def acertos_topk(rankings: list[list[str]], refs, k: int) -> np.ndarray:
+    return np.array([any(h in R for h in rk[:k]) for rk, R in zip(rankings, refs)])
+
+
+def aleatoria_exata(refs, n_candidatas: int, k: int) -> float:
+    """P(alguma referência entre as k primeiras) = 1 - C(n - r, k) / C(n, k), média nos itens."""
+    return float(np.mean([1 - comb(n_candidatas - len(R), k) / comb(n_candidatas, k) for R in refs]))
+
+
+def aleatoria_simulada(refs, n_candidatas: int) -> np.ndarray:
+    """Melhor posição da referência em N_SIM ordenações aleatórias (matriz simulações × itens)."""
+    rng = np.random.default_rng(SEMENTE)
+    melhor = np.empty((N_SIM, len(refs)))
+    for j, R in enumerate(refs):
+        posicoes = rng.random((N_SIM, n_candidatas)).argsort(axis=1)[:, :len(R)]
+        melhor[:, j] = posicoes.min(axis=1) + 1
+    return melhor
+
+
+def metricas_referencia(df, todas: list[str], rk: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     r = com_rotulo(df)
     classes = sorted({h for refs in r["refs"] for h in refs})
     mlb = MultiLabelBinarizer(classes=classes)
     y_true = mlb.fit_transform(r["refs"])
+    n = len(r)
     linhas, por_ut = [], []
+
+    def linha(nome, acerto1, acerto3, top1, empates):
+        i1, i3 = wilson(int(np.sum(acerto1)), n), wilson(int(np.sum(acerto3)), n)
+        y_pred = mlb.transform([[t] if t in classes else [] for t in top1])
+        return {
+            "configuracao": nome, "itens": n,
+            "acuracia_top1": np.mean(acerto1), "top1_ic_inf": i1[0], "top1_ic_sup": i1[1],
+            "acuracia_top3": np.mean(acerto3), "top3_ic_inf": i3[0], "top3_ic_sup": i3[1],
+            "f1_macro": f1_score(y_true, y_pred, average="macro", zero_division=0),
+            "classes_f1": len(classes),
+            "top1_fora_do_conjunto_referencia": np.mean([t not in classes for t in top1]),
+            "empates_top1": empates,
+        }
+
+    # Linhas de base (complementares). A aleatória não tem previsão por item: valor exato,
+    # intervalo de 2,5% a 97,5% da simulação, sem F1.
+    melhor = aleatoria_simulada(list(r["refs"]), len(todas))
+    sim1, sim3 = (melhor <= 1).mean(axis=1), (melhor <= 3).mean(axis=1)
+    linhas.append({"configuracao": ALEATORIA, "itens": n,
+                   "acuracia_top1": aleatoria_exata(r["refs"], len(todas), 1),
+                   "top1_ic_inf": np.percentile(sim1, 2.5), "top1_ic_sup": np.percentile(sim1, 97.5),
+                   "acuracia_top3": aleatoria_exata(r["refs"], len(todas), 3),
+                   "top3_ic_inf": np.percentile(sim3, 2.5), "top3_ic_sup": np.percentile(sim3, 97.5)})
+    for nome in (FREQ_CRUZADO, FREQ_AMOSTRA):
+        rf = rk[nome]
+        linhas.append(linha(nome, acertos_topk(rf, r["refs"], 1), acertos_topk(rf, r["refs"], 3),
+                            [x[0] for x in rf], 0))
     for c in CONFIGURACOES:
         acerto1 = [lst[0] in refs for lst, refs in zip(r[f"{c}_lista"], r["refs"])]
         acerto3 = [any(h in refs for h in lst[:3]) for lst, refs in zip(r[f"{c}_lista"], r["refs"])]
-        y_pred = mlb.transform([[t] if t in classes else [] for t in r[f"{c}_top1"]])
-        linhas.append({
-            "configuracao": NOMES[c],
-            "itens": len(r),
-            "acuracia_top1": np.mean(acerto1),
-            "acuracia_top3": np.mean(acerto3),
-            "f1_macro": f1_score(y_true, y_pred, average="macro", zero_division=0),
-            "classes_f1": len(classes),
-            "top1_fora_do_conjunto_referencia": np.mean([t not in classes for t in r[f"{c}_top1"]]),
-            "empates_top1": int(r[f"{c}_empate_top1"].sum()),
-        })
+        linhas.append(linha(NOMES[c], acerto1, acerto3, list(r[f"{c}_top1"]),
+                            int(r[f"{c}_empate_top1"].sum())))
         tmp = r.assign(a1=acerto1, a3=acerto3)
         for u, g in tmp.groupby("unidade_tematica_esperada"):
             por_ut.append({"configuracao": NOMES[c], "unidade_tematica": u or "(não informada)",
                            "itens": len(g), "acuracia_top1": g["a1"].mean(), "acuracia_top3": g["a3"].mean()})
     contagem = (pd.Series([h for refs in r["refs"] for h in refs]).value_counts()
                 .rename_axis("habilidade").reset_index(name="itens"))
-    return pd.DataFrame(linhas), pd.DataFrame(por_ut), contagem
+    return (pd.DataFrame(linhas).astype({"classes_f1": "Int64", "empates_top1": "Int64"}),
+            pd.DataFrame(por_ut), contagem)
 
 
 def robustez_por_lote(df) -> pd.DataFrame:
@@ -130,38 +220,93 @@ def robustez_por_lote(df) -> pd.DataFrame:
     return pd.DataFrame(linhas)
 
 
-def posicao_referencia(df) -> pd.DataFrame:
+def posicao_referencia(df, rk: dict) -> pd.DataFrame:
     """Análise complementar, definida após os resultados (não pré-registrada):
-    posição, no ranking completo, da habilidade de referência mais bem colocada."""
+    posição, no ranking completo, da habilidade de referência mais bem colocada
+    (empate resolvido pela ordem do código, como na lista de candidatas)."""
+    r = com_rotulo(df)
+    linhas = []
+    for nome in map(NOMES.get, CONFIGURACOES):
+        posicoes = np.array([min(rk_i.index(h) for h in R) + 1 for rk_i, R in zip(rk[nome], r["refs"])])
+        linhas.append({"configuracao": nome, "itens": len(r),
+                       "posicao_mediana": float(np.median(posicoes)),
+                       "ate_10": float(np.mean(posicoes <= 10)), "ate_30": float(np.mean(posicoes <= 30))})
+    return pd.DataFrame(linhas)
+
+
+def topk(df, todas: list[str], rk: dict) -> pd.DataFrame:
+    """Proporção de itens com alguma referência entre as k primeiras candidatas, para as três
+    configurações e as linhas de base. IC de Wilson de 95%; na aleatória, valor exato e
+    intervalo de 2,5% a 97,5% das simulações."""
+    r = com_rotulo(df)
+    n = len(r)
+    melhor = aleatoria_simulada(list(r["refs"]), len(todas))
+    linhas = []
+    for k in KS:
+        for nome in [NOMES[c] for c in CONFIGURACOES] + [FREQ_CRUZADO, FREQ_AMOSTRA]:
+            a = int(acertos_topk(rk[nome], r["refs"], k).sum())
+            inf, sup = wilson(a, n)
+            linhas.append({"configuracao": nome, "k": k, "a_priori": k in (1, 3), "itens": n,
+                           "acertos": a, "proporcao": a / n, "ic_inf": inf, "ic_sup": sup, "intervalo": "Wilson"})
+        sim = (melhor <= k).mean(axis=1)
+        linhas.append({"configuracao": ALEATORIA, "k": k, "a_priori": k in (1, 3), "itens": n,
+                       "acertos": None, "proporcao": aleatoria_exata(r["refs"], len(todas), k),
+                       "ic_inf": np.percentile(sim, 2.5), "ic_sup": np.percentile(sim, 97.5),
+                       "intervalo": f"simulação ({N_SIM}, semente {SEMENTE})"})
+    return pd.DataFrame(linhas).astype({"acertos": "Int64"})
+
+
+def mcnemar(df, rk: dict) -> pd.DataFrame:
+    """Teste de McNemar exato (binomial nos pares discordantes), pareado nos mesmos itens:
+    heurística contra as demais configurações e a classe mais frequente."""
+    r = com_rotulo(df)
+    base = NOMES["heuristica"]
+    linhas = []
+    for outra in [NOMES["semantica"], NOMES["combinada"], FREQ_CRUZADO, FREQ_AMOSTRA]:
+        for k in KS:
+            a, b = acertos_topk(rk[base], r["refs"], k), acertos_topk(rk[outra], r["refs"], k)
+            so_a, so_b = int((a & ~b).sum()), int((~a & b).sum())
+            p = binomtest(so_a, so_a + so_b, 0.5).pvalue if so_a + so_b else 1.0
+            linhas.append({"comparacao": f"{base} × {outra}", "k": k, "a_priori": k in (1, 3),
+                           f"so_{base.lower()}": so_a, "so_outra": so_b, "p_valor": p})
+    return pd.DataFrame(linhas)
+
+
+def sensibilidade_empates(df, pont) -> pd.DataFrame:
+    """Efeito da regra de desempate no top-k: ordem do código (a do pipeline), valor esperado
+    com desempate aleatório e melhor caso (referência no topo do grupo empatado). Documenta
+    por que a versão anterior da posição (rank mínimo) superestimava a heurística, que tem
+    grupos grandes de habilidades com pontuação igual (em geral zero)."""
     r = com_rotulo(df)
     linhas = []
     for c in CONFIGURACOES:
-        matriz = pd.read_csv(config.PREDITOS / f"pontuacoes_{c}.csv", index_col=0)
-        posicoes = np.array([
-            matriz.loc[item].rank(ascending=False, method="min")[refs].min()
-            for item, refs in zip(r["item_id"], r["refs"])
-        ])
-        linhas.append({"configuracao": NOMES[c], "itens": len(r),
-                       "posicao_mediana": float(np.median(posicoes)),
-                       "ate_10": float(np.mean(posicoes <= 10)), "ate_30": float(np.mean(posicoes <= 30))})
+        m = pont[c]
+        grupos = []
+        for item, R in zip(r["item_id"], r["refs"]):
+            s = m.loc[item]
+            melhor = s[list(R)].max()
+            grupos.append(((s > melhor).sum(), (s == melhor).sum(), sum(s[h] == melhor for h in R),
+                           min(ordenar(s).index(h) for h in R) + 1))
+        for k in KS:
+            esperado = [0.0 if k <= acima else 1.0 if k - acima >= g else
+                        1 - comb(g - rin, k - acima) / comb(g, k - acima) for acima, g, rin, _ in grupos]
+            linhas.append({"configuracao": NOMES[c], "k": k,
+                           "ordem_do_codigo": np.mean([pos <= k for *_, pos in grupos]),
+                           "desempate_aleatorio": float(np.mean(esperado)),
+                           "melhor_caso": np.mean([acima < k for acima, *_ in grupos]),
+                           "itens_com_referencia_em_pontuacao_zero": sum(
+                               pont[c].loc[i, list(R)].max() == 0 for i, R in zip(r["item_id"], r["refs"]))})
     return pd.DataFrame(linhas)
 
 
 def baseline_aleatorio(df, n_candidatas: int) -> pd.DataFrame:
     """Análise complementar, definida após os resultados: valor esperado das métricas de
     ranking para uma ordenação aleatória das candidatas, dado o número de habilidades de
-    referência de cada item. P(acerto em k) = 1 - C(n - r, k) / C(n, k)."""
-    from math import comb
-
+    referência de cada item."""
     r = com_rotulo(df)
-    n_refs = r["refs"].map(len).to_numpy()
-
-    def esperado(k: int) -> float:
-        return float(np.mean([1 - comb(n_candidatas - x, k) / comb(n_candidatas, k) for x in n_refs]))
-
     return pd.DataFrame([{"configuracao": "Aleatória (valor esperado)", "itens": len(r),
-                          "candidatas": n_candidatas, "acuracia_top1": esperado(1),
-                          "acuracia_top3": esperado(3), "ate_10": esperado(10), "ate_30": esperado(30)}])
+                          "candidatas": n_candidatas,
+                          **{f"top{k}": aleatoria_exata(r["refs"], n_candidatas, k) for k in KS}}])
 
 
 def ablacao_anos_finais(df, ano_hab) -> pd.DataFrame:
@@ -186,11 +331,10 @@ def ablacao_anos_finais(df, ano_hab) -> pd.DataFrame:
         m = matrizes[c]
         a1, a3, posicoes = [], [], []
         for item, refs in zip(r["item_id"], r["refs"]):
-            s = m.loc[item]
-            ordem = sorted(s.index, key=lambda h: (-s[h], h))  # empate: ordem do código
+            ordem = ordenar(m.loc[item])
             a1.append(ordem[0] in refs)
             a3.append(any(h in refs for h in ordem[:3]))
-            posicoes.append(s.rank(ascending=False, method="min")[[h for h in refs if h in s.index]].min())
+            posicoes.append(min(ordem.index(h) for h in refs if h in ordem) + 1)
         posicoes = np.array(posicoes)
         linhas.append({"configuracao": NOMES[c], "itens": len(r), "candidatas": len(subconj),
                        "acuracia_top1": float(np.mean(a1)), "acuracia_top3": float(np.mean(a3)),
@@ -323,6 +467,27 @@ def fig_metricas(m: pd.DataFrame):
     plt.close(fig)
 
 
+def fig_topk(t: pd.DataFrame):
+    """Figura 2: proporção de itens com a referência entre as k primeiras, por configuração e
+    linha de base. Linhas de base em cinza tracejado/pontilhado; identidade nunca só pela cor."""
+    series = [(NOMES[c], CORES[c], "-", "o") for c in CONFIGURACOES] + [
+        (FREQ_AMOSTRA, INK2, ":", "s"), (FREQ_CRUZADO, INK2, "--", "D"), (ALEATORIA, MUTED, "--", "v")]
+    fig, ax = plt.subplots(figsize=(7.2, 3.8), dpi=200)
+    for nome, cor, estilo_linha, marcador in series:
+        d = t[t["configuracao"] == nome].sort_values("k")
+        ax.plot(d["k"], d["proporcao"] * 100, estilo_linha, color=cor, linewidth=1.6,
+                marker=marcador, markersize=4.5, label=nome)
+    ax.set_xticks(KS)
+    ax.set_ylim(0, 100)
+    ax.set_xlabel("k (número de candidatas recomendadas)", fontsize=9, color=INK2)
+    ax.set_ylabel("Itens com a referência entre as k primeiras (%)", fontsize=8, color=INK2)
+    estilo(ax)
+    ax.legend(frameon=False, fontsize=7.5, loc="upper left")
+    fig.tight_layout()
+    fig.savefig(RESULTADOS / "fig_topk_9ano.png")
+    plt.close(fig)
+
+
 def fig_margens(df):
     fig, eixos = plt.subplots(1, 3, figsize=(7.2, 2.6), dpi=200, sharey=True)
     bins = np.linspace(0, 1, 21)
@@ -385,6 +550,8 @@ def fig_confusao(conf: pd.DataFrame):
 
 def tabela_md(df: pd.DataFrame, pct: tuple = ()) -> str:
     def fmt(col, v):
+        if not isinstance(v, str) and pd.isna(v):
+            return "-"
         if col in pct:
             return f"{v * 100:.1f}%"
         if isinstance(v, float):
@@ -414,8 +581,18 @@ def main() -> int:
     RESULTADOS.mkdir(parents=True, exist_ok=True)
     df, tax, ano_hab, ut_hab, texto = carregar()
 
-    m, m_ut, contagem = metricas_referencia(df)
-    pos = posicao_referencia(df)
+    r = com_rotulo(df)
+    todas = list(tax["codigo"])
+    pont = pontuacoes()
+    rk = rankings_pipeline(r, pont)
+    rk[FREQ_CRUZADO] = rankings_mais_frequente(r, todas, cruzado=True)
+    rk[FREQ_AMOSTRA] = rankings_mais_frequente(r, todas, cruzado=False)
+
+    m, m_ut, contagem = metricas_referencia(df, todas, rk)
+    pos = posicao_referencia(df, rk)
+    tk = topk(df, todas, rk)
+    mc = mcnemar(df, rk)
+    emp = sensibilidade_empates(df, pont)
     rob = robustez_por_lote(df)
     base = pd.concat([baseline_aleatorio(df, len(tax)),
                       baseline_aleatorio(df, sum(6 <= a <= 9 for a in ano_hab.values()))])
@@ -430,6 +607,8 @@ def main() -> int:
     for nome, tabela in [("metricas_9ano", m), ("metricas_por_unidade_tematica", m_ut),
                          ("itens_por_habilidade_referencia", contagem),
                          ("posicao_referencia_complementar", pos), ("robustez_por_lote", rob),
+                         ("topk_linhas_de_base", tk), ("mcnemar_complementar", mc),
+                         ("sensibilidade_empates_complementar", emp),
                          ("baseline_aleatorio_complementar", base), ("ablacao_anos_finais_complementar", abl),
                          ("v1_compatibilidade_ano", t1),
                          ("v1_distribuicao_anos_previstos", t1_dist), ("v2_coerencia_unidade", t2),
@@ -438,6 +617,7 @@ def main() -> int:
         tabela.to_csv(RESULTADOS / f"{nome}.csv", index=False, encoding="utf-8")
     conf.to_csv(RESULTADOS / "v2_matriz_confusao.csv", encoding="utf-8")
     fig_metricas(m)
+    fig_topk(tk)
     fig_margens(df)
     fig_anos_previstos(t5_dist)
     fig_confusao(conf)
@@ -456,7 +636,22 @@ def main() -> int:
         f"Espaço de rótulos: {len(tax)} habilidades.",
         "",
         "## Experimento-piloto (9º ano)", "",
-        tabela_md(m, pct=("acuracia_top1", "acuracia_top3", "top1_fora_do_conjunto_referencia")), "",
+        tabela_md(m, pct=("acuracia_top1", "top1_ic_inf", "top1_ic_sup", "acuracia_top3", "top3_ic_inf",
+                          "top3_ic_sup", "top1_fora_do_conjunto_referencia")), "",
+        "IC de Wilson de 95%; na linha aleatória, valor exato e intervalo de 2,5% a 97,5% de "
+        f"{N_SIM} simulações (semente {SEMENTE}). As linhas de base são análise complementar, "
+        "definida após os resultados. Classe mais frequente: as k habilidades mais frequentes no "
+        "rótulo de referência, calculadas no outro lote ou no próprio conjunto (teto otimista).", "",
+        f"Habilidades de referência por item: média {r['refs'].map(len).mean():.2f} "
+        f"({r['refs'].map(len).sum()} pares em {len(r)} itens).", "",
+        "Top-k por configuração e linha de base (k = 1 e 3 a priori; os demais, complementares; "
+        "empate resolvido pela ordem do código):", "",
+        tabela_md(tk.drop(columns=["itens", "intervalo"]), pct=("proporcao", "ic_inf", "ic_sup")), "",
+        "Teste de McNemar exato, pareado nos mesmos itens (complementar):", "",
+        tabela_md(mc), "",
+        "Sensibilidade do top-k à regra de desempate (complementar). A versão anterior usava o "
+        "melhor caso (rank mínimo), que superestimava a heurística:", "",
+        tabela_md(emp, pct=("ordem_do_codigo", "desempate_aleatorio", "melhor_caso")), "",
         "Por unidade temática esperada:", "",
         tabela_md(m_ut, pct=("acuracia_top1", "acuracia_top3")), "",
         f"Habilidades no conjunto de referência: {len(contagem)}; itens por habilidade: "
@@ -465,11 +660,11 @@ def main() -> int:
         "Robustez por lote (definida antes da execução sobre o lote 2, que não influenciou o método):", "",
         tabela_md(rob, pct=("acuracia_top1", "acuracia_top3")), "",
         "Análise complementar, definida após os resultados (não pré-registrada): posição da habilidade "
-        "de referência mais bem colocada no ranking completo de 290 candidatas.", "",
+        "de referência mais bem colocada no ranking completo de 290 candidatas (empate pela ordem do código).", "",
         tabela_md(pos, pct=("ate_10", "ate_30")), "",
         "Análise complementar, definida após os resultados: valor esperado de uma ordenação "
         "aleatória das candidatas (290 e, para comparação com a ablação, só 6º ao 9º ano).", "",
-        tabela_md(base, pct=("acuracia_top1", "acuracia_top3", "ate_10", "ate_30")), "",
+        tabela_md(base, pct=tuple(f"top{k}" for k in KS)), "",
         "Análise complementar, definida após os resultados: candidatas restritas ao 6º–9º ano, "
         "com as mesmas pontuações (o método não é alterado).", "",
         tabela_md(abl, pct=("acuracia_top1", "acuracia_top3", "ate_10", "ate_30")), "",
